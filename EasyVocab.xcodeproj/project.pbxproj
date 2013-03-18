@@ -10,14 +10,15 @@
 		4AC149AF16F7426A009F7CBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC149AE16F7426A009F7CBA /* UIKit.framework */; };
 		4AC149B116F7426A009F7CBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC149B016F7426A009F7CBA /* Foundation.framework */; };
 		4AC149B316F7426A009F7CBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC149B216F7426A009F7CBA /* CoreGraphics.framework */; };
-		4AC149B916F7426A009F7CBA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149B716F7426A009F7CBA /* InfoPlist.strings */; };
-		4AC149BB16F7426A009F7CBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149BA16F7426A009F7CBA /* main.m */; };
-		4AC149BF16F7426A009F7CBA /* EVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149BE16F7426A009F7CBA /* EVAppDelegate.m */; };
-		4AC149C116F7426A009F7CBA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149C016F7426A009F7CBA /* Default.png */; };
-		4AC149C316F7426A009F7CBA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149C216F7426A009F7CBA /* Default@2x.png */; };
-		4AC149C516F7426A009F7CBA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149C416F7426A009F7CBA /* Default-568h@2x.png */; };
-		4AC149C816F7426A009F7CBA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149C616F7426A009F7CBA /* MainStoryboard.storyboard */; };
-		4AC149CB16F7426A009F7CBA /* EVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149CA16F7426A009F7CBA /* EVViewController.m */; };
+		4AC149D316F7430B009F7CBA /* EVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149D216F7430B009F7CBA /* EVViewController.m */; };
+		4AC149D616F74311009F7CBA /* EVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149D516F74311009F7CBA /* EVAppDelegate.m */; };
+		4AC149E516F743CD009F7CBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149E316F743CD009F7CBA /* main.m */; };
+		4AC149F516F744CF009F7CBA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149EF16F744B8009F7CBA /* Default-568h@2x.png */; };
+		4AC149F616F744CF009F7CBA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149F016F744B8009F7CBA /* Default.png */; };
+		4AC149F716F744CF009F7CBA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149F116F744B8009F7CBA /* Default@2x.png */; };
+		4AC149F816F74585009F7CBA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149ED16F7440F009F7CBA /* MainStoryboard.storyboard */; };
+		4AC149F916F74599009F7CBA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149E716F743FF009F7CBA /* InfoPlist.strings */; };
+		4AC149FA16F74599009F7CBA /* EasyVocab-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149E116F743CD009F7CBA /* EasyVocab-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,18 +26,18 @@
 		4AC149AE16F7426A009F7CBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4AC149B016F7426A009F7CBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4AC149B216F7426A009F7CBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4AC149B616F7426A009F7CBA /* EasyVocab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyVocab-Info.plist"; sourceTree = "<group>"; };
-		4AC149B816F7426A009F7CBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4AC149BA16F7426A009F7CBA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4AC149BC16F7426A009F7CBA /* EasyVocab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyVocab-Prefix.pch"; sourceTree = "<group>"; };
-		4AC149BD16F7426A009F7CBA /* EVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVAppDelegate.h; sourceTree = "<group>"; };
-		4AC149BE16F7426A009F7CBA /* EVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVAppDelegate.m; sourceTree = "<group>"; };
-		4AC149C016F7426A009F7CBA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		4AC149C216F7426A009F7CBA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		4AC149C416F7426A009F7CBA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		4AC149C716F7426A009F7CBA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		4AC149C916F7426A009F7CBA /* EVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVViewController.h; sourceTree = "<group>"; };
-		4AC149CA16F7426A009F7CBA /* EVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVViewController.m; sourceTree = "<group>"; };
+		4AC149D116F7430B009F7CBA /* EVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVViewController.h; path = Class/Controller/EVViewController.h; sourceTree = "<group>"; };
+		4AC149D216F7430B009F7CBA /* EVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVViewController.m; path = Class/Controller/EVViewController.m; sourceTree = "<group>"; };
+		4AC149D416F74311009F7CBA /* EVAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVAppDelegate.h; path = Class/EVAppDelegate.h; sourceTree = "<group>"; };
+		4AC149D516F74311009F7CBA /* EVAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVAppDelegate.m; path = Class/EVAppDelegate.m; sourceTree = "<group>"; };
+		4AC149E116F743CD009F7CBA /* EasyVocab-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EasyVocab-Info.plist"; path = "Resource/EasyVocab-Info.plist"; sourceTree = "<group>"; };
+		4AC149E216F743CD009F7CBA /* EasyVocab-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EasyVocab-Prefix.pch"; path = "Resource/EasyVocab-Prefix.pch"; sourceTree = "<group>"; };
+		4AC149E316F743CD009F7CBA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Resource/main.m; sourceTree = "<group>"; };
+		4AC149E816F743FF009F7CBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resource/Multilanguage/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4AC149ED16F7440F009F7CBA /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Resource/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4AC149EF16F744B8009F7CBA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resource/Images/Default/Default-568h@2x.png"; sourceTree = "<group>"; };
+		4AC149F016F744B8009F7CBA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resource/Images/Default/Default.png; sourceTree = "<group>"; };
+		4AC149F116F744B8009F7CBA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resource/Images/Default/Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +84,7 @@
 		4AC149B416F7426A009F7CBA /* EasyVocab */ = {
 			isa = PBXGroup;
 			children = (
-				4AC149BD16F7426A009F7CBA /* EVAppDelegate.h */,
-				4AC149BE16F7426A009F7CBA /* EVAppDelegate.m */,
-				4AC149C616F7426A009F7CBA /* MainStoryboard.storyboard */,
-				4AC149C916F7426A009F7CBA /* EVViewController.h */,
-				4AC149CA16F7426A009F7CBA /* EVViewController.m */,
+				4AC149D716F7432E009F7CBA /* Class */,
 				4AC149B516F7426A009F7CBA /* Supporting Files */,
 			);
 			path = EasyVocab;
@@ -96,15 +93,91 @@
 		4AC149B516F7426A009F7CBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4AC149B616F7426A009F7CBA /* EasyVocab-Info.plist */,
-				4AC149B716F7426A009F7CBA /* InfoPlist.strings */,
-				4AC149BA16F7426A009F7CBA /* main.m */,
-				4AC149BC16F7426A009F7CBA /* EasyVocab-Prefix.pch */,
-				4AC149C016F7426A009F7CBA /* Default.png */,
-				4AC149C216F7426A009F7CBA /* Default@2x.png */,
-				4AC149C416F7426A009F7CBA /* Default-568h@2x.png */,
+				4AC149DE16F74366009F7CBA /* Multilanguage */,
+				4AC149DD16F74361009F7CBA /* Others */,
+				4AC149DC16F7435B009F7CBA /* Images */,
+				4AC149ED16F7440F009F7CBA /* MainStoryboard.storyboard */,
+				4AC149E116F743CD009F7CBA /* EasyVocab-Info.plist */,
+				4AC149E216F743CD009F7CBA /* EasyVocab-Prefix.pch */,
+				4AC149E316F743CD009F7CBA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AC149D716F7432E009F7CBA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				4AC149E016F7437A009F7CBA /* Library */,
+				4AC149D916F74336009F7CBA /* Model */,
+				4AC149DA16F7433A009F7CBA /* View */,
+				4AC149D816F74332009F7CBA /* Controller */,
+				4AC149D416F74311009F7CBA /* EVAppDelegate.h */,
+				4AC149D516F74311009F7CBA /* EVAppDelegate.m */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		4AC149D816F74332009F7CBA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4AC149D116F7430B009F7CBA /* EVViewController.h */,
+				4AC149D216F7430B009F7CBA /* EVViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4AC149D916F74336009F7CBA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4AC149DA16F7433A009F7CBA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4AC149DC16F7435B009F7CBA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4AC149EF16F744B8009F7CBA /* Default-568h@2x.png */,
+				4AC149F016F744B8009F7CBA /* Default.png */,
+				4AC149F116F744B8009F7CBA /* Default@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		4AC149DD16F74361009F7CBA /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		4AC149DE16F74366009F7CBA /* Multilanguage */ = {
+			isa = PBXGroup;
+			children = (
+				4AC149E616F743F8009F7CBA /* en */,
+			);
+			name = Multilanguage;
+			sourceTree = "<group>";
+		};
+		4AC149E016F7437A009F7CBA /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		4AC149E616F743F8009F7CBA /* en */ = {
+			isa = PBXGroup;
+			children = (
+				4AC149E716F743FF009F7CBA /* InfoPlist.strings */,
+			);
+			name = en;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,11 +232,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC149B916F7426A009F7CBA /* InfoPlist.strings in Resources */,
-				4AC149C116F7426A009F7CBA /* Default.png in Resources */,
-				4AC149C316F7426A009F7CBA /* Default@2x.png in Resources */,
-				4AC149C516F7426A009F7CBA /* Default-568h@2x.png in Resources */,
-				4AC149C816F7426A009F7CBA /* MainStoryboard.storyboard in Resources */,
+				4AC149F916F74599009F7CBA /* InfoPlist.strings in Resources */,
+				4AC149FA16F74599009F7CBA /* EasyVocab-Info.plist in Resources */,
+				4AC149F816F74585009F7CBA /* MainStoryboard.storyboard in Resources */,
+				4AC149F516F744CF009F7CBA /* Default-568h@2x.png in Resources */,
+				4AC149F616F744CF009F7CBA /* Default.png in Resources */,
+				4AC149F716F744CF009F7CBA /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,29 +248,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC149BB16F7426A009F7CBA /* main.m in Sources */,
-				4AC149BF16F7426A009F7CBA /* EVAppDelegate.m in Sources */,
-				4AC149CB16F7426A009F7CBA /* EVViewController.m in Sources */,
+				4AC149D316F7430B009F7CBA /* EVViewController.m in Sources */,
+				4AC149D616F74311009F7CBA /* EVAppDelegate.m in Sources */,
+				4AC149E516F743CD009F7CBA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4AC149B716F7426A009F7CBA /* InfoPlist.strings */ = {
+		4AC149E716F743FF009F7CBA /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4AC149B816F7426A009F7CBA /* en */,
+				4AC149E816F743FF009F7CBA /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4AC149C616F7426A009F7CBA /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4AC149C716F7426A009F7CBA /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -262,8 +328,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EasyVocab/EasyVocab-Prefix.pch";
-				INFOPLIST_FILE = "EasyVocab/EasyVocab-Info.plist";
+				GCC_PREFIX_HEADER = "EasyVocab/Resource/EasyVocab-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/EasyVocab/Resource/EasyVocab-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -273,8 +339,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EasyVocab/EasyVocab-Prefix.pch";
-				INFOPLIST_FILE = "EasyVocab/EasyVocab-Info.plist";
+				GCC_PREFIX_HEADER = "EasyVocab/Resource/EasyVocab-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/EasyVocab/Resource/EasyVocab-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
