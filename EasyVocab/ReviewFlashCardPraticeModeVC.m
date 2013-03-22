@@ -52,6 +52,11 @@
 	
 }
 
+#pragma mark - Buttons fake Tabbar
+
+- (IBAction)switchToLearn:(id)sender {
+	[self.tabBarController setSelectedIndex:0];
+}
 
 
 

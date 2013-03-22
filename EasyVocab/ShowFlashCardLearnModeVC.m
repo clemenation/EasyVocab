@@ -40,6 +40,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Buttons fake Tabbar
+
+- (IBAction)switchToPratice:(id)sender {
+	[self.tabBarController setSelectedIndex:1];
+}
+
+
 #pragma mark - segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

@@ -8,13 +8,14 @@
 
 #import "FlashCardCollectionVC.h"
 #import "ShowFlashCardLearnModeVC.h"
-#import "ChoosePracticeModeVC.h"
+
 
 @interface FlashCardCollectionVC ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *iconCollectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *categoryIcon;
 
 @end
 
@@ -42,11 +43,17 @@
 	iconPath = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:self.currentCategory];
 //	NSLog(@"iconPath=%@",iconPath);
 	shellPerPage = 9;
-	self.pageControl.numberOfPages = [iconPath count]/shellPerPage;
+	self.pageControl.numberOfPages = iconPath.count/shellPerPage;
+	if (iconPath.count%shellPerPage!=0)self.pageControl.numberOfPages ++;
+	
 	self.pageControl.currentPage = 0;
 	[self.pageControl addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
 
 	self.categoryLabel.text = [self.currentCategory capitalizedString];
+	
+	NSString * path =[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"category_icon_%@",self.currentCategory] ofType:@"png"];
+	self.categoryIcon.image = [UIImage imageWithContentsOfFile:path];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,8 +109,14 @@
 #pragma mark - page control
 
 -(void)pageChanged:(UIPageControl*)sender{
-	int row = sender.currentPage * 30;
-	[self.iconCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:true];
+	int row = sender.currentPage * shellPerPage;
+	[self.iconCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:true];
+}
+
+#pragma mark - Buttons fake Tabbar
+
+- (IBAction)switchToPratice:(id)sender {
+	[self.tabBarController setSelectedIndex:1];
 }
 
 #pragma mark - segue
@@ -115,12 +128,6 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	NSLog(@"Perform a segue:%@",segue.identifier);
 	//NSLog(@"dest=%@",segue.destinationViewController);
-	
-	//geting view from container bind to property without create a new view controller
-	if ([segue.identifier isEqualToString:@"goToPracticeMode"]) {
-		NSLog(@"category=%@",self.currentCategory);
-		((ChoosePracticeModeVC*)segue.destinationViewController).currentCategory = self.currentCategory;
-	}
 	
 	if ([segue.identifier isEqualToString:@"showFlashCardLearnMode"]) {
 		NSLog(@"Show flashcard:%@",choosenFlashCard);

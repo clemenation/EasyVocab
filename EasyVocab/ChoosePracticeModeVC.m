@@ -50,6 +50,12 @@
 	[self performSegueWithIdentifier:@"showFlashCardPraticeMode" sender:sender];
 }
 
+#pragma mark - Buttons fake Tabbar
+
+- (IBAction)switchToLearn:(id)sender {
+	[self.tabBarController setSelectedIndex:0];
+}
+
 #pragma mark - segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

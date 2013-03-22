@@ -8,6 +8,7 @@
 
 #import "CategoryPickerVC.h"
 #import "FlashCardCollectionVC.h"
+#import "ChoosePracticeModeVC.h"
 
 @interface CategoryPickerVC ()
 
@@ -19,6 +20,8 @@
 @implementation CategoryPickerVC{
 	NSString * choosenCategoryName;
 	int shellPerPage;
+	NSArray * categories;
+	NSArray * colorIndex;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,7 +41,12 @@
 //	iconPath = [[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:@"iconbeast"];
 //	//	NSLog(@"iconPath=%@",iconPath);
 	shellPerPage=4;
-	self.pageControl.numberOfPages = 7/shellPerPage+1;
+	categories=[NSArray arrayWithObjects:@"food",@"number",@"animal",@"domestic",nil];
+	colorIndex=[NSArray arrayWithObjects:@"blue",@"orange",@"purple",@"yellow",nil];
+	
+	self.pageControl.numberOfPages = categories.count/shellPerPage;
+	if (categories.count%shellPerPage!=0)self.pageControl.numberOfPages ++;
+	 
 	self.pageControl.currentPage = 0;
 	[self.pageControl addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
 }
@@ -57,7 +65,7 @@
 }
 
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 7;
+    return categories.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -69,8 +77,15 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
 	
 	if ([CellIdentifier isEqualToString:CatIdent]) {
-		UILabel * label = (UILabel*)[cell viewWithTag:1];
-		label.text = [NSString stringWithFormat:@"Category %d",indexPath.row+1];
+		UIButton * cat = (UIButton*)[cell viewWithTag:1];
+		
+		NSString * colorName = [colorIndex objectAtIndex:indexPath.row%colorIndex.count];
+		NSString * imagePath =[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"category_button_%@",colorName] ofType:@"png"];
+		NSString * iconPath =[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"category_icon_%@",[categories objectAtIndex:indexPath.row]] ofType:@"png"];
+		[cat setTitle:[[categories objectAtIndex:indexPath.row] capitalizedString] forState:UIControlStateNormal];
+		[cat setBackgroundImage:[UIImage imageWithContentsOfFile:imagePath] forState:UIControlStateNormal];
+		[cat setImage:[UIImage imageWithContentsOfFile:iconPath] forState:UIControlStateNormal];
+		
 	}
 	if (indexPath.row%shellPerPage==0) {
 		self.pageControl.currentPage = indexPath.row/shellPerPage;
@@ -81,8 +96,8 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 	NSLog(@"Category selected %@",indexPath);
-	choosenCategoryName=[NSString stringWithFormat:@"category%d",indexPath.row+1];
-	[self performSegueWithIdentifier:@"goToLearnMode" sender:self];
+	choosenCategoryName=[categories objectAtIndex:indexPath.row];
+	[self performSegueWithIdentifier:@"play" sender:self];
 	
 }
 
@@ -110,15 +125,15 @@
 	//NSLog(@"dest=%@",segue.destinationViewController);
 	
 	//geting view from container bind to property without create a new view controller
-	if ([segue.identifier isEqualToString:@"goToLearnMode"]) {
+	if ([segue.identifier isEqualToString:@"play"]) {
 		NSLog(@"category=%@",choosenCategoryName);
-		((FlashCardCollectionVC*)segue.destinationViewController).currentCategory = choosenCategoryName;
+		UITabBarController * destVC = segue.destinationViewController;
+		[destVC setSelectedIndex:0];
+		UINavigationController * firstVC = [destVC.viewControllers objectAtIndex:0];
+		UINavigationController * secondVC = [destVC.viewControllers objectAtIndex:1];
+		((FlashCardCollectionVC*)firstVC.topViewController).currentCategory = choosenCategoryName;
+		((ChoosePracticeModeVC*)secondVC.topViewController).currentCategory = choosenCategoryName;
 	}
-	if ([segue.identifier isEqualToString:@"goToPracticeMode"]) {
-		NSLog(@"category=%@",choosenCategoryName);
-	}
-	if ([segue.identifier isEqualToString:@"goToLearnMode"]) {
-		NSLog(@"category=%@",choosenCategoryName);
-	}
+
 }
 @end
