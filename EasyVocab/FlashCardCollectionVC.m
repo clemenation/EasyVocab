@@ -52,7 +52,11 @@
 	self.categoryLabel.text = [self.currentCategory capitalizedString];
 	
 	NSString * path =[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"category_icon_%@",self.currentCategory] ofType:@"png"];
+    UIImage *catImg = [UIImage imageWithContentsOfFile:path];
+    self.categoryIcon.frame = CGRectMake(self.categoryIcon.frame.origin.x, self.categoryIcon.frame.origin.y, catImg.size.width, catImg.size.height);
 	self.categoryIcon.image = [UIImage imageWithContentsOfFile:path];
+    
+    self.iconCollectionView.backgroundColor = [UIColor clearColor];
 
 }
 

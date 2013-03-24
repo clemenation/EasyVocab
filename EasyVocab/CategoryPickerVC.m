@@ -41,7 +41,7 @@
 //	iconPath = [[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:@"iconbeast"];
 //	//	NSLog(@"iconPath=%@",iconPath);
 	shellPerPage=4;
-	categories=[NSArray arrayWithObjects:@"food",@"number",@"animal",@"domestic",nil];
+	categories=[NSArray arrayWithObjects:@"food",@"numbers",@"animals",@"domestic",nil];
 	colorIndex=[NSArray arrayWithObjects:@"blue",@"orange",@"purple",@"yellow",nil];
 	
 	self.pageControl.numberOfPages = categories.count/shellPerPage;
@@ -82,9 +82,23 @@
 		NSString * colorName = [colorIndex objectAtIndex:indexPath.row%colorIndex.count];
 		NSString * imagePath =[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"category_button_%@",colorName] ofType:@"png"];
 		NSString * iconPath =[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"category_icon_%@",[categories objectAtIndex:indexPath.row]] ofType:@"png"];
-		[cat setTitle:[[categories objectAtIndex:indexPath.row] capitalizedString] forState:UIControlStateNormal];
+        
+//        cat.titleLabel.textAlignment = NSTextAlignmentCenter;
+//        cat.titleLabel.backgroundColor = [UIColor grayColor];
+		[cat setTitle:@"" forState:UIControlStateNormal];
+        
+        UILabel *customTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 0, 170, cat.frame.size.height)];
+        customTitleLabel.font = [UIFont boldSystemFontOfSize:30];
+        customTitleLabel.textColor = [UIColor whiteColor];
+        customTitleLabel.backgroundColor = [UIColor clearColor];
+        customTitleLabel.textAlignment = NSTextAlignmentCenter;
+        customTitleLabel.text = [[categories objectAtIndex:indexPath.row] capitalizedString];
+        [cat addSubview:customTitleLabel];
+        
 		[cat setBackgroundImage:[UIImage imageWithContentsOfFile:imagePath] forState:UIControlStateNormal];
 		[cat setImage:[UIImage imageWithContentsOfFile:iconPath] forState:UIControlStateNormal];
+    
+        cat.imageEdgeInsets = UIEdgeInsetsMake(0, 60 - cat.imageView.frame.size.width/2, 0, 0);
 		
 	}
 	if (indexPath.row%shellPerPage==0) {
