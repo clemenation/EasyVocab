@@ -32,7 +32,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
+//	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
 
 }
 
