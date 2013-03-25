@@ -137,11 +137,11 @@
                                 <color key="currentPageIndicatorTintColor" red="0.1924824617" green="0.1924824617" blue="0.1924824617" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vno-0f-8pR">
-                                <rect key="frame" x="15" y="10" width="75" height="32"/>
+                                <rect key="frame" x="15" y="10" width="99" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Back" image="button_back.png">
+                                <state key="normal" title="Quay lại" image="button_back.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -260,11 +260,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tgx-lC-oHX">
-                                <rect key="frame" x="15" y="10" width="75" height="32"/>
+                                <rect key="frame" x="15" y="10" width="105" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Back" image="button_back.png">
+                                <state key="normal" title="Quay lại" image="button_back.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -345,11 +345,11 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IMt-3e-55j">
-                                <rect key="frame" x="15" y="10" width="75" height="32"/>
+                                <rect key="frame" x="15" y="10" width="112" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Back" image="button_grid.png">
+                                <state key="normal" title="Quay lại" image="button_grid.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -437,11 +437,11 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7vN-UL-hsk">
-                                <rect key="frame" x="15" y="10" width="75" height="32"/>
+                                <rect key="frame" x="15" y="10" width="110" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Back" image="button_grid.png">
+                                <state key="normal" title="Quay lại" image="button_grid.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
@@ -530,7 +530,7 @@
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Quit" image="button_quit.png">
+                                <state key="normal" title="Thoát" image="button_quit.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -677,7 +677,7 @@
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Quit" image="button_quit.png">
+                                <state key="normal" title="Thoát" image="button_quit.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -689,10 +689,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JvI-aE-KBh">
-                                <rect key="frame" x="215" y="10" width="91" height="32"/>
+                                <rect key="frame" x="211" y="10" width="95" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Check" image="practice_back_button_check.png">
+                                <state key="normal" title="Kiểm tra" image="practice_back_button_check.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -811,7 +811,7 @@
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Quit" image="button_quit.png">
+                                <state key="normal" title="Thoát" image="button_quit.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -855,7 +855,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="practice_back_answer_awesome.png" id="hdh-N8-Y0Q">
-                                <rect key="frame" x="37" y="369" width="246" height="46"/>
+                                <rect key="frame" x="58" y="364" width="205" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -917,7 +917,7 @@
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Quit" image="button_quit.png">
+                                <state key="normal" title="Thoát" image="button_quit.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1047,7 +1047,7 @@
         <image name="cross.png" width="32" height="32"/>
         <image name="flashcard.png" width="291" height="291"/>
         <image name="image.png" width="32" height="32"/>
-        <image name="practice_back_answer_awesome.png" width="246" height="46"/>
+        <image name="practice_back_answer_awesome.png" width="205" height="60"/>
         <image name="practice_back_answer_button_next.png" width="38" height="55"/>
         <image name="practice_back_button_check.png" width="30" height="24"/>
         <image name="practice_back_challenge_button_check.png" width="69" height="55"/>
@@ -1065,6 +1065,8 @@
         <class className="AnswerFlashCardChallengeMode" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
             <relationships>
+                <relationship kind="action" name="checkAnswerPressed:"/>
+                <relationship kind="action" name="switchToLearn:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
             </relationships>
@@ -1079,12 +1081,18 @@
         <class className="CategoryPickerVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerVC.h"/>
             <relationships>
+                <relationship kind="action" name="returnToCategoryPicker:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
             </relationships>
         </class>
         <class className="ChoosePracticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="challengeModeSelected:"/>
+                <relationship kind="action" name="easyModeSelected:"/>
+                <relationship kind="action" name="switchToLearn:"/>
+            </relationships>
         </class>
         <class className="FlashCardCollectionVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
@@ -1098,12 +1106,16 @@
         <class className="ReviewFlashCardLearnModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardLearnModeVC.h"/>
             <relationships>
+                <relationship kind="action" name="switchToPratice:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ReviewFlashCardPraticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardPraticeModeVC.h"/>
             <relationships>
+                <relationship kind="action" name="nextAnswerPressed:"/>
+                <relationship kind="action" name="speakAnswerPressed:"/>
+                <relationship kind="action" name="switchToLearn:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
             </relationships>
@@ -1111,12 +1123,15 @@
         <class className="ShowFlashCardLearnModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardLearnModeVC.h"/>
             <relationships>
+                <relationship kind="action" name="switchToPratice:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ShowFlashCardPraticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardPraticeModeVC.h"/>
             <relationships>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="action" name="tapGestureAction:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
@@ -1128,6 +1143,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
