@@ -58,6 +58,10 @@
 
 #pragma mark - segue
 
+-(void)returnToChoosePraticeMode:(UIStoryboardSegue *)segue{
+	NSLog(@"Returned from segue %@ at %@",segue.identifier,segue.sourceViewController);
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	NSLog(@"Perform a segue:%@",segue.identifier);
 	//NSLog(@"dest=%@",segue.destinationViewController);
@@ -71,7 +75,8 @@
 		vc.currentPraticeMode = praticeModeSelected;
 		
 		NSArray * allCard = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:self.currentCategory];
-		vc.currentFlashCard = [allCard objectAtIndex:rand()%[allCard count]];
+		vc.currentFlashCardID = rand()%[allCard count];
+		vc.currentFlashCard = [allCard objectAtIndex:vc.currentFlashCardID];
 	}
 	
 }

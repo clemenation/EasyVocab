@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3104" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -419,9 +419,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="O9b-I7-up0">
+                            <imageView contentMode="scaleToFill" image="flashcard.png" id="O9b-I7-up0">
                                 <rect key="frame" x="15" y="70" width="291" height="291"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="oIn-Rs-aM8" appends="YES" id="zdV-Bf-cde"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GyO-IF-fs0">
                                 <rect key="frame" x="131" y="244" width="59" height="54"/>
@@ -491,12 +494,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cfg-lY-jNc"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="textLabel" destination="ImB-IP-gbp" id="1CU-KL-eJI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKQ-EX-CPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SKc-Bg-YeY" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="oIn-Rs-aM8">
                     <connections>
-                        <segue destination="SKc-Bg-YeY" kind="unwind" identifier="finishLearning" unwindAction="returnToCategoryPicker:" id="ipt-9t-8gN"/>
+                        <segue destination="SKc-Bg-YeY" kind="unwind" unwindAction="returnToFlashCardCollection:" id="nEM-8f-0am"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -538,7 +544,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="AEx-Bu-hnn" kind="unwind" unwindAction="returnToCategoryPicker:" id="AB3-x0-dwg"/>
+                                    <segue destination="AEx-Bu-hnn" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="e9A-e4-t3R"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gsO-dZ-ynD">
@@ -609,7 +615,7 @@
                                 <rect key="frame" x="15" y="70" width="291" height="291"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gah-2e-v1s">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gah-2e-v1s">
                                 <rect key="frame" x="36" y="115" width="248" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -617,7 +623,8 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="Wrong!" image="cross.png"/>
+                                <state key="disabled" title="Wrong!" backgroundImage="practice_back_button_choice_wrong.png"/>
+                                <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -625,7 +632,7 @@
                                     <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="TZX-wW-FK7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6oS-l0-6Az">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="6oS-l0-6Az">
                                 <rect key="frame" x="36" y="168" width="248" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -633,15 +640,16 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="Wrong!" image="cross.png"/>
-                                <state key="highlighted">
+                                <state key="disabled" title="Wrong!" backgroundImage="practice_back_button_choice_wrong.png"/>
+                                <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
+                                <state key="highlighted" backgroundImage="practice_back_easy_button_choice_selected.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="FZc-Xp-pJ6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Af-xc-Ijo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="4Af-xc-Ijo">
                                 <rect key="frame" x="36" y="221" width="248" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -649,7 +657,8 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="Wrong!" image="cross.png"/>
+                                <state key="disabled" title="Wrong!" backgroundImage="practice_back_button_choice_wrong@2x.png"/>
+                                <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -657,7 +666,7 @@
                                     <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="BJu-Sc-qVC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wFs-z2-NRY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="wFs-z2-NRY">
                                 <rect key="frame" x="36" y="279" width="248" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -665,7 +674,8 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="Wrong!" image="cross.png"/>
+                                <state key="disabled" title="Wrong!" backgroundImage="practice_back_button_choice_wrong.png"/>
+                                <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -685,7 +695,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dwj-Jy-e89" kind="unwind" unwindAction="returnToCategoryPicker:" id="vhK-Gl-6Cb"/>
+                                    <segue destination="dwj-Jy-e89" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="rlU-8k-DrX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JvI-aE-KBh">
@@ -804,7 +814,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextAnswerPressed:" destination="4pg-oh-qH9" eventType="touchUpInside" id="IfH-Ak-bp3"/>
-                                    <segue destination="Taa-EK-cHJ" kind="unwind" unwindAction="returnToCategoryPicker:" id="7mP-YG-K7G"/>
+                                    <segue destination="Taa-EK-cHJ" kind="unwind" unwindAction="returnToShowFlashCardPraticeMode:" id="E60-lq-N03"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="V8C-mP-k9x">
@@ -819,7 +829,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Taa-EK-cHJ" kind="unwind" unwindAction="returnToCategoryPicker:" id="c8O-Lk-sty"/>
+                                    <segue destination="Taa-EK-cHJ" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="Isj-90-4ab"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="fgW-Ig-UfE">
@@ -862,6 +872,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="qRf-Yr-IxC"/>
+                    <connections>
+                        <outlet property="textLabel" destination="a6A-r4-ZqT" id="TH5-73-rdh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZnB-Yi-J4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Taa-EK-cHJ" userLabel="Exit" sceneMemberID="exit"/>
@@ -925,7 +938,22 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="h1D-dK-T37" kind="unwind" unwindAction="returnToCategoryPicker:" id="uYj-Lz-yfW"/>
+                                    <segue destination="h1D-dK-T37" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="unA-a9-ibr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j6k-XI-9Kc">
+                                <rect key="frame" x="231" y="10" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Đáp án" image="practice_back_challenge_button_answer.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="giveUpButtonPressed:" destination="3Wl-JI-VRq" eventType="touchUpInside" id="Pvh-6A-5uw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="c4X-6P-nLh">
@@ -1044,12 +1072,14 @@
         <image name="button_speaker_down.png" width="59" height="54"/>
         <image name="category_button_orange.png" width="308" height="102"/>
         <image name="category_icon_food.png" width="63" height="62"/>
-        <image name="cross.png" width="32" height="32"/>
         <image name="flashcard.png" width="291" height="291"/>
         <image name="image.png" width="32" height="32"/>
         <image name="practice_back_answer_awesome.png" width="205" height="60"/>
         <image name="practice_back_answer_button_next.png" width="38" height="55"/>
         <image name="practice_back_button_check.png" width="30" height="24"/>
+        <image name="practice_back_button_choice_wrong.png" width="248" height="37"/>
+        <image name="practice_back_button_choice_wrong@2x.png" width="495" height="73"/>
+        <image name="practice_back_challenge_button_answer.png" width="19" height="27"/>
         <image name="practice_back_challenge_button_check.png" width="69" height="55"/>
         <image name="practice_back_easy_button_choice.png" width="248" height="37"/>
         <image name="practice_back_easy_button_choice_selected.png" width="248" height="37"/>
@@ -1066,6 +1096,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
             <relationships>
                 <relationship kind="action" name="checkAnswerPressed:"/>
+                <relationship kind="action" name="giveUpButtonPressed:"/>
                 <relationship kind="action" name="switchToLearn:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
@@ -1074,6 +1105,9 @@
         <class className="AnswerFlashCardEasyModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardEasyModeVC.h"/>
             <relationships>
+                <relationship kind="action" name="checkAnswer:" candidateClass="UIButton"/>
+                <relationship kind="action" name="chooseAnswer:" candidateClass="UIButton"/>
+                <relationship kind="action" name="switchToLearn:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outletCollection" name="answerButtons" candidateClass="UIButton"/>
             </relationships>
@@ -1091,12 +1125,15 @@
             <relationships>
                 <relationship kind="action" name="challengeModeSelected:"/>
                 <relationship kind="action" name="easyModeSelected:"/>
+                <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="switchToLearn:"/>
             </relationships>
         </class>
         <class className="FlashCardCollectionVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
             <relationships>
+                <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToPratice:"/>
                 <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
@@ -1108,14 +1145,12 @@
             <relationships>
                 <relationship kind="action" name="switchToPratice:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ReviewFlashCardPraticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardPraticeModeVC.h"/>
             <relationships>
-                <relationship kind="action" name="nextAnswerPressed:"/>
-                <relationship kind="action" name="speakAnswerPressed:"/>
-                <relationship kind="action" name="switchToLearn:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
             </relationships>
@@ -1130,8 +1165,8 @@
         <class className="ShowFlashCardPraticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardPraticeModeVC.h"/>
             <relationships>
+                <relationship kind="action" name="returnToShowFlashCardPraticeMode:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="switchToLearn:"/>
-                <relationship kind="action" name="tapGestureAction:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
@@ -1144,8 +1179,8 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1154,6 +1189,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZC7-de-Uws"/>
+        <segue reference="D4N-ev-iQn"/>
     </inferredMetricsTieBreakers>
 </document>

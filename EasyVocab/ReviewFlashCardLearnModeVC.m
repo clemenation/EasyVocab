@@ -11,6 +11,7 @@
 @interface ReviewFlashCardLearnModeVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 
@@ -30,6 +31,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 //	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
+	self.textLabel.text = [self.correctAnswer capitalizedString];
 }
 
 - (void)didReceiveMemoryWarning

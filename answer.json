@@ -1,0 +1,6 @@
+{
+  "food":["Ice-cream","Cake","Bread","Candy","Chocolate","Biscuit","Milk","Carrot","Cucumber","Potato","Sweet Potato","Bean","Radish","Cabbage","Eggplant","Oriental Melon","Banana","Watermelon","Strawberry","Apple","Grape","Orange","Pear","Tomato","Juice"],
+  "numbers":["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty"],
+  "domestic":["Clock","Refrigerator","Television","Cell Phone","Computer","Washing Machine","Camera","Telephone","Scissors","Hair dryer","Fan","Hammer","Saw","Knife","Microwave","Iron","Vacuum","Blender","Microphone","Magnifying Glass"],
+  "animals":["Dog","Cat","Pig","Chicken","Duck","Snake","Turtle","Tiger","Lion","Bear","Giraffe","Rabbit","Monkey","Horse","Penguin","Frog","Zebra","Elephant","Rhinoceros","Butterfly","Dragonfly","Cicada","Sheep","Hippopotamus","Alligator"]
+}

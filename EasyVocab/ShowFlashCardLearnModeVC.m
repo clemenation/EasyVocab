@@ -64,6 +64,21 @@
 		ReviewFlashCardLearnModeVC * vc = segue.destinationViewController;
 		vc.currentFlashCard = self.currentFlashCard;
 		vc.currentCategory = self.currentCategory;
+		
+		NSError * error;
+		NSString * jsonString = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"answer" ofType:@"json"] encoding:NSUTF8StringEncoding error:&error];
+		
+		NSDictionary * jsonDict = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] 
+																  options:NSJSONReadingMutableLeaves 
+																	error:&error];
+		if (!jsonDict) {
+			NSLog(@"Got an error: %@", error);
+			vc.correctAnswer = @"easy vocab";
+		} else {
+			NSArray * categoryAnswer = [jsonDict objectForKey:self.currentCategory];
+			vc.correctAnswer = [categoryAnswer objectAtIndex:self.currentFlashCardID];
+		}
+		
 	}
 	
 }

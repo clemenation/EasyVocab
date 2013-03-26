@@ -33,7 +33,7 @@
 	// Do any additional setup after loading the view.
 	
 //	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
-
+	self.textLabel.text = [self.correctAnswer capitalizedString];
 }
 
 - (void)didReceiveMemoryWarning

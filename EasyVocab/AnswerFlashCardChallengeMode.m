@@ -33,6 +33,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
+	[self.textField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,10 +44,11 @@
 
 #pragma mark - textField delegate
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
-	[textField resignFirstResponder];
-	return NO;
-}
+//-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+//	[textField resignFirstResponder];
+//	return NO;
+//}
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
 	self.textField.backgroundColor = [UIColor clearColor];
 }
@@ -59,7 +61,7 @@
 
 - (IBAction)checkAnswerPressed:(id)sender {
 	
-	if ([self.textField.text isEqualToString:self.correctAnswer]) {
+	if ([[self.textField.text capitalizedString] isEqualToString:[self.correctAnswer capitalizedString]]) {
 		[self performSegueWithIdentifier:@"reviewFlashCardPraticeMode" sender:sender];
 	}else{
 		NSLog(@"Wrong answer! Try another words in the textfield pls!");
@@ -67,6 +69,9 @@
 		self.textField.backgroundColor = [UIColor redColor];
 	}
 	
+}
+- (IBAction)giveUpButtonPressed:(id)sender {
+	[self performSegueWithIdentifier:@"reviewFlashCardPraticeMode" sender:sender];
 }
 
 #pragma mark - Buttons fake Tabbar

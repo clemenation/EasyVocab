@@ -14,4 +14,6 @@
 
 @property(weak,nonatomic) NSString * currentFlashCard;
 
+@property(weak,nonatomic) NSString * correctAnswer;
+
 @end

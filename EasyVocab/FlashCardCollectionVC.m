@@ -24,6 +24,7 @@
 	NSString * choosenFlashCard;
 	NSArray * iconPath;
 	int shellPerPage;
+	int chosenFlashCardID;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -101,6 +102,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 	NSLog(@"FlashCard collection selected %@",indexPath);
 	choosenFlashCard = [iconPath objectAtIndex:indexPath.row];
+	chosenFlashCardID = indexPath.row;
 	[self performSegueWithIdentifier:@"showFlashCardLearnMode" sender:self];
 }
 
@@ -138,6 +140,7 @@
 		ShowFlashCardLearnModeVC * vc= segue.destinationViewController;
 		vc.currentCategory=self.currentCategory;
 		vc.currentFlashCard=choosenFlashCard;
+		vc.currentFlashCardID=chosenFlashCardID;
 	}
 }
 

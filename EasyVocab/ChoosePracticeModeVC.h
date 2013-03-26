@@ -12,4 +12,6 @@
 
 @property(weak,nonatomic) NSString * currentCategory;
 
+-(IBAction)returnToChoosePraticeMode:(UIStoryboardSegue *)segue;
+
 @end

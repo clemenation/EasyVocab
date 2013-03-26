@@ -58,6 +58,15 @@
 }
 #pragma mark - segue
 
+-(void)returnToShowFlashCardPraticeMode:(UIStoryboardSegue *)segue{
+	NSLog(@"Returned from segue %@ at %@",segue.identifier,segue.sourceViewController);
+	NSArray * allCard = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:self.currentCategory];
+	self.currentFlashCardID=(self.currentFlashCardID+1)%allCard.count;
+	self.currentFlashCard=[allCard objectAtIndex:self.currentFlashCardID];
+	[self viewDidLoad];
+	
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	NSLog(@"Perform a segue:%@",segue.identifier);
 	//NSLog(@"dest=%@",segue.destinationViewController);
@@ -66,16 +75,54 @@
 		NSLog(@"category=%@",self.currentCategory);
 		AnswerFlashCardEasyModeVC * vc = segue.destinationViewController;
 		vc.currentFlashCard = self.currentFlashCard;
-		vc.correctAnswer = @"easy vocab";
-		vc.fakeAnswer = [NSArray arrayWithObjects:@"fake1",@"fake2",@"fake3", nil];
+		NSError * error;
+		NSString * jsonString = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"answer" ofType:@"json"] encoding:NSUTF8StringEncoding error:&error];
+		
+		NSDictionary * jsonDict = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] 
+																  options:NSJSONReadingMutableLeaves 
+																	error:&error];
+		if (!jsonDict) {
+			NSLog(@"Got an error: %@", error);
+			//			NSLog(@"With jsonString=%@",jsonString);
+			vc.correctAnswer = @"easy vocab";
+			vc.fakeAnswer = [NSArray arrayWithObjects:@"fake1",@"fake2",@"fake3", nil];
+		} else {
+			NSArray * categoryAnswer = [jsonDict objectForKey:self.currentCategory];
+			//			NSLog(@"categoryAnswer=%@",categoryAnswer);
+			vc.correctAnswer = [categoryAnswer objectAtIndex:self.currentFlashCardID];
+			int k = rand()%4+1;
+			vc.fakeAnswer = [NSMutableArray arrayWithObjects:
+							 [categoryAnswer objectAtIndex:(self.currentFlashCardID+1*k)%categoryAnswer.count],
+							 [categoryAnswer objectAtIndex:(self.currentFlashCardID+2*k)%categoryAnswer.count],
+							 [categoryAnswer objectAtIndex:(self.currentFlashCardID+3*k)%categoryAnswer.count],
+							 nil];
+		}															
+		
+		
+		
 	}
 	
 	if ([segue.identifier isEqualToString:@"answerFlashCardChallengeMode"]) {
 		NSLog(@"category=%@",self.currentCategory);
 		AnswerFlashCardChallengeMode * vc = segue.destinationViewController;
 		vc.currentFlashCard = self.currentFlashCard;
-		vc.correctAnswer = @"easy vocab";
+		
+		NSError * error;
+		NSString * jsonString = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"answer" ofType:@"json"] encoding:NSUTF8StringEncoding error:&error];
+		
+		NSDictionary * jsonDict = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] 
+																  options:NSJSONReadingMutableLeaves 
+																	error:&error];
+		if (!jsonDict) {
+			NSLog(@"Got an error: %@", error);
+			vc.correctAnswer = @"easy vocab";
+		} else {
+			NSArray * categoryAnswer = [jsonDict objectForKey:self.currentCategory];
+			vc.correctAnswer = [categoryAnswer objectAtIndex:self.currentFlashCardID];
+		}		
+		
 	}
+
 	
 }
 @end

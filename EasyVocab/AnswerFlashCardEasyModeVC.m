@@ -77,9 +77,10 @@
 	//reviewFlashCardPraticeMode
 	for (UIButton * bt in self.answerButtons) {
 		if (bt == chosenAnswerButton) {
-			bt.alpha=0.5;
+			bt.selected = true;
 		}else{
-			bt.alpha=1;
+			bt.selected = false;
+
 		}
 	}
 	
@@ -92,6 +93,7 @@
 		NSLog(@"Wrong answers!");
 		//todo: display wrong animation;
 		chosenAnswerButton.enabled = false;
+		chosenAnswerButton.selected = false;
 	}
 }
 

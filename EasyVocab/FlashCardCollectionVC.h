@@ -12,4 +12,6 @@
 
 @property(weak,nonatomic) NSString * currentCategory;
 
+-(IBAction)returnToFlashCardCollection:(UIStoryboardSegue *)segue ;
+
 @end

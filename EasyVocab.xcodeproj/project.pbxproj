@@ -52,6 +52,7 @@
 		4AFE041A16FFF2BF00B498AB /* practice_back_challenge_button_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFE041216FFF2BF00B498AB /* practice_back_challenge_button_check@2x.png */; };
 		4AFE041B16FFF2BF00B498AB /* practice_back_challenge_walkthrough.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFE041316FFF2BF00B498AB /* practice_back_challenge_walkthrough.png */; };
 		4AFE041C16FFF2BF00B498AB /* practice_back_challenge_walkthrough@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFE041416FFF2BF00B498AB /* practice_back_challenge_walkthrough@2x.png */; };
+		B1AE965B1701F25200929090 /* answer.json in Resources */ = {isa = PBXBuildFile; fileRef = B1AE965A1701F25200929090 /* answer.json */; };
 		B1C9E68416FADA150050EE3F /* ShowFlashCardLearnModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9E68316FADA150050EE3F /* ShowFlashCardLearnModeVC.m */; };
 		B1C9E68716FAE3B00050EE3F /* ReviewFlashCardLearnModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9E68616FAE3AF0050EE3F /* ReviewFlashCardLearnModeVC.m */; };
 		B1C9E68A16FAEAA10050EE3F /* ChoosePracticeModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9E68916FAEAA10050EE3F /* ChoosePracticeModeVC.m */; };
@@ -446,6 +447,7 @@
 		4AFE041216FFF2BF00B498AB /* practice_back_challenge_button_check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_back_challenge_button_check@2x.png"; sourceTree = "<group>"; };
 		4AFE041316FFF2BF00B498AB /* practice_back_challenge_walkthrough.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = practice_back_challenge_walkthrough.png; sourceTree = "<group>"; };
 		4AFE041416FFF2BF00B498AB /* practice_back_challenge_walkthrough@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_back_challenge_walkthrough@2x.png"; sourceTree = "<group>"; };
+		B1AE965A1701F25200929090 /* answer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = answer.json; sourceTree = "<group>"; };
 		B1C9E68216FADA150050EE3F /* ShowFlashCardLearnModeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowFlashCardLearnModeVC.h; sourceTree = "<group>"; };
 		B1C9E68316FADA150050EE3F /* ShowFlashCardLearnModeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowFlashCardLearnModeVC.m; sourceTree = "<group>"; };
 		B1C9E68516FAE3AF0050EE3F /* ReviewFlashCardLearnModeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewFlashCardLearnModeVC.h; sourceTree = "<group>"; };
@@ -1121,6 +1123,7 @@
 		B1CD8AD416F962F800256AEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1AE965A1701F25200929090 /* answer.json */,
 				4AFE040C16FFF2B600B498AB /* PracticeBackChallenge */,
 				4AFE03FB16FFF2A500B498AB /* PracticeBackAnswer */,
 				4AFE03E616FFF29500B498AB /* PracticeBackEasy */,
@@ -1874,6 +1877,7 @@
 				4AFE041A16FFF2BF00B498AB /* practice_back_challenge_button_check@2x.png in Resources */,
 				4AFE041B16FFF2BF00B498AB /* practice_back_challenge_walkthrough.png in Resources */,
 				4AFE041C16FFF2BF00B498AB /* practice_back_challenge_walkthrough@2x.png in Resources */,
+				B1AE965B1701F25200929090 /* answer.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
