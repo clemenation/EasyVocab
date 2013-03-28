@@ -8,6 +8,7 @@
 
 #import "FlashCardCollectionVC.h"
 #import "ShowFlashCardLearnModeVC.h"
+#import "EVFlashcardCollection.h"
 
 
 @interface FlashCardCollectionVC ()
@@ -17,14 +18,26 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *categoryIcon;
 
+@property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
+
 @end
 
 @implementation FlashCardCollectionVC{
 	
 	NSString * choosenFlashCard;
-	NSArray * iconPath;
 	int shellPerPage;
 	int chosenFlashCardID;
+}
+
+@synthesize flashcardCollection = _flashcardCollection;
+
+- (EVFlashcardCollection *)flashcardCollection
+{
+    if (!_flashcardCollection)
+    {
+        _flashcardCollection = [[EVFlashcardCollection alloc] init];
+    }
+    return _flashcardCollection;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,11 +54,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-	iconPath = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:self.currentCategory];
 //	NSLog(@"iconPath=%@",iconPath);
 	shellPerPage = 9;
-	self.pageControl.numberOfPages = iconPath.count/shellPerPage;
-	if (iconPath.count%shellPerPage!=0)self.pageControl.numberOfPages ++;
+    int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
+	self.pageControl.numberOfPages = flashcardCount/shellPerPage;
+	if (flashcardCount%shellPerPage!=0)self.pageControl.numberOfPages ++;
 	
 	self.pageControl.currentPage = 0;
 	[self.pageControl addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
@@ -75,7 +88,7 @@
 }
 
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return iconPath.count;
+    return [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -89,7 +102,8 @@
 	if ([CellIdentifier isEqualToString:FlashCardShellIdent]) {
 		UIImageView * imageView = (UIImageView*)[cell viewWithTag:1];
 		//imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"wifi" ofType:@"png" inDirectory:@"iconbeast"]];
-		imageView.image = [UIImage imageWithContentsOfFile:[iconPath objectAtIndex:indexPath.row]];
+		imageView.image = [UIImage imageWithContentsOfFile:[self.flashcardCollection flashcardPathAtIndex:indexPath.row
+                                                                                               ofCategory:self.currentCategory]];
 	}
 	
 	if (indexPath.row%shellPerPage==0) {
@@ -101,7 +115,8 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 	NSLog(@"FlashCard collection selected %@",indexPath);
-	choosenFlashCard = [iconPath objectAtIndex:indexPath.row];
+	choosenFlashCard = [self.flashcardCollection flashcardPathAtIndex:indexPath.row
+                                                           ofCategory:self.currentCategory];
 	chosenFlashCardID = indexPath.row;
 	[self performSegueWithIdentifier:@"showFlashCardLearnMode" sender:self];
 }

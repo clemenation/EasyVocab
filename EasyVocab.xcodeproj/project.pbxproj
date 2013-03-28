@@ -15,6 +15,7 @@
 		4A2006FA17047F6D00476EC2 /* category_button_purple_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2006F217047F6D00476EC2 /* category_button_purple_selected@2x.png */; };
 		4A2006FB17047F6D00476EC2 /* category_button_yellow_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2006F317047F6D00476EC2 /* category_button_yellow_selected.png */; };
 		4A2006FC17047F6D00476EC2 /* category_button_yellow_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2006F417047F6D00476EC2 /* category_button_yellow_selected@2x.png */; };
+		4A2006FF17048A2700476EC2 /* EVFlashcardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */; };
 		4A5A8DB0170496A500D48CD5 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A8DAC170496A500D48CD5 /* iTunesArtwork.png */; };
 		4A5A8DB6170496D900D48CD5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A8DB5170496D900D48CD5 /* Default@2x.png */; };
 		4A5A8DB8170496DC00D48CD5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A8DB7170496DC00D48CD5 /* Default.png */; };
@@ -138,6 +139,8 @@
 		4A2006F217047F6D00476EC2 /* category_button_purple_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category_button_purple_selected@2x.png"; sourceTree = "<group>"; };
 		4A2006F317047F6D00476EC2 /* category_button_yellow_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = category_button_yellow_selected.png; sourceTree = "<group>"; };
 		4A2006F417047F6D00476EC2 /* category_button_yellow_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category_button_yellow_selected@2x.png"; sourceTree = "<group>"; };
+		4A2006FD17048A2600476EC2 /* EVFlashcardCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcardCollection.h; path = Class/Model/EVFlashcardCollection.h; sourceTree = "<group>"; };
+		4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardCollection.m; path = Class/Model/EVFlashcardCollection.m; sourceTree = "<group>"; };
 		4A5A8DAC170496A500D48CD5 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		4A5A8DB5170496D900D48CD5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		4A5A8DB7170496DC00D48CD5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -360,6 +363,8 @@
 		4AC149D916F74336009F7CBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4A2006FD17048A2600476EC2 /* EVFlashcardCollection.h */,
+				4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -834,6 +839,7 @@
 				B1C9E69216FAF64D0050EE3F /* AnswerFlashCardChallengeMode.m in Sources */,
 				B1C9E69516FAF98F0050EE3F /* ReviewFlashCardPraticeModeVC.m in Sources */,
 				B1C9E7D916FC46460050EE3F /* AnswerFlashCardEasyModeVC.m in Sources */,
+				4A2006FF17048A2700476EC2 /* EVFlashcardCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
