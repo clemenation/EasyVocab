@@ -502,7 +502,7 @@
                 <exit id="SKc-Bg-YeY" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="oIn-Rs-aM8">
                     <connections>
-                        <segue destination="SKc-Bg-YeY" kind="unwind" unwindAction="returnToFlashCardCollection:" id="nEM-8f-0am"/>
+                        <segue destination="SKc-Bg-YeY" kind="unwind" unwindAction="returnToShowFlashCardLearnMode:" id="nEM-8f-0am"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1091,6 +1091,103 @@
         <image name="tab_practice_off.png" width="160" height="49"/>
         <image name="tick.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="AnswerFlashCardChallengeMode" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
+            <relationships>
+                <relationship kind="action" name="checkAnswerPressed:"/>
+                <relationship kind="action" name="giveUpButtonPressed:"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AnswerFlashCardEasyModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardEasyModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="checkAnswer:" candidateClass="UIButton"/>
+                <relationship kind="action" name="chooseAnswer:" candidateClass="UIButton"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outletCollection" name="answerButtons" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="CategoryPickerVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToCategoryPicker:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+            </relationships>
+        </class>
+        <class className="ChoosePracticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="challengeModeSelected:"/>
+                <relationship kind="action" name="easyModeSelected:"/>
+                <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToLearn:"/>
+            </relationships>
+        </class>
+        <class className="FlashCardCollectionVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToPratice:"/>
+                <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+            </relationships>
+        </class>
+        <class className="ReviewFlashCardLearnModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardLearnModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="switchToPratice:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ReviewFlashCardPraticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardPraticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="nextAnswerPressed:"/>
+                <relationship kind="action" name="speakAnswerPressed:"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ShowFlashCardLearnModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardLearnModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToShowFlashCardLearnMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToPratice:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ShowFlashCardPraticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardPraticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToShowFlashCardPraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="action" name="tapGestureAction:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

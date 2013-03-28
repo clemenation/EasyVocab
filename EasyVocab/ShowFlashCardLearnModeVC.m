@@ -49,6 +49,11 @@
 
 #pragma mark - segue
 
+- (IBAction)returnToShowFlashCardLearnMode:(UIStoryboardSegue *)segue
+{
+    NSLog(@"Returned from segue %@ at %@",segue.identifier,segue.sourceViewController);
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	NSLog(@"Perform a segue:%@",segue.identifier);
 	//NSLog(@"dest=%@",segue.destinationViewController);
