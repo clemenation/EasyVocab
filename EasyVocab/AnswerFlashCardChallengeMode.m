@@ -12,6 +12,7 @@
 @interface AnswerFlashCardChallengeMode ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIButton *giveUpButton;
 
 @end
 
@@ -91,6 +92,9 @@
 		ReviewFlashCardPraticeModeVC * vc = segue.destinationViewController;
 		vc.currentFlashCard = self.currentFlashCard;
 		vc.correctAnswer = self.correctAnswer;
+        
+        // disable awesome message in back flashcard
+        vc.isGiveUp = (sender == self.giveUpButton);
 	}
 	
 }

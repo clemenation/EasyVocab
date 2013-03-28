@@ -12,6 +12,7 @@
 
 @property(weak,nonatomic) NSString * currentFlashCard;
 @property(weak,nonatomic) NSString * correctAnswer;
+@property(assign, nonatomic) BOOL isGiveUp;
 
 
 @end

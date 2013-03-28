@@ -13,10 +13,22 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *awesomeLabel;
 
 @end
 
 @implementation ReviewFlashCardPraticeModeVC
+
+@synthesize isGiveUp = _isGiveUp;
+
+- (void)setIsGiveUp:(BOOL)isGiveUp
+{
+    if (_isGiveUp != isGiveUp)
+    {
+        _isGiveUp = isGiveUp;
+        self.awesomeLabel.hidden = _isGiveUp;
+    }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,14 +44,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-//	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
 	self.textLabel.text = [self.correctAnswer capitalizedString];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.awesomeLabel.hidden = self.isGiveUp;
 }
 
 #pragma mark - Buttons

@@ -937,6 +937,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qRf-Yr-IxC"/>
                     <connections>
+                        <outlet property="awesomeLabel" destination="hdh-N8-Y0Q" id="Gg9-Tp-Ch1"/>
                         <outlet property="textLabel" destination="a6A-r4-ZqT" id="TH5-73-rdh"/>
                     </connections>
                 </viewController>
@@ -1057,6 +1058,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="blC-BG-Zlp"/>
                     <connections>
+                        <outlet property="giveUpButton" destination="j6k-XI-9Kc" id="U1C-5E-dPN"/>
                         <outlet property="textField" destination="TAt-Og-9bU" id="Tv3-yB-sMv"/>
                         <segue destination="4pg-oh-qH9" kind="push" identifier="reviewFlashCardPraticeMode" id="ZC7-de-Uws"/>
                     </connections>
@@ -1161,6 +1163,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="D4N-ev-iQn"/>
+        <segue reference="ZC7-de-Uws"/>
     </inferredMetricsTieBreakers>
 </document>
