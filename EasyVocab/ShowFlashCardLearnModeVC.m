@@ -39,17 +39,14 @@
 
 - (void)setCurrentFlashCardID:(int)currentFlashCardID
 {
-    if (_currentFlashCardID != currentFlashCardID)
+    int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
+    if (currentFlashCardID >= 0 && currentFlashCardID < flashcardCount)
     {
-        int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
-        if (currentFlashCardID >= 0 && currentFlashCardID < flashcardCount)
-        {
-            _currentFlashCardID = currentFlashCardID;
-            self.currentFlashCard = [self.flashcardCollection flashcardPathAtIndex:_currentFlashCardID ofCategory:self.currentCategory];
-            
-            self.prevButton.hidden = (currentFlashCardID == 0);
-            self.nextButton.hidden = (currentFlashCardID == flashcardCount-1);
-        }
+        _currentFlashCardID = currentFlashCardID;
+        self.currentFlashCard = [self.flashcardCollection flashcardPathAtIndex:_currentFlashCardID ofCategory:self.currentCategory];
+        
+        self.prevButton.hidden = (currentFlashCardID == 0);
+        self.nextButton.hidden = (currentFlashCardID == flashcardCount-1);
     }
 }
 
@@ -76,6 +73,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
+    self.prevButton.hidden = (self.currentFlashCardID == 0);
+    self.nextButton.hidden = (self.currentFlashCardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
 }
 
 - (void)didReceiveMemoryWarning
