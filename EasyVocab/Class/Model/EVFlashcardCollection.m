@@ -11,6 +11,7 @@
 @interface EVFlashcardCollection()
 
 @property (strong, nonatomic) NSMutableDictionary *flashcardPathsByCategory;
+@property (strong, nonatomic) NSDictionary *answerByCategoryDictionary;
 
 - (NSArray *)flashcardPathsOfCategory:(NSString *)category;
 
@@ -19,6 +20,23 @@
 @implementation EVFlashcardCollection
 
 @synthesize flashcardPathsByCategory = _flashcardPathsByCategory;
+@synthesize answerByCategoryDictionary = _answerByCategoryDictionary;
+
+- (NSDictionary *)answerByCategoryDictionary
+{
+    if (!_answerByCategoryDictionary)
+    {
+		NSError * error;
+        NSString * jsonString = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"answer"
+                                                                                                   ofType:@"json"]
+                                                          encoding:NSUTF8StringEncoding
+                                                             error:&error];
+        _answerByCategoryDictionary = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                      options:NSJSONReadingMutableLeaves
+                                                                        error:&error];
+    }
+    return _answerByCategoryDictionary;
+}
 
 - (int)numberOfFlashcardInCategory:(NSString *)category
 {
@@ -45,6 +63,12 @@
     }
     
     return flashcardPaths;
+}
+
+- (NSString *)answerAtIndex:(int)index
+                 ofCategory:(NSString *)category
+{
+    return [(NSArray *)[self.answerByCategoryDictionary objectForKey:category] objectAtIndex:index];
 }
 
 @end

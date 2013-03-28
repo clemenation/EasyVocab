@@ -13,4 +13,7 @@
 - (int)numberOfFlashcardInCategory:(NSString *)category;
 - (NSString *)flashcardPathAtIndex:(int)index
                         ofCategory:(NSString *)category;
+- (NSString *)answerAtIndex:(int)index
+                 ofCategory:(NSString *)category;
+
 @end
