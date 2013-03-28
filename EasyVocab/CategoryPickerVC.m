@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *iconCollectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (assign, nonatomic) BOOL wasAtPractice;
 
 @end
 
@@ -23,6 +24,8 @@
 	NSArray * categories;
 	NSArray * colorIndex;
 }
+
+@synthesize wasAtPractice = _wasAtPractice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -132,6 +135,11 @@
 
 -(IBAction)returnToCategoryPicker:(UIStoryboardSegue *)segue {
 	NSLog(@"Returned from segue %@ at %@",segue.identifier,segue.sourceViewController);
+    
+    if ([segue.sourceViewController isKindOfClass:[ChoosePracticeModeVC class]])
+    {
+        self.wasAtPractice = YES;
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -142,7 +150,7 @@
 	if ([segue.identifier isEqualToString:@"play"]) {
 		NSLog(@"category=%@",choosenCategoryName);
 		UITabBarController * destVC = segue.destinationViewController;
-		[destVC setSelectedIndex:0];
+		[destVC setSelectedIndex:self.wasAtPractice];   // selected index based on previous index
 		UINavigationController * firstVC = [destVC.viewControllers objectAtIndex:0];
 		UINavigationController * secondVC = [destVC.viewControllers objectAtIndex:1];
 		((FlashCardCollectionVC*)firstVC.topViewController).currentCategory = choosenCategoryName;
