@@ -154,7 +154,6 @@
 		NSLog(@"Show flashcard:%@",choosenFlashCard);
 		ShowFlashCardLearnModeVC * vc= segue.destinationViewController;
 		vc.currentCategory=self.currentCategory;
-		vc.currentFlashCard=choosenFlashCard;
 		vc.currentFlashCardID=chosenFlashCardID;
 	}
 }
