@@ -8,37 +8,78 @@
 
 #import "ReviewFlashCardLearnModeVC.h"
 #import "ChoosePracticeModeVC.h"
+#import "EVFlashcardCollection.h"
+
 @interface ReviewFlashCardLearnModeVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
+@property (weak, nonatomic) IBOutlet UIButton *prevButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @end
 
 @implementation ReviewFlashCardLearnModeVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize currentFlashcardID = _currentFlashcardID;
+@synthesize flashcardCollection = _flashcardCollection;
+@synthesize correctAnswer = _correctAnswer;
+
+- (EVFlashcardCollection *)flashcardCollection
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (!_flashcardCollection)
+    {
+        _flashcardCollection = [[EVFlashcardCollection alloc] init];
     }
-    return self;
+    return _flashcardCollection;
+}
+
+- (void)setCurrentFlashcardID:(int)currentFlashcardID
+{
+    if (_currentFlashcardID != currentFlashcardID)
+    {
+        int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
+        if (currentFlashcardID >= 0 && currentFlashcardID < flashcardCount)
+        {
+            _currentFlashcardID = currentFlashcardID;            
+            self.correctAnswer = [self.flashcardCollection answerAtIndex:_currentFlashcardID
+                                                            ofCategory:self.currentCategory];
+            
+            self.prevButton.hidden = (_currentFlashcardID == 0);
+            self.nextButton.hidden = (_currentFlashcardID == flashcardCount-1);
+        }
+    }
+}
+
+- (void)setCorrectAnswer:(NSString *)correctAnswer
+{
+    if (correctAnswer != _correctAnswer)
+    {
+        _correctAnswer = correctAnswer;
+        self.textLabel.text = [self.correctAnswer uppercaseString];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
-	self.textLabel.text = [self.correctAnswer capitalizedString];
+	self.textLabel.text = [self.correctAnswer uppercaseString];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Target/action
+
+- (IBAction)prevButtonSelected:(UIButton *)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.currentFlashcardID--;
 }
+
+- (IBAction)nextButtonSelected:(UIButton *)sender
+{
+    self.currentFlashcardID++;
+}
+
 
 #pragma mark - Buttons fake Tabbar
 

@@ -11,8 +11,7 @@
 @interface ReviewFlashCardLearnModeVC : UIViewController
 
 @property(weak,nonatomic) NSString * currentCategory;
-
-@property(weak,nonatomic) NSString * currentFlashCard;
+@property(assign, nonatomic) int currentFlashcardID;
 
 @property(weak,nonatomic) NSString * correctAnswer;
 

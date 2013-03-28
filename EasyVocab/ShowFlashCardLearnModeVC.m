@@ -103,6 +103,11 @@
 - (IBAction)returnToShowFlashCardLearnMode:(UIStoryboardSegue *)segue
 {
     NSLog(@"Returned from segue %@ at %@",segue.identifier,segue.sourceViewController);
+    if ([segue.sourceViewController isKindOfClass:[ReviewFlashCardLearnModeVC class]])
+    {
+        ReviewFlashCardLearnModeVC *vc = segue.sourceViewController;
+        self.currentFlashCardID = vc.currentFlashcardID;
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -118,10 +123,8 @@
 	if ([segue.identifier isEqualToString:@"reviewFlashCardLearnMode"]) {
 		NSLog(@"category=%@",self.currentCategory);
 		ReviewFlashCardLearnModeVC * vc = segue.destinationViewController;
-		vc.currentFlashCard = self.currentFlashCard;
 		vc.currentCategory = self.currentCategory;
-        vc.correctAnswer = [self.flashcardCollection answerAtIndex:self.currentFlashCardID
-                                                        ofCategory:self.currentCategory];
+		vc.currentFlashcardID = self.currentFlashCardID;
 		
 	}
 	
