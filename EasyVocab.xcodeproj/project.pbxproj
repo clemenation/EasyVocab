@@ -746,9 +746,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4AC149AA16F7426A009F7CBA /* EasyVocab */ = {
+		4AC149AA16F7426A009F7CBA /* Bé Học Từ */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AC149CE16F7426A009F7CBA /* Build configuration list for PBXNativeTarget "EasyVocab" */;
+			buildConfigurationList = 4AC149CE16F7426A009F7CBA /* Build configuration list for PBXNativeTarget "Bé Học Từ" */;
 			buildPhases = (
 				4AC149A716F7426A009F7CBA /* Sources */,
 				4AC149A816F7426A009F7CBA /* Frameworks */,
@@ -759,7 +759,7 @@
 			);
 			dependencies = (
 			);
-			name = EasyVocab;
+			name = "Bé Học Từ";
 			productName = EasyVocab;
 			productReference = 4AC149AB16F7426A009F7CBA /* EasyVocab.app */;
 			productType = "com.apple.product-type.application";
@@ -786,7 +786,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4AC149AA16F7426A009F7CBA /* EasyVocab */,
+				4AC149AA16F7426A009F7CBA /* Bé Học Từ */,
 			);
 		};
 /* End PBXProject section */
@@ -1065,7 +1065,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AC149CE16F7426A009F7CBA /* Build configuration list for PBXNativeTarget "EasyVocab" */ = {
+		4AC149CE16F7426A009F7CBA /* Build configuration list for PBXNativeTarget "Bé Học Từ" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AC149CF16F7426A009F7CBA /* Debug */,
