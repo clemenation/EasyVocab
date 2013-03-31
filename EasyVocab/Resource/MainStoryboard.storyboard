@@ -500,6 +500,9 @@
                                 <state key="highlighted" backgroundImage="button_speaker_down.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="speakerSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="dxN-0e-Jwe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7vN-UL-hsk">
                                 <rect key="frame" x="15" y="10" width="110" height="32"/>

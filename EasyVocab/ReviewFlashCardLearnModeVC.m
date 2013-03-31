@@ -9,6 +9,7 @@
 #import "ReviewFlashCardLearnModeVC.h"
 #import "ChoosePracticeModeVC.h"
 #import "EVFlashcardCollection.h"
+#import "EVGoogleTranslateTTS.h"
 
 @interface ReviewFlashCardLearnModeVC ()
 
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (strong, nonatomic) EVGoogleTranslateTTS *tts;
 
 @end
 
@@ -25,6 +27,7 @@
 @synthesize currentFlashcardID = _currentFlashcardID;
 @synthesize flashcardCollection = _flashcardCollection;
 @synthesize correctAnswer = _correctAnswer;
+@synthesize tts = _tts;
 
 - (EVFlashcardCollection *)flashcardCollection
 {
@@ -37,18 +40,15 @@
 
 - (void)setCurrentFlashcardID:(int)currentFlashcardID
 {
-    if (_currentFlashcardID != currentFlashcardID)
+    int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
+    if (currentFlashcardID >= 0 && currentFlashcardID < flashcardCount)
     {
-        int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
-        if (currentFlashcardID >= 0 && currentFlashcardID < flashcardCount)
-        {
-            _currentFlashcardID = currentFlashcardID;            
-            self.correctAnswer = [self.flashcardCollection answerAtIndex:_currentFlashcardID
-                                                            ofCategory:self.currentCategory];
-            
-            self.prevButton.hidden = (_currentFlashcardID == 0);
-            self.nextButton.hidden = (_currentFlashcardID == flashcardCount-1);
-        }
+        _currentFlashcardID = currentFlashcardID;
+        self.correctAnswer = [self.flashcardCollection answerAtIndex:_currentFlashcardID
+                                                          ofCategory:self.currentCategory];
+        
+        self.prevButton.hidden = (_currentFlashcardID == 0);
+        self.nextButton.hidden = (_currentFlashcardID == flashcardCount-1);
     }
 }
 
@@ -67,6 +67,8 @@
 	// Do any additional setup after loading the view.
 	self.textLabel.text = [self.correctAnswer uppercaseString];
     self.textLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
+    self.prevButton.hidden = (self.currentFlashcardID == 0);
+    self.nextButton.hidden = (self.currentFlashcardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
 }
 
 #pragma mark - Target/action
@@ -79,6 +81,11 @@
 - (IBAction)nextButtonSelected:(UIButton *)sender
 {
     self.currentFlashcardID++;
+}
+
+- (IBAction)speakerSelected:(UIButton *)sender {
+    self.tts = [[EVGoogleTranslateTTS alloc] initWithLanguage:@"en" andContent:self.correctAnswer];
+    [self.tts startAsynchronous];
 }
 
 

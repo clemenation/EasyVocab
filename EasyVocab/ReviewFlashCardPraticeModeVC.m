@@ -7,6 +7,7 @@
 //
 
 #import "ReviewFlashCardPraticeModeVC.h"
+#import "EVGoogleTranslateTTS.h"
 
 @interface ReviewFlashCardPraticeModeVC ()
 
@@ -14,12 +15,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *awesomeLabel;
+@property (strong, nonatomic) EVGoogleTranslateTTS *tts;
 
 @end
 
 @implementation ReviewFlashCardPraticeModeVC
 
 @synthesize isGiveUp = _isGiveUp;
+@synthesize tts = _tts;
 
 - (void)setIsGiveUp:(BOOL)isGiveUp
 {
@@ -52,7 +55,8 @@
 #pragma mark - Buttons
 
 - (IBAction)speakAnswerPressed:(id)sender {
-	
+	self.tts = [[EVGoogleTranslateTTS alloc] initWithLanguage:@"en" andContent:self.correctAnswer];
+    [self.tts startAsynchronous];
 }
 
 - (IBAction)nextAnswerPressed:(id)sender {
