@@ -51,5 +51,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>UVNVan_B.TTF</string>
+		<string>UVNVan_R.TTF</string>
+	</array>
 </dict>
 </plist>

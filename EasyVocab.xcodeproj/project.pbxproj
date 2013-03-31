@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1633C51707D4DF000A94EA /* UVNVan_B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4A1633C31707D4DF000A94EA /* UVNVan_B.TTF */; };
+		4A1633C61707D4DF000A94EA /* UVNVan_R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4A1633C41707D4DF000A94EA /* UVNVan_R.TTF */; };
 		4A2006F517047F6D00476EC2 /* category_button_blue_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2006ED17047F6D00476EC2 /* category_button_blue_selected.png */; };
 		4A2006F617047F6D00476EC2 /* category_button_blue_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2006EE17047F6D00476EC2 /* category_button_blue_selected@2x.png */; };
 		4A2006F717047F6D00476EC2 /* category_button_orange_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2006EF17047F6D00476EC2 /* category_button_orange_selected.png */; };
@@ -131,6 +133,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A1633C31707D4DF000A94EA /* UVNVan_B.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = UVNVan_B.TTF; path = Resource/Fonts/UVNVan_B.TTF; sourceTree = "<group>"; };
+		4A1633C41707D4DF000A94EA /* UVNVan_R.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = UVNVan_R.TTF; path = Resource/Fonts/UVNVan_R.TTF; sourceTree = "<group>"; };
 		4A2006ED17047F6D00476EC2 /* category_button_blue_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = category_button_blue_selected.png; sourceTree = "<group>"; };
 		4A2006EE17047F6D00476EC2 /* category_button_blue_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category_button_blue_selected@2x.png"; sourceTree = "<group>"; };
 		4A2006EF17047F6D00476EC2 /* category_button_orange_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = category_button_orange_selected.png; sourceTree = "<group>"; };
@@ -283,6 +287,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A1633C21707D4D5000A94EA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4A1633C31707D4DF000A94EA /* UVNVan_B.TTF */,
+				4A1633C41707D4DF000A94EA /* UVNVan_R.TTF */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		4AC149A216F7426A009F7CBA = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +336,7 @@
 		4AC149B516F7426A009F7CBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A1633C21707D4D5000A94EA /* Fonts */,
 				4AC149DE16F74366009F7CBA /* Multilanguage */,
 				4AC149DD16F74361009F7CBA /* Others */,
 				4AC149DC16F7435B009F7CBA /* Images */,
@@ -801,6 +815,8 @@
 				4A2006FA17047F6D00476EC2 /* category_button_purple_selected@2x.png in Resources */,
 				4A2006FB17047F6D00476EC2 /* category_button_yellow_selected.png in Resources */,
 				4A2006FC17047F6D00476EC2 /* category_button_yellow_selected@2x.png in Resources */,
+				4A1633C51707D4DF000A94EA /* UVNVan_B.TTF in Resources */,
+				4A1633C61707D4DF000A94EA /* UVNVan_R.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

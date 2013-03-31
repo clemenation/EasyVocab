@@ -53,6 +53,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.categoryLabel.font = [UIFont fontWithName:@"UVNVan" size:30];
 	
 //	NSLog(@"iconPath=%@",iconPath);
 	shellPerPage = 9;

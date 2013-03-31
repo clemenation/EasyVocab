@@ -35,6 +35,7 @@
 	// Do any additional setup after loading the view.
 	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
 	[self.textField becomeFirstResponder];
+    self.textField.font = [UIFont fontWithName:@"UVNVanBold" size:20];
 }
 
 - (void)didReceiveMemoryWarning

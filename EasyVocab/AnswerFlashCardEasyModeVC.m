@@ -44,7 +44,8 @@
 	[self shuffleArray:allAns];
 	
 	for (int i=0; i<4; i++) {
-		[[self.answerButtons objectAtIndex:i] setTitle:[allAns objectAtIndex:i] forState:UIControlStateNormal];
+		[[self.answerButtons objectAtIndex:i] setTitle:[[allAns objectAtIndex:i] uppercaseString] forState:UIControlStateNormal];
+        ((UIButton *)[self.answerButtons objectAtIndex:i]).titleLabel.font = [UIFont fontWithName:@"UVNVanBold" size:20];
 	}
 	
 }
@@ -87,7 +88,7 @@
 }
 
 - (IBAction)checkAnswer:(UIButton *)sender {
-	if ([chosenAnswer isEqualToString:self.correctAnswer]) {
+	if ([chosenAnswer.uppercaseString isEqualToString:self.correctAnswer.uppercaseString]) {
 		[self performSegueWithIdentifier:@"reviewFlashCardPraticeMode" sender:sender];
 	}else{
 		NSLog(@"Wrong answers!");

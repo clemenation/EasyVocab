@@ -44,7 +44,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-	self.textLabel.text = [self.correctAnswer capitalizedString];
+	self.textLabel.text = [self.correctAnswer uppercaseString];
+    self.textLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
     self.awesomeLabel.hidden = self.isGiveUp;
 }
 

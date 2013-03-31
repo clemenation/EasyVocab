@@ -9,6 +9,7 @@
 #import "CategoryPickerVC.h"
 #import "FlashCardCollectionVC.h"
 #import "ChoosePracticeModeVC.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CategoryPickerVC ()
 
@@ -91,7 +92,10 @@
 		[cat setTitle:@"" forState:UIControlStateNormal];
         
         UILabel *customTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 0, 170, cat.frame.size.height)];
-        customTitleLabel.font = [UIFont boldSystemFontOfSize:30];
+        customTitleLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
+        customTitleLabel.layer.shadowOffset = CGSizeMake(1, 1);
+        customTitleLabel.layer.shadowOpacity = 0.5f;
+        customTitleLabel.layer.shadowRadius = 3.5;
         customTitleLabel.textColor = [UIColor whiteColor];
         customTitleLabel.backgroundColor = [UIColor clearColor];
         customTitleLabel.textAlignment = NSTextAlignmentCenter;
