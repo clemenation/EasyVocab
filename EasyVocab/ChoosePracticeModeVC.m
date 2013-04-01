@@ -8,8 +8,11 @@
 
 #import "ChoosePracticeModeVC.h"
 #import "ShowFlashCardPraticeModeVC.h"
+#import "EVWalkthroughManager.h"
 
 @interface ChoosePracticeModeVC ()
+
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 @end
 
@@ -17,26 +20,12 @@
 	int praticeModeSelected;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	NSLog(@"ChoosePracticeModeVC DidLoad with category: %@",self.currentCategory);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Buttons
@@ -48,6 +37,12 @@
 - (IBAction)challengeModeSelected:(id)sender {
 	praticeModeSelected=2;
 	[self performSegueWithIdentifier:@"showFlashCardPraticeMode" sender:sender];
+}
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES
+                                  forController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Buttons fake Tabbar

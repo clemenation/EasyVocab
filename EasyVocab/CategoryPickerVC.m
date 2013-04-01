@@ -9,6 +9,7 @@
 #import "CategoryPickerVC.h"
 #import "FlashCardCollectionVC.h"
 #import "ChoosePracticeModeVC.h"
+#import "EVWalkthroughManager.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface CategoryPickerVC ()
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *iconCollectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (assign, nonatomic) BOOL wasAtPractice;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
+@property (assign, nonatomic) BOOL hasReadWalkthrough;
 
 @end
 
@@ -28,19 +31,26 @@
 
 @synthesize wasAtPractice = _wasAtPractice;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Setters/getters
+
+- (BOOL)hasReadWalkthrough
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    return [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass([self class])];
 }
+
+- (void)setHasReadWalkthrough:(BOOL)hasReadWalkthrough
+{
+    [EVWalkthroughManager setHasReadWalkthrough:hasReadWalkthrough forController:NSStringFromClass([self class])];
+}
+
+
+#pragma mark - Class methods
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
 //	
 //	iconPath = [[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:@"iconbeast"];
 //	//	NSLog(@"iconPath=%@",iconPath);
@@ -53,12 +63,9 @@
 	 
 	self.pageControl.currentPage = 0;
 	[self.pageControl addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    // enable/disable walkthrough
+    self.walkthroughButton.hidden = self.hasReadWalkthrough;
 }
 
 
@@ -162,4 +169,12 @@
 	}
 
 }
+
+#pragma mark - Target/action
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    self.hasReadWalkthrough = YES;
+    self.walkthroughButton.hidden = YES;
+}
+
 @end

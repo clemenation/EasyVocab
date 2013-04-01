@@ -10,6 +10,7 @@
 #import "ChoosePracticeModeVC.h"
 #import "EVFlashcardCollection.h"
 #import "EVGoogleTranslateTTS.h"
+#import "EVWalkthroughManager.h"
 
 @interface ReviewFlashCardLearnModeVC ()
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (strong, nonatomic) EVGoogleTranslateTTS *tts;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 @end
 
@@ -69,6 +71,8 @@
     self.textLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
     self.prevButton.hidden = (self.currentFlashcardID == 0);
     self.nextButton.hidden = (self.currentFlashcardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
+    
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Target/action
@@ -88,6 +92,11 @@
     [self.tts startAsynchronous];
 }
 
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES
+                                  forController:NSStringFromClass(self.class)];
+}
 
 #pragma mark - Buttons fake Tabbar
 

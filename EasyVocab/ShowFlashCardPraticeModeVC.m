@@ -9,35 +9,24 @@
 #import "ShowFlashCardPraticeModeVC.h"
 #import "AnswerFlashCardEasyModeVC.h"
 #import "AnswerFlashCardChallengeMode.h"
+#import "EVWalkthroughManager.h"
 
 @interface ShowFlashCardPraticeModeVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 @end
 
 @implementation ShowFlashCardPraticeModeVC
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - gesture
@@ -122,7 +111,14 @@
 		}		
 		
 	}
-
-	
 }
+
+#pragma mark - Target/action
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES
+                                  forController:NSStringFromClass(self.class)];
+}
+
 @end

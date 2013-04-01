@@ -9,6 +9,7 @@
 #import "FlashCardCollectionVC.h"
 #import "ShowFlashCardLearnModeVC.h"
 #import "EVFlashcardCollection.h"
+#import "EVWalkthroughManager.h"
 
 
 @interface FlashCardCollectionVC ()
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *categoryIcon;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 
@@ -72,6 +74,9 @@
 	self.categoryIcon.image = [UIImage imageWithContentsOfFile:path];
     
     self.iconCollectionView.backgroundColor = [UIColor clearColor];
+    
+    // Enable/disable walkthrough button
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 
 }
 
@@ -158,5 +163,13 @@
 		vc.currentFlashCardID=chosenFlashCardID;
 	}
 }
+
+#pragma mark - Target/action
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES forController:NSStringFromClass(self.class)];
+}
+
 
 @end

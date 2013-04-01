@@ -10,6 +10,7 @@
 #import "ReviewFlashCardLearnModeVC.h"
 #import "ChoosePracticeModeVC.h"
 #import "EVFlashcardCollection.h"
+#import "EVWalkthroughManager.h"
 
 
 @interface ShowFlashCardLearnModeVC ()
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 
 @end
@@ -59,15 +61,6 @@
     }
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -75,12 +68,8 @@
     self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
     self.prevButton.hidden = (self.currentFlashCardID == 0);
     self.nextButton.hidden = (self.currentFlashCardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Buttons fake Tabbar
@@ -128,4 +117,13 @@
 	}
 	
 }
+
+#pragma mark - Target/action
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES
+                                  forController:NSStringFromClass(self.class)];
+}
+
 @end

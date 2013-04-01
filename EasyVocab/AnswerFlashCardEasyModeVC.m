@@ -8,10 +8,12 @@
 
 #import "AnswerFlashCardEasyModeVC.h"
 #import "ReviewFlashCardPraticeModeVC.h"
+#import "EVWalkthroughManager.h"
 
 @interface AnswerFlashCardEasyModeVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *answerButtons;
 
@@ -20,16 +22,6 @@
 @implementation AnswerFlashCardEasyModeVC{
 	NSString * chosenAnswer;
 	UIButton * chosenAnswerButton;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-		
-    }
-    return self;
 }
 
 - (void)viewDidLoad
@@ -47,13 +39,8 @@
 		[[self.answerButtons objectAtIndex:i] setTitle:[[allAns objectAtIndex:i] uppercaseString] forState:UIControlStateNormal];
         ((UIButton *)[self.answerButtons objectAtIndex:i]).titleLabel.font = [UIFont fontWithName:@"UVNVanBold" size:20];
 	}
-	
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - 
@@ -96,6 +83,11 @@
 		chosenAnswerButton.enabled = false;
 		chosenAnswerButton.selected = false;
 	}
+}
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES forController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Buttons fake Tabbar

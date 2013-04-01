@@ -8,11 +8,13 @@
 
 #import "AnswerFlashCardChallengeMode.h"
 #import "ReviewFlashCardPraticeModeVC.h"
+#import "EVWalkthroughManager.h"
 
 @interface AnswerFlashCardChallengeMode ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *giveUpButton;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 @end
 
@@ -20,28 +22,15 @@
 	
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
-	[self.textField becomeFirstResponder];
     self.textField.font = [UIFont fontWithName:@"UVNVanBold" size:20];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
+    if (self.walkthroughButton.hidden) [self.textField becomeFirstResponder];
 }
 
 #pragma mark - textField delegate
@@ -74,6 +63,13 @@
 }
 - (IBAction)giveUpButtonPressed:(id)sender {
 	[self performSegueWithIdentifier:@"reviewFlashCardPraticeMode" sender:sender];
+}
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [self.textField becomeFirstResponder];
+    [EVWalkthroughManager setHasReadWalkthrough:YES
+                                  forController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Buttons fake Tabbar

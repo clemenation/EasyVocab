@@ -8,6 +8,7 @@
 
 #import "ReviewFlashCardPraticeModeVC.h"
 #import "EVGoogleTranslateTTS.h"
+#import "EVWalkthroughManager.h"
 
 @interface ReviewFlashCardPraticeModeVC ()
 
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *awesomeLabel;
 @property (strong, nonatomic) EVGoogleTranslateTTS *tts;
+@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 
 @end
 
@@ -33,15 +35,6 @@
     }
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,6 +43,8 @@
 	self.textLabel.text = [self.correctAnswer uppercaseString];
     self.textLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
     self.awesomeLabel.hidden = self.isGiveUp;
+    
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Buttons
@@ -61,6 +56,12 @@
 
 - (IBAction)nextAnswerPressed:(id)sender {
 	
+}
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES
+                                  forController:NSStringFromClass(self.class)];
 }
 
 #pragma mark - Buttons fake Tabbar

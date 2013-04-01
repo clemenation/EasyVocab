@@ -7,6 +7,7 @@
 //
 
 #import "EVAppDelegate.h"
+#import "EVWalkthroughManager.h"
 
 @interface EVAppDelegate()
 
@@ -18,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [EVWalkthroughManager resetWalkthrough];
+    
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self customizeInterface];

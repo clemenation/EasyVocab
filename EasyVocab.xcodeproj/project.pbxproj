@@ -33,6 +33,7 @@
 		4A2006FB17047F6D00476EC2 /* category_button_yellow_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2006F317047F6D00476EC2 /* category_button_yellow_selected.png */; };
 		4A2006FC17047F6D00476EC2 /* category_button_yellow_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2006F417047F6D00476EC2 /* category_button_yellow_selected@2x.png */; };
 		4A2006FF17048A2700476EC2 /* EVFlashcardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */; };
+		4A46C72F170930BE0075C6D5 /* EVWalkthroughManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */; };
 		4A5A8DB0170496A500D48CD5 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A8DAC170496A500D48CD5 /* iTunesArtwork.png */; };
 		4A5A8DB6170496D900D48CD5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A8DB5170496D900D48CD5 /* Default@2x.png */; };
 		4A5A8DB8170496DC00D48CD5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A8DB7170496DC00D48CD5 /* Default.png */; };
@@ -189,12 +190,14 @@
 		4A2006F417047F6D00476EC2 /* category_button_yellow_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category_button_yellow_selected@2x.png"; sourceTree = "<group>"; };
 		4A2006FD17048A2600476EC2 /* EVFlashcardCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcardCollection.h; path = Class/Model/EVFlashcardCollection.h; sourceTree = "<group>"; };
 		4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardCollection.m; path = Class/Model/EVFlashcardCollection.m; sourceTree = "<group>"; };
+		4A46C72D170930BE0075C6D5 /* EVWalkthroughManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVWalkthroughManager.h; path = Class/Model/EVWalkthroughManager.h; sourceTree = "<group>"; };
+		4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVWalkthroughManager.m; path = Class/Model/EVWalkthroughManager.m; sourceTree = "<group>"; };
 		4A5A8DAC170496A500D48CD5 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		4A5A8DB5170496D900D48CD5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		4A5A8DB7170496DC00D48CD5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		4A5A8DB9170496DC00D48CD5 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon.png; path = ../app_icon.png; sourceTree = "<group>"; };
 		4A5A8DBA170496DC00D48CD5 /* app_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app_icon@2x.png"; path = "../app_icon@2x.png"; sourceTree = "<group>"; };
-		4AC149AB16F7426A009F7CBA /* EasyVocab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyVocab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC149AB16F7426A009F7CBA /* EasyVocab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = EasyVocab.app; path = "Bé Học Từ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC149AE16F7426A009F7CBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4AC149B016F7426A009F7CBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4AC149B216F7426A009F7CBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -462,6 +465,8 @@
 			children = (
 				4A2006FD17048A2600476EC2 /* EVFlashcardCollection.h */,
 				4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */,
+				4A46C72D170930BE0075C6D5 /* EVWalkthroughManager.h */,
+				4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -952,6 +957,7 @@
 				4A09FA3317088BA5007D5733 /* ASIInputStream.m in Sources */,
 				4A09FA3417088BA5007D5733 /* ASINetworkQueue.m in Sources */,
 				4A09FA3517088BA5007D5733 /* Reachability.m in Sources */,
+				4A46C72F170930BE0075C6D5 /* EVWalkthroughManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
