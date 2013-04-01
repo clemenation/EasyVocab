@@ -168,13 +168,6 @@
                                     <segue destination="u1L-RO-sil" kind="unwind" unwindAction="returnToCategoryPicker:" id="44L-Sf-34s"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Category Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="opN-Mu-hdu">
-                                <rect key="frame" x="120" y="55" width="180" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="3ds-Vr-5MY" userLabel="Button - Learn">
                                 <rect key="frame" x="0.0" y="432" width="160" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -204,10 +197,17 @@
                                     <action selector="switchToPratice:" destination="tGq-ji-LiM" eventType="touchUpInside" id="B8x-QG-O9l"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="5bs-F6-Xds">
-                                <rect key="frame" x="25" y="45" width="89" height="57"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5bs-F6-Xds">
+                                <rect key="frame" x="25" y="42" width="89" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Category Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="opN-Mu-hdu">
+                                <rect key="frame" x="120" y="52" width="180" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="button_prev.png" id="mEy-fd-yHj">
                                 <rect key="frame" x="40" y="385" width="29" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

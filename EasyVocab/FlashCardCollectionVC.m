@@ -42,15 +42,6 @@
     return _flashcardCollection;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -58,7 +49,7 @@
     self.categoryLabel.font = [UIFont fontWithName:@"UVNVan" size:30];
 	
 //	NSLog(@"iconPath=%@",iconPath);
-	shellPerPage = 9;
+	shellPerPage = 16;
     int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
 	self.pageControl.numberOfPages = flashcardCount/shellPerPage;
 	if (flashcardCount%shellPerPage!=0)self.pageControl.numberOfPages ++;
@@ -78,12 +69,6 @@
     // Enable/disable walkthrough button
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
