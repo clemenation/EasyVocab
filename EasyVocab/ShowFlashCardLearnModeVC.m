@@ -16,6 +16,7 @@
 @interface ShowFlashCardLearnModeVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *flashcardBackground;
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
@@ -70,6 +71,10 @@
     self.nextButton.hidden = (self.currentFlashCardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
     
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
+    
+    // Tilt flashcard
+    self.flashcardBackground.transform = CGAffineTransformMakeRotation(M_PI / 180 * 5);
+    self.imageView.transform = CGAffineTransformMakeRotation(M_PI / 180 * 5);
 }
 
 #pragma mark - Buttons fake Tabbar

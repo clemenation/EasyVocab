@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
+@property (weak, nonatomic) IBOutlet UIView *flashcardView;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *answerButtons;
 
@@ -41,6 +42,8 @@
 	}
 
 	self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
+    
+    self.flashcardView.transform = CGAffineTransformMakeRotation(M_PI / 180 * -5);
 }
 
 #pragma mark - 

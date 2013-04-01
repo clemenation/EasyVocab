@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *awesomeLabel;
 @property (strong, nonatomic) EVGoogleTranslateTTS *tts;
 @property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
+@property (weak, nonatomic) IBOutlet UIView *flashcardView;
 
 @end
 
@@ -45,6 +46,8 @@
     self.awesomeLabel.hidden = self.isGiveUp;
     
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
+    
+    self.flashcardView.transform = CGAffineTransformMakeRotation(M_PI / 180 * -5);
 }
 
 #pragma mark - Buttons

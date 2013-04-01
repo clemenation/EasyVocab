@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *giveUpButton;
 @property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
+@property (weak, nonatomic) IBOutlet UIView *flashcardView;
 
 @end
 
@@ -31,6 +32,8 @@
     
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
     if (self.walkthroughButton.hidden) [self.textField becomeFirstResponder];
+    
+    self.flashcardView.transform = CGAffineTransformMakeRotation(M_PI / 180 * -5);
 }
 
 #pragma mark - textField delegate
@@ -46,6 +49,12 @@
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
 	self.textField.backgroundColor = [UIColor clearColor];
 	return true;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark - Buttons

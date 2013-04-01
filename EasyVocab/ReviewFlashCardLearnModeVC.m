@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (strong, nonatomic) EVGoogleTranslateTTS *tts;
 @property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
+@property (weak, nonatomic) IBOutlet UIView *flashcardView;
 
 @end
 
@@ -73,6 +74,9 @@
     self.nextButton.hidden = (self.currentFlashcardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
     
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
+    
+    // Tilt flashcard
+    self.flashcardView.transform = CGAffineTransformMakeRotation(M_PI / 180 * -5);
 }
 
 #pragma mark - Target/action

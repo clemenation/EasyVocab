@@ -487,6 +487,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="82Q-I7-jZb"/>
                     <connections>
+                        <outlet property="flashcardBackground" destination="TW5-g8-gGM" id="p29-eR-7m8"/>
                         <outlet property="imageView" destination="vIp-I2-QoB" id="7Om-af-M7I"/>
                         <outlet property="nextButton" destination="s3B-8w-xvQ" id="eas-gB-Brf"/>
                         <outlet property="prevButton" destination="zQG-3b-whE" id="fDj-TG-UCm"/>
@@ -545,29 +546,41 @@
                                     <action selector="nextButtonSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="aAY-MR-gJi"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" image="flashcard.png" id="O9b-I7-up0">
+                            <view contentMode="scaleToFill" id="AZK-Vp-rhc">
                                 <rect key="frame" x="15" y="70" width="291" height="291"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="oIn-Rs-aM8" appends="YES" id="zdV-Bf-cde"/>
-                                </connections>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GyO-IF-fs0">
-                                <rect key="frame" x="131" y="268" width="59" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="button_speaker.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" backgroundImage="button_speaker_down.png"/>
-                                <state key="highlighted" backgroundImage="button_speaker_down.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="speakerSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="dxN-0e-Jwe"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" image="flashcard.png" id="O9b-I7-up0">
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="oIn-Rs-aM8" appends="YES" id="zdV-Bf-cde"/>
+                                        </connections>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GyO-IF-fs0">
+                                        <rect key="frame" x="110" y="195" width="59" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" backgroundImage="button_speaker.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="button_speaker_down.png"/>
+                                        <state key="highlighted" backgroundImage="button_speaker_down.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="speakerSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="dxN-0e-Jwe"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy Vocab" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ImB-IP-gbp">
+                                        <rect key="frame" x="13" y="76" width="264" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7vN-UL-hsk">
                                 <rect key="frame" x="15" y="10" width="110" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -612,12 +625,6 @@
                                     <action selector="switchToPratice:" destination="nfF-nI-zTk" eventType="touchUpInside" id="Ur6-J7-G2X"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy Vocab" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ImB-IP-gbp">
-                                <rect key="frame" x="28" y="146" width="264" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="gsC-XS-IbD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -639,6 +646,7 @@
                     <navigationItem key="navigationItem" id="Cfg-lY-jNc"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="flashcardView" destination="AZK-Vp-rhc" id="M4C-We-VKd"/>
                         <outlet property="nextButton" destination="VAs-Pd-y2q" id="2Dg-Ll-WNb"/>
                         <outlet property="prevButton" destination="PEK-64-3K5" id="Ceb-fC-hJO"/>
                         <outlet property="textLabel" destination="ImB-IP-gbp" id="1CU-KL-eJI"/>
@@ -667,18 +675,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="yid-4O-NVm">
+                            <view contentMode="scaleToFill" id="8vb-MP-nle">
                                 <rect key="frame" x="15" y="70" width="291" height="291"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView contentMode="scaleAspectFit" image="image.png" id="XEt-Bz-3Mk">
-                                <rect key="frame" x="38" y="94" width="244" height="244"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="a39-s4-cSF" appends="YES" id="Gfe-py-k7U"/>
-                                </connections>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="yid-4O-NVm">
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView contentMode="scaleAspectFit" image="image.png" id="XEt-Bz-3Mk">
+                                        <rect key="frame" x="23" y="24" width="244" height="244"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="a39-s4-cSF" appends="YES" id="Gfe-py-k7U"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G9n-dw-WVO">
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -746,6 +760,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Nmr-K1-lha"/>
                     <connections>
+                        <outlet property="flashcardView" destination="8vb-MP-nle" id="PJG-w5-brG"/>
                         <outlet property="imageView" destination="XEt-Bz-3Mk" id="VMF-dJ-r7m"/>
                         <outlet property="walkthroughButton" destination="On6-jX-GGz" id="llA-1A-wK0"/>
                         <segue destination="3Wl-JI-VRq" kind="push" identifier="answerFlashCardChallengeMode" id="cfP-bC-HgM"/>
@@ -774,78 +789,84 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="Y6q-yb-3wS">
+                            <view contentMode="scaleToFill" id="fjj-oy-xuo">
                                 <rect key="frame" x="15" y="70" width="291" height="291"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gah-2e-v1s">
-                                <rect key="frame" x="36" y="115" width="248" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Answer A" backgroundImage="practice_back_easy_button_choice.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
-                                <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="TZX-wW-FK7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="6oS-l0-6Az">
-                                <rect key="frame" x="36" y="168" width="248" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Answer B" backgroundImage="practice_back_easy_button_choice.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
-                                <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
-                                <state key="highlighted" backgroundImage="practice_back_easy_button_choice_selected.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="FZc-Xp-pJ6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="4Af-xc-Ijo">
-                                <rect key="frame" x="36" y="221" width="248" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Answer C" backgroundImage="practice_back_easy_button_choice.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong@2x.png"/>
-                                <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="BJu-Sc-qVC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="wFs-z2-NRY">
-                                <rect key="frame" x="36" y="279" width="248" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Answer D" backgroundImage="practice_back_easy_button_choice.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
-                                <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="pli-CN-UJP"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="Y6q-yb-3wS">
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gah-2e-v1s">
+                                        <rect key="frame" x="21" y="49" width="248" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" title="Answer A" backgroundImage="practice_back_easy_button_choice.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
+                                        <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="TZX-wW-FK7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="6oS-l0-6Az">
+                                        <rect key="frame" x="21" y="102" width="248" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" title="Answer B" backgroundImage="practice_back_easy_button_choice.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
+                                        <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
+                                        <state key="highlighted" backgroundImage="practice_back_easy_button_choice_selected.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="FZc-Xp-pJ6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="4Af-xc-Ijo">
+                                        <rect key="frame" x="21" y="155" width="248" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" title="Answer C" backgroundImage="practice_back_easy_button_choice.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong@2x.png"/>
+                                        <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="BJu-Sc-qVC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="wFs-z2-NRY">
+                                        <rect key="frame" x="21" y="211" width="248" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Answer D" backgroundImage="practice_back_easy_button_choice.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
+                                        <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="pli-CN-UJP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ukj-bq-Otr">
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -930,9 +951,10 @@
                         <barButtonItem key="rightBarButtonItem" image="tick.png" id="D43-FU-B4H"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="flashcardView" destination="fjj-oy-xuo" id="AQP-0A-6eo"/>
                         <outlet property="walkthroughButton" destination="rGg-gd-3eo" id="ZOL-Ew-1U4"/>
-                        <outletCollection property="answerButtons" destination="6oS-l0-6Az" id="QUc-0C-BfK"/>
                         <outletCollection property="answerButtons" destination="gah-2e-v1s" id="qYy-iZ-KdK"/>
+                        <outletCollection property="answerButtons" destination="6oS-l0-6Az" id="QUc-0C-BfK"/>
                         <outletCollection property="answerButtons" destination="4Af-xc-Ijo" id="qCD-9e-bQD"/>
                         <outletCollection property="answerButtons" destination="wFs-z2-NRY" id="t98-8U-lnq"/>
                         <segue destination="4pg-oh-qH9" kind="push" identifier="reviewFlashCardPraticeMode" id="D4N-ev-iQn"/>
@@ -955,47 +977,53 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="b4A-zH-xHj">
+                            <view contentMode="scaleToFill" id="y13-jB-0ww">
                                 <rect key="frame" x="15" y="70" width="291" height="291"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy Vocab" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a6A-r4-ZqT">
-                                <rect key="frame" x="28" y="146" width="264" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zDl-8a-Lk1">
-                                <rect key="frame" x="89" y="261" width="59" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" image="button_speaker.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="speakAnswerPressed:" destination="4pg-oh-qH9" eventType="touchUpInside" id="hsG-cA-sw6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lGC-6E-xV7">
-                                <rect key="frame" x="193" y="261" width="38" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" image="practice_back_answer_button_next.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextAnswerPressed:" destination="4pg-oh-qH9" eventType="touchUpInside" id="IfH-Ak-bp3"/>
-                                    <segue destination="Taa-EK-cHJ" kind="unwind" unwindAction="returnToShowFlashCardPraticeMode:" id="E60-lq-N03"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="b4A-zH-xHj">
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy Vocab" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a6A-r4-ZqT">
+                                        <rect key="frame" x="13" y="76" width="264" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zDl-8a-Lk1">
+                                        <rect key="frame" x="74" y="191" width="59" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" image="button_speaker.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="speakAnswerPressed:" destination="4pg-oh-qH9" eventType="touchUpInside" id="hsG-cA-sw6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lGC-6E-xV7">
+                                        <rect key="frame" x="171" y="191" width="38" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" image="practice_back_answer_button_next.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextAnswerPressed:" destination="4pg-oh-qH9" eventType="touchUpInside" id="IfH-Ak-bp3"/>
+                                            <segue destination="Taa-EK-cHJ" kind="unwind" unwindAction="returnToShowFlashCardPraticeMode:" id="E60-lq-N03"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="V8C-mP-k9x">
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1068,6 +1096,7 @@
                     <navigationItem key="navigationItem" id="qRf-Yr-IxC"/>
                     <connections>
                         <outlet property="awesomeLabel" destination="hdh-N8-Y0Q" id="Gg9-Tp-Ch1"/>
+                        <outlet property="flashcardView" destination="y13-jB-0ww" id="YUn-0l-b0h"/>
                         <outlet property="textLabel" destination="a6A-r4-ZqT" id="TH5-73-rdh"/>
                         <outlet property="walkthroughButton" destination="F7c-eU-hcf" id="RKS-pJ-rLp"/>
                     </connections>
@@ -1089,39 +1118,45 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="Lt5-Vq-BWI">
+                            <view contentMode="scaleToFill" id="ndS-72-NJc">
                                 <rect key="frame" x="15" y="70" width="291" height="291"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="practice_back_easy_button_choice_selected.png" id="qmL-bl-CNI">
-                                <rect key="frame" x="35" y="136" width="248" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="always" id="TAt-Og-9bU">
-                                <rect key="frame" x="35" y="136" width="249" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="3Wl-JI-VRq" id="KM7-9J-gkc"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hhH-yz-Ja6">
-                                <rect key="frame" x="125" y="197" width="69" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Check" image="practice_back_challenge_button_check.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="checkAnswerPressed:" destination="3Wl-JI-VRq" eventType="touchUpInside" id="bOg-lb-r2b"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="Lt5-Vq-BWI">
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="practice_back_easy_button_choice_selected.png" id="qmL-bl-CNI">
+                                        <rect key="frame" x="21" y="66" width="248" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="always" id="TAt-Og-9bU">
+                                        <rect key="frame" x="21" y="66" width="249" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="3Wl-JI-VRq" id="KM7-9J-gkc"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hhH-yz-Ja6">
+                                        <rect key="frame" x="111" y="127" width="69" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Check" image="practice_back_challenge_button_check.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkAnswerPressed:" destination="3Wl-JI-VRq" eventType="touchUpInside" id="bOg-lb-r2b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LiK-hp-q9R">
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1204,6 +1239,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="blC-BG-Zlp"/>
                     <connections>
+                        <outlet property="flashcardView" destination="ndS-72-NJc" id="BHt-f3-NxV"/>
                         <outlet property="giveUpButton" destination="j6k-XI-9Kc" id="U1C-5E-dPN"/>
                         <outlet property="textField" destination="TAt-Og-9bU" id="Tv3-yB-sMv"/>
                         <outlet property="walkthroughButton" destination="zud-yF-6AL" id="gdd-ij-Aci"/>
@@ -1312,12 +1348,111 @@
         <image name="tab_practice_off.png" width="160" height="49"/>
         <image name="tick.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="AnswerFlashCardChallengeMode" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
+            <relationships>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="giveUpButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AnswerFlashCardEasyModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardEasyModeVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="answerButtons" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="CategoryPickerVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ChoosePracticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FlashCardCollectionVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ReviewFlashCardLearnModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardLearnModeVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="prevButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ReviewFlashCardPraticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardPraticeModeVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="awesomeLabel" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ShowFlashCardLearnModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardLearnModeVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="flashcardBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="prevButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ShowFlashCardPraticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardPraticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToShowFlashCardPraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="D4N-ev-iQn"/>
+        <segue reference="ZC7-de-Uws"/>
     </inferredMetricsTieBreakers>
 </document>
