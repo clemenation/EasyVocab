@@ -209,11 +209,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="button_prev.png" id="mEy-fd-yHj">
-                                <rect key="frame" x="40" y="385" width="29" height="41"/>
+                                <rect key="frame" x="40" y="391" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="button_next.png" id="Oxg-Vc-iL0">
-                                <rect key="frame" x="254" y="385" width="29" height="41"/>
+                                <rect key="frame" x="262" y="391" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Ilo-TH-Vs2">
@@ -438,7 +438,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zQG-3b-whE">
-                                <rect key="frame" x="38" y="370" width="29" height="41"/>
+                                <rect key="frame" x="38" y="376" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_prev.png">
@@ -453,7 +453,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3B-8w-xvQ">
-                                <rect key="frame" x="242" y="370" width="29" height="41"/>
+                                <rect key="frame" x="250" y="376" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_next.png">
@@ -517,7 +517,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PEK-64-3K5">
-                                <rect key="frame" x="44" y="370" width="29" height="41"/>
+                                <rect key="frame" x="44" y="376" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_prev.png">
@@ -532,7 +532,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VAs-Pd-y2q">
-                                <rect key="frame" x="248" y="370" width="29" height="41"/>
+                                <rect key="frame" x="256" y="376" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_next.png">
@@ -1314,8 +1314,8 @@
         <image name="background.png" width="320" height="480"/>
         <image name="button_back.png" width="25" height="25"/>
         <image name="button_grid.png" width="25" height="25"/>
-        <image name="button_next.png" width="29" height="41"/>
-        <image name="button_prev.png" width="29" height="41"/>
+        <image name="button_next.png" width="21" height="29"/>
+        <image name="button_prev.png" width="21" height="29"/>
         <image name="button_quit.png" width="24" height="24"/>
         <image name="button_speaker.png" width="59" height="54"/>
         <image name="button_speaker_down.png" width="59" height="54"/>
