@@ -49,7 +49,7 @@
     self.categoryLabel.font = [UIFont fontWithName:@"UVNVan" size:30];
 	
 //	NSLog(@"iconPath=%@",iconPath);
-	shellPerPage = 16;
+	shellPerPage = 9;
     int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
 	self.pageControl.numberOfPages = flashcardCount/shellPerPage;
 	if (flashcardCount%shellPerPage!=0)self.pageControl.numberOfPages ++;
