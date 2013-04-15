@@ -318,6 +318,7 @@
 		4A8D4C01171BA14200E73524 /* FlashCardCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlashCardCollectionVC.m; path = "Class/Controller/Learn Mode/FlashCardCollectionVC.m"; sourceTree = "<group>"; };
 		4A8D4C02171BA14200E73524 /* ReviewFlashCardLearnModeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewFlashCardLearnModeVC.m; path = "Class/Controller/Learn Mode/ReviewFlashCardLearnModeVC.m"; sourceTree = "<group>"; };
 		4A8D4C06171BAB7100E73524 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4A8D4C09171BB92700E73524 /* EVConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EVConstant.h; path = Class/Constant/EVConstant.h; sourceTree = "<group>"; };
 		4AC149AB16F7426A009F7CBA /* EasyVocab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = EasyVocab.app; path = "Bé Học Từ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC149AE16F7426A009F7CBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4AC149B016F7426A009F7CBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -391,6 +392,14 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		4A8D4C08171BB91100E73524 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				4A8D4C09171BB92700E73524 /* EVConstant.h */,
+			);
+			name = Constant;
+			sourceTree = "<group>";
+		};
 		4AC149A216F7426A009F7CBA = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +460,7 @@
 		4AC149D716F7432E009F7CBA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				4A8D4C08171BB91100E73524 /* Constant */,
 				4AC149E016F7437A009F7CBA /* Library */,
 				4AC149D916F74336009F7CBA /* Model */,
 				4AC149DA16F7433A009F7CBA /* View */,

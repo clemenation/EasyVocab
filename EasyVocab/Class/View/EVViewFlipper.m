@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 ICT54. All rights reserved.
 //
 
-#import "EVViewFlipper.h"
 #import <QuartzCore/QuartzCore.h>
+
+#import "EVViewFlipper.h"
 
 @interface EVViewFlipper()
 
@@ -88,7 +89,7 @@
 {
     if (self = [super init])
     {
-        static CGFloat DEFAULT_DURATION = 0.8f;
+        static CGFloat DEFAULT_DURATION = 0.4f;
         self.duration = DEFAULT_DURATION;
         
         static CGFloat DEFAULT_TILT_ANGLE = 5.0f;

@@ -12,6 +12,7 @@
 #import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
 #import "EVViewFlipper.h"
+#import "EVConstant.h"
 
 
 @interface ShowFlashCardLearnModeVC ()
@@ -44,6 +45,8 @@
         _viewFlipper = [[EVViewFlipper alloc] init];
         _viewFlipper.frontView = self.flashcardFrontView;
         _viewFlipper.backView = self.flashcardBackView;
+        _viewFlipper.tiltAngle = DEFAULT_TILT_ANGLE;
+        _viewFlipper.duration = DEFAULT_FLIP_DURATION;
     }
     return _viewFlipper;
 }
@@ -90,8 +93,8 @@
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
     
     // Tilt flashcard
-    self.flashcardFrontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * 5);
-    self.flashcardBackView.transform = CGAffineTransformMakeRotation(- M_PI / 180 * 5);
+    self.flashcardFrontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * DEFAULT_TILT_ANGLE);
+    self.flashcardBackView.transform = CGAffineTransformMakeRotation(- M_PI / 180 * DEFAULT_TILT_ANGLE);
 }
 
 #pragma mark - Buttons fake Tabbar
