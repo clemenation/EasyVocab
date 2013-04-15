@@ -11,6 +11,7 @@
 #import "ChoosePracticeModeVC.h"
 #import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
+#import "EVViewFlipper.h"
 
 
 @interface ShowFlashCardLearnModeVC ()
@@ -21,6 +22,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
+@property (strong, nonatomic) EVViewFlipper *viewFlipper;
+@property (weak, nonatomic) IBOutlet UIView *flashcardFrontView;
+@property (weak, nonatomic) IBOutlet UIView *flashcardView;
+@property (weak, nonatomic) IBOutlet UIView *flashcardBackView;
 
 
 @end
@@ -30,6 +35,18 @@
 @synthesize flashcardCollection = _flashcardCollection;
 @synthesize currentFlashCardID = _currentFlashCardID;
 @synthesize currentFlashCard = _currentFlashCard;
+@synthesize viewFlipper = _viewFlipper;
+
+- (EVViewFlipper *)viewFlipper
+{
+    if (!_viewFlipper)
+    {
+        _viewFlipper = [[EVViewFlipper alloc] init];
+        _viewFlipper.frontView = self.flashcardFrontView;
+        _viewFlipper.backView = self.flashcardBackView;
+    }
+    return _viewFlipper;
+}
 
 - (EVFlashcardCollection *)flashcardCollection
 {
@@ -73,8 +90,8 @@
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
     
     // Tilt flashcard
-    self.flashcardBackground.transform = CGAffineTransformMakeRotation(M_PI / 180 * 5);
-    self.imageView.transform = CGAffineTransformMakeRotation(M_PI / 180 * 5);
+    self.flashcardFrontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * 5);
+    self.flashcardBackView.transform = CGAffineTransformMakeRotation(- M_PI / 180 * 5);
 }
 
 #pragma mark - Buttons fake Tabbar
@@ -124,6 +141,10 @@
 }
 
 #pragma mark - Target/action
+
+- (IBAction)flipSelected:(UIButton *)sender {
+    [self.viewFlipper flip];
+}
 
 - (IBAction)walkthroughSelected:(UIButton *)sender {
     sender.hidden = YES;

@@ -143,6 +143,7 @@
 		4A8D4C03171BA14200E73524 /* ShowFlashCardLearnModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4C00171BA14200E73524 /* ShowFlashCardLearnModeVC.m */; };
 		4A8D4C04171BA14200E73524 /* FlashCardCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4C01171BA14200E73524 /* FlashCardCollectionVC.m */; };
 		4A8D4C05171BA14200E73524 /* ReviewFlashCardLearnModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4C02171BA14200E73524 /* ReviewFlashCardLearnModeVC.m */; };
+		4A8D4C07171BAB7100E73524 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8D4C06171BAB7100E73524 /* QuartzCore.framework */; };
 		4AC149AF16F7426A009F7CBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC149AE16F7426A009F7CBA /* UIKit.framework */; };
 		4AC149B116F7426A009F7CBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC149B016F7426A009F7CBA /* Foundation.framework */; };
 		4AC149B316F7426A009F7CBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC149B216F7426A009F7CBA /* CoreGraphics.framework */; };
@@ -316,6 +317,7 @@
 		4A8D4C00171BA14200E73524 /* ShowFlashCardLearnModeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowFlashCardLearnModeVC.m; path = "Class/Controller/Learn Mode/ShowFlashCardLearnModeVC.m"; sourceTree = "<group>"; };
 		4A8D4C01171BA14200E73524 /* FlashCardCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlashCardCollectionVC.m; path = "Class/Controller/Learn Mode/FlashCardCollectionVC.m"; sourceTree = "<group>"; };
 		4A8D4C02171BA14200E73524 /* ReviewFlashCardLearnModeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewFlashCardLearnModeVC.m; path = "Class/Controller/Learn Mode/ReviewFlashCardLearnModeVC.m"; sourceTree = "<group>"; };
+		4A8D4C06171BAB7100E73524 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4AC149AB16F7426A009F7CBA /* EasyVocab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = EasyVocab.app; path = "Bé Học Từ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC149AE16F7426A009F7CBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4AC149B016F7426A009F7CBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -336,6 +338,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8D4C07171BAB7100E73524 /* QuartzCore.framework in Frameworks */,
 				4A09FA3D17088BE2007D5733 /* libz.dylib in Frameworks */,
 				4A09FA3B17088BDD007D5733 /* MobileCoreServices.framework in Frameworks */,
 				4A09FA3917088BD5007D5733 /* SystemConfiguration.framework in Frameworks */,
@@ -408,6 +411,7 @@
 		4AC149AD16F7426A009F7CBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A8D4C06171BAB7100E73524 /* QuartzCore.framework */,
 				4A09FA3C17088BE2007D5733 /* libz.dylib */,
 				4A09FA3A17088BDD007D5733 /* MobileCoreServices.framework */,
 				4A09FA3817088BD5007D5733 /* SystemConfiguration.framework */,
@@ -609,11 +613,11 @@
 		B1C9E68E16FAF5CB0050EE3F /* Learn Mode */ = {
 			isa = PBXGroup;
 			children = (
-				4A8D4BFD171BA14200E73524 /* FlashCardCollectionVC.h */,
 				4A8D4BFE171BA14200E73524 /* ShowFlashCardLearnModeVC.h */,
-				4A8D4BFF171BA14200E73524 /* ReviewFlashCardLearnModeVC.h */,
 				4A8D4C00171BA14200E73524 /* ShowFlashCardLearnModeVC.m */,
+				4A8D4BFD171BA14200E73524 /* FlashCardCollectionVC.h */,
 				4A8D4C01171BA14200E73524 /* FlashCardCollectionVC.m */,
+				4A8D4BFF171BA14200E73524 /* ReviewFlashCardLearnModeVC.h */,
 				4A8D4C02171BA14200E73524 /* ReviewFlashCardLearnModeVC.m */,
 			);
 			name = "Learn Mode";

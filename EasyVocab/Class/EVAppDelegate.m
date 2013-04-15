@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [EVWalkthroughManager resetWalkthrough];
+//    [EVWalkthroughManager resetWalkthrough];
     
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
