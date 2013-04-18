@@ -380,63 +380,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="peu-U2-MbP">
-                                <rect key="frame" x="15" y="70" width="291" height="291"/>
+                            <view contentMode="scaleAspectFit" id="peu-U2-MbP">
+                                <rect key="frame" x="35" y="136" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" id="JNo-rO-a3M">
-                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView contentMode="scaleToFill" image="flashcard.png" id="C0p-sM-ORC">
-                                                <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9mm-gV-C09">
-                                                <rect key="frame" x="110" y="195" width="59" height="54"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" backgroundImage="button_speaker.png">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="button_speaker_down.png"/>
-                                                <state key="highlighted" backgroundImage="button_speaker_down.png">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="speakerSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="bYN-6a-fIj"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy Vocab" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eHd-mf-xwk">
-                                                <rect key="frame" x="13" y="76" width="264" height="56"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="xVp-eb-H4J">
-                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="TW5-g8-gGM">
-                                                <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView contentMode="scaleAspectFit" image="image.png" id="vIp-I2-QoB">
-                                                <rect key="frame" x="23" y="24" width="244" height="244"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="jqc-QR-RXe" appends="YES" id="p7K-uV-E6h"/>
-                                                </connections>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IMt-3e-55j">
@@ -485,7 +431,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zQG-3b-whE">
-                                <rect key="frame" x="38" y="376" width="21" height="29"/>
+                                <rect key="frame" x="38" y="398" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_prev.png">
@@ -500,7 +446,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3B-8w-xvQ">
-                                <rect key="frame" x="250" y="376" width="21" height="29"/>
+                                <rect key="frame" x="250" y="398" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_next.png">
@@ -549,11 +495,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="82Q-I7-jZb"/>
                     <connections>
-                        <outlet property="flashcardBackView" destination="JNo-rO-a3M" id="j9h-8c-M2e"/>
-                        <outlet property="flashcardBackground" destination="TW5-g8-gGM" id="p29-eR-7m8"/>
-                        <outlet property="flashcardFrontView" destination="xVp-eb-H4J" id="TDv-jB-bmf"/>
-                        <outlet property="flashcardView" destination="peu-U2-MbP" id="sd2-5m-RXQ"/>
-                        <outlet property="imageView" destination="vIp-I2-QoB" id="7Om-af-M7I"/>
+                        <outlet property="flashcardSuperview" destination="peu-U2-MbP" id="jnr-Rw-jhP"/>
+                        <outlet property="flashcardView" destination="peu-U2-MbP" id="gik-4D-L66"/>
                         <outlet property="nextButton" destination="s3B-8w-xvQ" id="eas-gB-Brf"/>
                         <outlet property="prevButton" destination="zQG-3b-whE" id="fDj-TG-UCm"/>
                         <outlet property="walkthroughButton" destination="wqu-yG-kUn" id="3aq-J7-IoS"/>

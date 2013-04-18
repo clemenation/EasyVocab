@@ -152,6 +152,8 @@
 		4AC149E516F743CD009F7CBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149E316F743CD009F7CBA /* main.m */; };
 		4AC149F816F74585009F7CBA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149ED16F7440F009F7CBA /* MainStoryboard.storyboard */; };
 		4AC149F916F74599009F7CBA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149E716F743FF009F7CBA /* InfoPlist.strings */; };
+		4AEDCCE7171F8CBF00EE0E98 /* EVFlashcardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEDCCE6171F8CBF00EE0E98 /* EVFlashcardView.xib */; };
+		4AEDCCEA171F8D1700EE0E98 /* EVFlashcardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCCE9171F8D1700EE0E98 /* EVFlashcardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -332,6 +334,9 @@
 		4AC149E316F743CD009F7CBA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Resource/main.m; sourceTree = "<group>"; };
 		4AC149E816F743FF009F7CBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resource/Multilanguage/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4AC149ED16F7440F009F7CBA /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Resource/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4AEDCCE6171F8CBF00EE0E98 /* EVFlashcardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EVFlashcardView.xib; path = Resource/EVFlashcardView.xib; sourceTree = "<group>"; };
+		4AEDCCE8171F8D1700EE0E98 /* EVFlashcardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcardView.h; path = Class/View/EVFlashcardView.h; sourceTree = "<group>"; };
+		4AEDCCE9171F8D1700EE0E98 /* EVFlashcardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardView.m; path = Class/View/EVFlashcardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +455,7 @@
 				4AC149DD16F74361009F7CBA /* Others */,
 				4AC149DC16F7435B009F7CBA /* Images */,
 				4AC149ED16F7440F009F7CBA /* MainStoryboard.storyboard */,
+				4AEDCCE6171F8CBF00EE0E98 /* EVFlashcardView.xib */,
 				4AC149E116F743CD009F7CBA /* EasyVocab-Info.plist */,
 				4AC149E216F743CD009F7CBA /* EasyVocab-Prefix.pch */,
 				4AC149E316F743CD009F7CBA /* main.m */,
@@ -500,6 +506,8 @@
 			children = (
 				4A8D4AF2171B9E8500E73524 /* EVViewFlipper.h */,
 				4A8D4AF3171B9E8500E73524 /* EVViewFlipper.m */,
+				4AEDCCE8171F8D1700EE0E98 /* EVFlashcardView.h */,
+				4AEDCCE9171F8D1700EE0E98 /* EVFlashcardView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -935,6 +943,7 @@
 				4A8D4BE6171BA09E00E73524 /* app_icon@2x.png in Resources */,
 				4A8D4BE8171BA0C400E73524 /* answer.json in Resources */,
 				4A8D4BEA171BA0DD00E73524 /* iTunesArtwork.png in Resources */,
+				4AEDCCE7171F8CBF00EE0E98 /* EVFlashcardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -986,6 +995,7 @@
 				4A8D4C03171BA14200E73524 /* ShowFlashCardLearnModeVC.m in Sources */,
 				4A8D4C04171BA14200E73524 /* FlashCardCollectionVC.m in Sources */,
 				4A8D4C05171BA14200E73524 /* ReviewFlashCardLearnModeVC.m in Sources */,
+				4AEDCCEA171F8D1700EE0E98 /* EVFlashcardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

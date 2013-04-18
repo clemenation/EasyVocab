@@ -13,20 +13,18 @@
 #import "EVWalkthroughManager.h"
 #import "EVViewFlipper.h"
 #import "EVConstant.h"
+#import "EVFlashcardView.h"
 
 
 @interface ShowFlashCardLearnModeVC ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIImageView *flashcardBackground;
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 @property (strong, nonatomic) EVViewFlipper *viewFlipper;
-@property (weak, nonatomic) IBOutlet UIView *flashcardFrontView;
-@property (weak, nonatomic) IBOutlet UIView *flashcardView;
-@property (weak, nonatomic) IBOutlet UIView *flashcardBackView;
+@property (weak, nonatomic) IBOutlet UIView *flashcardSuperview;
+@property (strong, nonatomic) EVFlashcardView *flashcardView;
 
 
 @end
@@ -37,14 +35,15 @@
 @synthesize currentFlashCardID = _currentFlashCardID;
 @synthesize currentFlashCard = _currentFlashCard;
 @synthesize viewFlipper = _viewFlipper;
+@synthesize flashcardView = _flashcardView;
 
 - (EVViewFlipper *)viewFlipper
 {
     if (!_viewFlipper)
     {
         _viewFlipper = [[EVViewFlipper alloc] init];
-        _viewFlipper.frontView = self.flashcardFrontView;
-        _viewFlipper.backView = self.flashcardBackView;
+        _viewFlipper.frontView = self.flashcardView.frontView;
+        _viewFlipper.backView = self.flashcardView.backView;
         _viewFlipper.tiltAngle = DEFAULT_TILT_ANGLE;
         _viewFlipper.duration = DEFAULT_FLIP_DURATION;
     }
@@ -78,7 +77,7 @@
     if (_currentFlashCard != currentFlashCard)
     {
         _currentFlashCard = currentFlashCard;
-        self.imageView.image = [UIImage imageWithContentsOfFile:_currentFlashCard];
+        self.flashcardView.image = [UIImage imageWithContentsOfFile:_currentFlashCard];
     }
 }
 
@@ -86,15 +85,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.imageView.image = [UIImage imageWithContentsOfFile:self.currentFlashCard];
+    self.flashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
+                                                        owner:self
+                                                      options:nil] objectAtIndex:0];
+    [self.flashcardSuperview addSubview:self.flashcardView];
+    self.flashcardView.frame = self.flashcardSuperview.bounds;
+  
+    self.flashcardView.image = [UIImage imageWithContentsOfFile:_currentFlashCard];
     self.prevButton.hidden = (self.currentFlashCardID == 0);
     self.nextButton.hidden = (self.currentFlashCardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
     
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
     
     // Tilt flashcard
-    self.flashcardFrontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * DEFAULT_TILT_ANGLE);
-    self.flashcardBackView.transform = CGAffineTransformMakeRotation(- M_PI / 180 * DEFAULT_TILT_ANGLE);
+    self.flashcardView.frontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * DEFAULT_TILT_ANGLE);
+    self.flashcardView.backView.transform = CGAffineTransformMakeRotation(- M_PI / 180 * DEFAULT_TILT_ANGLE);
 }
 
 #pragma mark - Buttons fake Tabbar
