@@ -13,6 +13,7 @@
 #import "EVViewFlipper.h"
 #import "EVConstant.h"
 #import "EVFlashcardView.h"
+#import "Transformifier.h"
 
 
 @interface ShowFlashCardLearnModeVC ()
@@ -20,12 +21,17 @@
 @property (weak, nonatomic) IBOutlet UIButton       *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton       *nextButton;
 @property (weak, nonatomic) IBOutlet UIView         *flashcardSuperview;
+@property (weak, nonatomic) IBOutlet UIView         *prevFlashcardSuperview;
+@property (weak, nonatomic) IBOutlet UIView         *nextFlashcardSuperview;
 @property (weak, nonatomic) IBOutlet UIButton       *walkthroughButton;
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 @property (strong, nonatomic) EVViewFlipper         *viewFlipper;
 @property (strong, nonatomic) EVFlashcardView       *flashcardView;
-@property (strong,nonatomic) NSString               *currentImagePath;
+@property (strong, nonatomic) EVFlashcardView       *prevFlashcardView;
+@property (strong, nonatomic) EVFlashcardView       *nextFlashcardView;
+@property (strong, nonatomic) NSString              *currentImagePath;
 @property (strong, nonatomic) NSString              *currentAnswer;
+@property (strong, nonatomic) Transformifier        *transformifier;
 
 
 @end
@@ -38,14 +44,23 @@
 @synthesize currentAnswer       = _currentAnswer;
 @synthesize viewFlipper         = _viewFlipper;
 @synthesize flashcardView       = _flashcardView;
+@synthesize transformifier      = _transformifier;
+
+- (Transformifier *)transformifier
+{
+    if (!_transformifier)
+    {
+        _transformifier = [[Transformifier alloc] initForLayer:self.nextFlashcardSuperview.layer];
+    }
+    return _transformifier;
+}
 
 - (EVViewFlipper *)viewFlipper
 {
     if (!_viewFlipper)
     {
         _viewFlipper = [[EVViewFlipper alloc] init];
-        _viewFlipper.frontView = self.flashcardView.frontView;
-        _viewFlipper.backView = self.flashcardView.backView;
+        _viewFlipper.mainFlashcardView = self.flashcardView;
         _viewFlipper.tiltAngle = DEFAULT_TILT_ANGLE;
         _viewFlipper.duration = DEFAULT_FLIP_DURATION;
     }
@@ -94,15 +109,44 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+//    [self.view.superview insertSubview:self.transformifier.view aboveSubview:self.view];
+    self.transformifier.height = 100;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // Main flashcard
     self.flashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
                                                         owner:self
                                                       options:nil] objectAtIndex:0];
     [self.flashcardSuperview addSubview:self.flashcardView];
     self.flashcardView.frame = self.flashcardSuperview.bounds;
+    
+    // Previous flashcard
+    self.prevFlashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
+                                                            owner:self
+                                                          options:nil] objectAtIndex:0];
+    [self.prevFlashcardSuperview addSubview:self.prevFlashcardView];
+    self.prevFlashcardView.frame = self.prevFlashcardSuperview.bounds;
+    
+    // Next flashcard
+    self.nextFlashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
+                                                            owner:self
+                                                          options:nil] objectAtIndex:0];
+    [self.nextFlashcardSuperview addSubview:self.nextFlashcardView];
+    self.nextFlashcardView.frame = self.nextFlashcardSuperview.bounds;
+    
+    self.viewFlipper.mainFlashcardView = self.flashcardView;
+    self.viewFlipper.nextFlashcardView = self.nextFlashcardView;
+    
+    self.viewFlipper.mainCardFrame = self.flashcardSuperview.frame;
+    self.viewFlipper.nextCardFrame = self.nextFlashcardSuperview.frame;
+    
   
     self.flashcardView.image = [UIImage imageWithContentsOfFile:self.currentImagePath];
     self.flashcardView.answer = self.currentAnswer;
@@ -129,6 +173,8 @@
 
 - (IBAction)nextButtonSelected:(UIButton *)sender {
     self.currentFlashCardID++;
+    
+    [self.viewFlipper next];
 }
 
 #pragma mark - segue

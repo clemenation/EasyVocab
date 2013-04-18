@@ -23,12 +23,14 @@
 
 @implementation EVViewFlipper
 
-@synthesize frontView = _frontView;
-@synthesize frontViewAnimation = _frontViewAnimation;
-@synthesize backViewAnimation = _backViewAnimation;
-@synthesize currentFrontView = _currentFrontView;
-@synthesize currentBackView = _currentBackView;
-@synthesize currentTiltAngle = _currentTiltAngle;
+@synthesize frontViewAnimation      = _frontViewAnimation;
+@synthesize backViewAnimation       = _backViewAnimation;
+@synthesize currentFrontView        = _currentFrontView;
+@synthesize currentBackView         = _currentBackView;
+@synthesize currentTiltAngle        = _currentTiltAngle;
+@synthesize prevCardFrame           = _prevStackFrame;
+@synthesize nextFlashcardView       = _nextFlashcardView;
+@synthesize mainFlashcardView       = _mainFlashcardView;
 
 
 
@@ -47,7 +49,7 @@
 {
     if (!_currentFrontView)
     {
-        _currentFrontView = self.frontView;
+        _currentFrontView = self.mainFlashcardView.frontView;
         _currentFrontView.hidden = NO;
     }
     return _currentFrontView;
@@ -57,27 +59,28 @@
 {
     if (!_currentBackView)
     {
-        _currentBackView = self.backView;
+        _currentBackView = self.mainFlashcardView.backView;
         _currentBackView.hidden = YES;
     }
     return _currentBackView;
 }
 
-- (void)setFrontView:(UIView *)frontView
+- (void)setMainFlashcardView:(EVFlashcardView *)mainFlashcardView
 {
-    if (_frontView != frontView)
+    if (_mainFlashcardView != mainFlashcardView)
     {
-        _frontView = frontView;
-        _frontView.layer.zPosition = _frontView.frame.size.width/2;
+        _mainFlashcardView = mainFlashcardView;
+        _mainFlashcardView.frontView.layer.zPosition = _mainFlashcardView.frontView.frame.size.width/2;
+        _mainFlashcardView.backView.layer.zPosition = _mainFlashcardView.backView.frame.size.width/2;
     }
 }
 
-- (void)setBackView:(UIView *)backView
+- (void)setNextFlashcardView:(EVFlashcardView *)nextFlashcardView
 {
-    if (_backView != backView)
+    if (_nextFlashcardView != nextFlashcardView)
     {
-        _backView = backView;
-        _backView.layer.zPosition = _backView.frame.size.width/2;
+        _nextFlashcardView = nextFlashcardView;
+        _nextFlashcardView.layer.zPosition = _nextFlashcardView.frame.size.width/2;
     }
 }
 
@@ -96,6 +99,50 @@
         self.tiltAngle = DEFAULT_TILT_ANGLE;
     }
     return self;
+}
+
+- (void)next
+{
+    [self nextToCurrent];
+    [self currentToPrev];
+}
+
+- (void)nextToCurrent
+{
+    CGFloat scale = self.mainCardFrame.size.height / self.nextCardFrame.size.height;
+    CATransform3D initialTransform = CATransform3DIdentity;
+    CATransform3D finalTransform = CATransform3DTranslate(initialTransform,
+                                                          (self.mainCardFrame.origin.x - self.nextCardFrame.origin.x),
+                                                          (self.mainCardFrame.origin.y - self.nextCardFrame.origin.y),
+                                                          0.0);
+    finalTransform = CATransform3DTranslate(finalTransform,
+                                            (self.mainCardFrame.size.width - self.nextCardFrame.size.width)/2,
+                                            (self.mainCardFrame.size.height - self.nextCardFrame.size.height)/2,
+                                            0.0);
+    finalTransform = CATransform3DScale(finalTransform, scale, scale, 1.0);
+    finalTransform = CATransform3DRotate(finalTransform, M_PI / 180 * self.tiltAngle, 0.0, 0.0, 1.0);
+    
+    NSMutableArray *animations = [NSMutableArray array];
+    
+    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    transformAnimation.fromValue = [NSValue valueWithCATransform3D:initialTransform];
+    transformAnimation.toValue = [NSValue valueWithCATransform3D:finalTransform];
+    transformAnimation.duration = self.duration;
+    [animations addObject:transformAnimation];
+    
+    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
+    [animationGroup setAnimations:animations];
+    [animationGroup setDuration:self.duration];
+    animationGroup.removedOnCompletion = NO;
+    animationGroup.fillMode = kCAFillModeForwards;
+    animationGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    [self.nextFlashcardView.layer addAnimation:animationGroup forKey:@"anim"];
+}
+
+- (void)currentToPrev
+{
+    
 }
 
 - (void)flip
@@ -166,17 +213,20 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    self.currentFrontView.hidden = YES;
-    self.currentBackView.hidden = NO;
-    
-    [self flipBackView];
-    
-    // Switch current front/back view role
-    UIView *temp = self.currentFrontView;
-    self.currentFrontView = self.currentBackView;
-    self.currentBackView = temp;
-    
-    self.currentTiltAngle = -self.currentTiltAngle;
+    if (anim == [self.currentFrontView.layer animationForKey:@"anim"])
+    {
+        self.currentFrontView.hidden = YES;
+        self.currentBackView.hidden = NO;
+        
+        [self flipBackView];
+        
+        // Switch current front/back view role
+        UIView *temp = self.currentFrontView;
+        self.currentFrontView = self.currentBackView;
+        self.currentBackView = temp;
+        
+        self.currentTiltAngle = -self.currentTiltAngle;
+    }
 }
 
 @end
