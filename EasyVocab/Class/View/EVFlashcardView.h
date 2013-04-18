@@ -16,4 +16,6 @@
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *answer;
 
+- (IBAction)speakerSelected:(id)sender;
+
 @end

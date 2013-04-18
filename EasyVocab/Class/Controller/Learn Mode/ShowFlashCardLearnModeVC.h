@@ -12,6 +12,5 @@
 
 @property(weak,nonatomic) NSString * currentCategory;
 @property(nonatomic) int currentFlashCardID;
-@property(strong,nonatomic) NSString * currentFlashCard;
 
 @end

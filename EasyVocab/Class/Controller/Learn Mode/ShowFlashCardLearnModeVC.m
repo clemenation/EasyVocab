@@ -7,7 +7,6 @@
 //
 
 #import "ShowFlashCardLearnModeVC.h"
-#import "ReviewFlashCardLearnModeVC.h"
 #import "ChoosePracticeModeVC.h"
 #import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
@@ -18,13 +17,15 @@
 
 @interface ShowFlashCardLearnModeVC ()
 
+@property (weak, nonatomic) IBOutlet UIButton       *prevButton;
+@property (weak, nonatomic) IBOutlet UIButton       *nextButton;
+@property (weak, nonatomic) IBOutlet UIView         *flashcardSuperview;
+@property (weak, nonatomic) IBOutlet UIButton       *walkthroughButton;
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
-@property (weak, nonatomic) IBOutlet UIButton *prevButton;
-@property (weak, nonatomic) IBOutlet UIButton *nextButton;
-@property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
-@property (strong, nonatomic) EVViewFlipper *viewFlipper;
-@property (weak, nonatomic) IBOutlet UIView *flashcardSuperview;
-@property (strong, nonatomic) EVFlashcardView *flashcardView;
+@property (strong, nonatomic) EVViewFlipper         *viewFlipper;
+@property (strong, nonatomic) EVFlashcardView       *flashcardView;
+@property (strong,nonatomic) NSString               *currentImagePath;
+@property (strong, nonatomic) NSString              *currentAnswer;
 
 
 @end
@@ -32,10 +33,11 @@
 @implementation ShowFlashCardLearnModeVC
 
 @synthesize flashcardCollection = _flashcardCollection;
-@synthesize currentFlashCardID = _currentFlashCardID;
-@synthesize currentFlashCard = _currentFlashCard;
-@synthesize viewFlipper = _viewFlipper;
-@synthesize flashcardView = _flashcardView;
+@synthesize currentFlashCardID  = _currentFlashCardID;
+@synthesize currentImagePath    = _currentImagePath;
+@synthesize currentAnswer       = _currentAnswer;
+@synthesize viewFlipper         = _viewFlipper;
+@synthesize flashcardView       = _flashcardView;
 
 - (EVViewFlipper *)viewFlipper
 {
@@ -65,19 +67,30 @@
     if (currentFlashCardID >= 0 && currentFlashCardID < flashcardCount)
     {
         _currentFlashCardID = currentFlashCardID;
-        self.currentFlashCard = [self.flashcardCollection flashcardPathAtIndex:_currentFlashCardID ofCategory:self.currentCategory];
+        self.currentImagePath = [self.flashcardCollection flashcardPathAtIndex:_currentFlashCardID ofCategory:self.currentCategory];
+        self.currentAnswer = [self.flashcardCollection answerAtIndex:_currentFlashCardID
+                                                          ofCategory:self.currentCategory];
         
         self.prevButton.hidden = (currentFlashCardID == 0);
         self.nextButton.hidden = (currentFlashCardID == flashcardCount-1);
     }
 }
 
-- (void)setCurrentFlashCard:(NSString *)currentFlashCard
+- (void)setCurrentImagePath:(NSString *)currentImagePath
 {
-    if (_currentFlashCard != currentFlashCard)
+    if (_currentImagePath != currentImagePath)
     {
-        _currentFlashCard = currentFlashCard;
-        self.flashcardView.image = [UIImage imageWithContentsOfFile:_currentFlashCard];
+        _currentImagePath = currentImagePath;
+        self.flashcardView.image = [UIImage imageWithContentsOfFile:_currentImagePath];
+    }
+}
+
+- (void)setCurrentAnswer:(NSString *)currentAnswer
+{
+    if (_currentAnswer != currentAnswer)
+    {
+        _currentAnswer = currentAnswer;
+        self.flashcardView.answer = _currentAnswer;
     }
 }
 
@@ -91,7 +104,9 @@
     [self.flashcardSuperview addSubview:self.flashcardView];
     self.flashcardView.frame = self.flashcardSuperview.bounds;
   
-    self.flashcardView.image = [UIImage imageWithContentsOfFile:_currentFlashCard];
+    self.flashcardView.image = [UIImage imageWithContentsOfFile:self.currentImagePath];
+    self.flashcardView.answer = self.currentAnswer;
+    
     self.prevButton.hidden = (self.currentFlashCardID == 0);
     self.nextButton.hidden = (self.currentFlashCardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
     
@@ -118,16 +133,6 @@
 
 #pragma mark - segue
 
-- (IBAction)returnToShowFlashCardLearnMode:(UIStoryboardSegue *)segue
-{
-    NSLog(@"Returned from segue %@ at %@",segue.identifier,segue.sourceViewController);
-    if ([segue.sourceViewController isKindOfClass:[ReviewFlashCardLearnModeVC class]])
-    {
-        ReviewFlashCardLearnModeVC *vc = segue.sourceViewController;
-        self.currentFlashCardID = vc.currentFlashcardID;
-    }
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	NSLog(@"Perform a segue:%@",segue.identifier);
 	//NSLog(@"dest=%@",segue.destinationViewController);
@@ -136,21 +141,12 @@
 	if ([segue.identifier isEqualToString:@"goToPracticeMode"]) {
 		NSLog(@"category=%@",self.currentCategory);
 		((ChoosePracticeModeVC*)segue.destinationViewController).currentCategory = self.currentCategory;
-	}
-	
-	if ([segue.identifier isEqualToString:@"reviewFlashCardLearnMode"]) {
-		NSLog(@"category=%@",self.currentCategory);
-		ReviewFlashCardLearnModeVC * vc = segue.destinationViewController;
-		vc.currentCategory = self.currentCategory;
-		vc.currentFlashcardID = self.currentFlashCardID;
-		
-	}
-	
+	}	
 }
 
 #pragma mark - Target/action
 
-- (IBAction)flipSelected:(UIButton *)sender {
+- (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender {
     [self.viewFlipper flip];
 }
 

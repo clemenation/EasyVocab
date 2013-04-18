@@ -384,6 +384,9 @@
                                 <rect key="frame" x="35" y="136" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="We3-KJ-IIr" appends="YES" id="HMR-Hf-9dV"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IMt-3e-55j">
                                 <rect key="frame" x="15" y="10" width="112" height="32"/>
@@ -475,21 +478,6 @@
                                     <action selector="walkthroughSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="9TL-4Q-fJC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AtA-dE-HfZ">
-                                <rect key="frame" x="235" y="10" width="51" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Flip">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="flipSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="h1D-Vb-Hma"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -504,172 +492,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldg-kB-14Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="OhP-Yq-EMb" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="jqc-QR-RXe">
+                <tapGestureRecognizer id="We3-KJ-IIr">
                     <connections>
-                        <segue destination="nfF-nI-zTk" kind="push" identifier="reviewFlashCardLearnMode" id="Ldj-mQ-LRA"/>
+                        <action selector="flashcardSelected:" destination="Kk0-bd-l08" id="uHu-F7-doD"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2559" y="24"/>
-        </scene>
-        <!--Review Flash Card Learn ModeVC-->
-        <scene sceneID="2AZ-Jj-IIp">
-            <objects>
-                <viewController id="nfF-nI-zTk" customClass="ReviewFlashCardLearnModeVC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eC1-9w-pKy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="background.png" id="qfh-H7-9Su">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PEK-64-3K5">
-                                <rect key="frame" x="44" y="376" width="21" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="button_prev.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="prevButtonSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="jPx-9M-hsy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VAs-Pd-y2q">
-                                <rect key="frame" x="256" y="376" width="21" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="button_next.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="aAY-MR-gJi"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" id="AZK-Vp-rhc">
-                                <rect key="frame" x="15" y="70" width="291" height="291"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView contentMode="scaleToFill" image="flashcard.png" id="O9b-I7-up0">
-                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="oIn-Rs-aM8" appends="YES" id="zdV-Bf-cde"/>
-                                        </connections>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GyO-IF-fs0">
-                                        <rect key="frame" x="110" y="195" width="59" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" backgroundImage="button_speaker.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" backgroundImage="button_speaker_down.png"/>
-                                        <state key="highlighted" backgroundImage="button_speaker_down.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="speakerSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="dxN-0e-Jwe"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy Vocab" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ImB-IP-gbp">
-                                        <rect key="frame" x="13" y="76" width="264" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7vN-UL-hsk">
-                                <rect key="frame" x="15" y="10" width="110" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Tất cả" image="button_grid.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SKc-Bg-YeY" kind="unwind" unwindAction="returnToFlashCardCollection:" id="hc4-Lv-i4D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="10" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="LTj-nb-Xya" userLabel="Button - Learn">
-                                <rect key="frame" x="0.0" y="432" width="160" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="tab_learn_off.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" image="tab_learn.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="oUn-mf-GdH" userLabel="Button - Practice">
-                                <rect key="frame" x="160" y="432" width="160" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="tab_practice_off.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" image="tab_practice.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchToPratice:" destination="nfF-nI-zTk" eventType="touchUpInside" id="Ur6-J7-G2X"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="gsC-XS-IbD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="learn_back_walkthrough.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="walkthroughSelected:" destination="nfF-nI-zTk" eventType="touchUpInside" id="u3G-iR-lmR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Cfg-lY-jNc"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <connections>
-                        <outlet property="flashcardView" destination="AZK-Vp-rhc" id="M4C-We-VKd"/>
-                        <outlet property="nextButton" destination="VAs-Pd-y2q" id="2Dg-Ll-WNb"/>
-                        <outlet property="prevButton" destination="PEK-64-3K5" id="Ceb-fC-hJO"/>
-                        <outlet property="textLabel" destination="ImB-IP-gbp" id="1CU-KL-eJI"/>
-                        <outlet property="walkthroughButton" destination="gsC-XS-IbD" id="ak4-pa-ZhF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rKQ-EX-CPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="SKc-Bg-YeY" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="oIn-Rs-aM8">
-                    <connections>
-                        <segue destination="SKc-Bg-YeY" kind="unwind" unwindAction="returnToShowFlashCardLearnMode:" id="nEM-8f-0am"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="3305" y="24"/>
         </scene>
         <!--Show Flash Card Pratice ModeVC-->
         <scene sceneID="WD7-rL-qxb">
@@ -1326,13 +1155,11 @@
         <image name="button_prev.png" width="21" height="29"/>
         <image name="button_quit.png" width="24" height="24"/>
         <image name="button_speaker.png" width="59" height="54"/>
-        <image name="button_speaker_down.png" width="59" height="54"/>
         <image name="category_button_orange.png" width="308" height="102"/>
         <image name="category_icon_food.png" width="63" height="62"/>
         <image name="category_walkthrough.png" width="320" height="480"/>
         <image name="flashcard.png" width="291" height="291"/>
         <image name="image.png" width="16" height="16"/>
-        <image name="learn_back_walkthrough.png" width="320" height="480"/>
         <image name="learn_front_walkthrough.png" width="320" height="480"/>
         <image name="learn_grid_walkthrough.png" width="320" height="480"/>
         <image name="practice_back_answer_awesome.png" width="205" height="60"/>
@@ -1356,6 +1183,99 @@
         <image name="tab_practice_off.png" width="160" height="49"/>
         <image name="tick.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="AnswerFlashCardChallengeMode" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
+            <relationships>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="giveUpButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AnswerFlashCardEasyModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardEasyModeVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="answerButtons" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="CategoryPickerVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ChoosePracticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FlashCardCollectionVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ReviewFlashCardPraticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardPraticeModeVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="awesomeLabel" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ShowFlashCardLearnModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardLearnModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="nextButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="prevButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="returnToShowFlashCardLearnMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToPratice:"/>
+                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="flashcardSuperview" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="prevButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ShowFlashCardPraticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardPraticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToShowFlashCardPraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
