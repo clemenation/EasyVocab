@@ -383,7 +383,7 @@
                             <view contentMode="scaleAspectFit" restorationIdentifier="" id="peu-U2-MbP" userLabel="flashcardSuperView">
                                 <rect key="frame" x="35" y="136" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="We3-KJ-IIr" appends="YES" id="HMR-Hf-9dV"/>
                                 </connections>
@@ -391,12 +391,12 @@
                             <view contentMode="scaleToFill" id="HlN-iW-YCe" userLabel="prevFlashcardSuperView">
                                 <rect key="frame" x="205" y="48" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="kLr-Sc-Fks" userLabel="nextFlashcardSuperView">
                                 <rect key="frame" x="35" y="48" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IMt-3e-55j">
                                 <rect key="frame" x="15" y="10" width="112" height="32"/>
@@ -1271,7 +1271,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardPraticeModeVC.h"/>
             <relationships>
                 <relationship kind="action" name="returnToShowFlashCardPraticeMode:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="switchToLearn:"/>
                 <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>

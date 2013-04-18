@@ -12,23 +12,24 @@
 
 @interface EVViewFlipper()
 
+@property (assign, nonatomic) CGFloat currentTiltAngle;
+
 - (void)flipFrontView;
 - (void)flipBackView;
-
-@property (strong, nonatomic) CAAnimationGroup *frontViewAnimation;
-@property (strong, nonatomic) CAAnimationGroup *backViewAnimation;
-@property (assign, nonatomic) CGFloat currentTiltAngle;
+- (void)animateLayer:(CALayer *)layer
+       fromTransform:(CATransform3D)initialTransform
+         toTransform:(CATransform3D)finalTransform
+            duration:(NSTimeInterval)duration
+      timingFunction:(NSString *)timingFunctionName
+              forKey:(NSString *)key;
 
 @end
 
 @implementation EVViewFlipper
 
-@synthesize frontViewAnimation      = _frontViewAnimation;
-@synthesize backViewAnimation       = _backViewAnimation;
 @synthesize currentFrontView        = _currentFrontView;
 @synthesize currentBackView         = _currentBackView;
 @synthesize currentTiltAngle        = _currentTiltAngle;
-@synthesize prevCardFrame           = _prevStackFrame;
 @synthesize nextFlashcardView       = _nextFlashcardView;
 @synthesize mainFlashcardView       = _mainFlashcardView;
 
@@ -84,6 +85,15 @@
     }
 }
 
+- (void)setPrevFlashcardView:(EVFlashcardView *)prevFlashcardView
+{
+    if (_prevFlashcardView != prevFlashcardView)
+    {
+        _prevFlashcardView = prevFlashcardView;
+        _prevFlashcardView.layer.zPosition = _prevFlashcardView.frame.size.width/2;
+    }
+}
+
 
 
 #pragma mark - Class methods
@@ -101,17 +111,43 @@
     return self;
 }
 
-- (void)next
+- (void)animateLayer:(CALayer *)layer
+       fromTransform:(CATransform3D)initialTransform
+         toTransform:(CATransform3D)finalTransform
+            duration:(NSTimeInterval)duration
+      timingFunction:(NSString *)timingFunctionName
+              forKey:(NSString *)key
 {
-    [self nextToCurrent];
-    [self currentToPrev];
+    NSMutableArray *animations = [NSMutableArray array];
+    
+    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    transformAnimation.fromValue = [NSValue valueWithCATransform3D:initialTransform];
+    transformAnimation.toValue = [NSValue valueWithCATransform3D:finalTransform];
+    transformAnimation.duration = duration;
+    [animations addObject:transformAnimation];
+    
+    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
+    [animationGroup setAnimations:animations];
+    [animationGroup setDuration:duration];
+    animationGroup.removedOnCompletion = NO;
+    animationGroup.fillMode = kCAFillModeForwards;
+    animationGroup.timingFunction = [CAMediaTimingFunction functionWithName:timingFunctionName];
+    animationGroup.delegate = self;
+    
+    [layer addAnimation:animationGroup forKey:key];
 }
 
-- (void)nextToCurrent
+- (void)next
+{
+    [self nextToMain];
+    [self mainToPrev];
+}
+
+- (void)nextToMain
 {
     CGFloat scale = self.mainCardFrame.size.height / self.nextCardFrame.size.height;
-    CATransform3D initialTransform = CATransform3DIdentity;
-    CATransform3D finalTransform = CATransform3DTranslate(initialTransform,
+    CATransform3D initialTransform = self.nextFlashcardView.layer.transform;
+    CATransform3D finalTransform = CATransform3DTranslate(CATransform3DIdentity,
                                                           (self.mainCardFrame.origin.x - self.nextCardFrame.origin.x),
                                                           (self.mainCardFrame.origin.y - self.nextCardFrame.origin.y),
                                                           0.0);
@@ -122,27 +158,34 @@
     finalTransform = CATransform3DScale(finalTransform, scale, scale, 1.0);
     finalTransform = CATransform3DRotate(finalTransform, M_PI / 180 * self.tiltAngle, 0.0, 0.0, 1.0);
     
-    NSMutableArray *animations = [NSMutableArray array];
-    
-    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    transformAnimation.fromValue = [NSValue valueWithCATransform3D:initialTransform];
-    transformAnimation.toValue = [NSValue valueWithCATransform3D:finalTransform];
-    transformAnimation.duration = self.duration;
-    [animations addObject:transformAnimation];
-    
-    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-    [animationGroup setAnimations:animations];
-    [animationGroup setDuration:self.duration];
-    animationGroup.removedOnCompletion = NO;
-    animationGroup.fillMode = kCAFillModeForwards;
-    animationGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    [self.nextFlashcardView.layer addAnimation:animationGroup forKey:@"anim"];
+    [self animateLayer:self.nextFlashcardView.layer
+         fromTransform:initialTransform
+           toTransform:finalTransform
+              duration:self.duration
+        timingFunction:kCAMediaTimingFunctionEaseInEaseOut
+                forKey:@"anim"];
 }
 
-- (void)currentToPrev
+- (void)mainToPrev
 {
+    CGFloat scale = self.prevCardFrame.size.height / self.mainCardFrame.size.height;
+    CATransform3D initialTransform = self.mainFlashcardView.layer.transform;
+    CATransform3D finalTransform = CATransform3DTranslate(CATransform3DIdentity,
+                                                          (self.prevCardFrame.origin.x - self.mainCardFrame.origin.x),
+                                                          (self.prevCardFrame.origin.y - self.mainCardFrame.origin.y),
+                                                          0.0);
+    finalTransform = CATransform3DTranslate(finalTransform,
+                                            (self.prevCardFrame.size.width - self.mainCardFrame.size.width)/2,
+                                            (self.prevCardFrame.size.height - self.mainCardFrame.size.height)/2,
+                                            0.0);
+    finalTransform = CATransform3DScale(finalTransform, scale, scale, 1.0);
     
+    [self animateLayer:self.mainFlashcardView.layer
+         fromTransform:initialTransform
+           toTransform:finalTransform
+              duration:self.duration
+        timingFunction:kCAMediaTimingFunctionEaseInEaseOut
+                forKey:@"anim"];
 }
 
 - (void)flip
@@ -152,59 +195,30 @@
 
 - (void)flipFrontView
 {
-    CATransform3D initialScale = CATransform3DMakeScale(1.0, 1.0, 1.0);
-    CATransform3D initialTransform = CATransform3DRotate(initialScale, 0.0, 0.0, -1.0, 0.0);
-    CATransform3D finalTransform = CATransform3DRotate(initialScale, -M_PI/2, 0.0, -1.0, 0.0);
-    CATransform3D initialTilt = CATransform3DRotate(initialTransform, M_PI / 180 * self.currentTiltAngle, 0.0, 0.0, 1.0);
-    CATransform3D finalTilt = CATransform3DRotate(finalTransform, M_PI / 180 * self.currentTiltAngle, 0.0, 0.0, 1.0);
+    CATransform3D initialTransform = CATransform3DRotate(CATransform3DIdentity, M_PI / 180 * self.currentTiltAngle, 0.0, 0.0, 1.0);
+    CATransform3D finalTransform = CATransform3DRotate(CATransform3DIdentity, -M_PI/2, 0.0, -1.0, 0.0);
+    finalTransform = CATransform3DRotate(finalTransform, M_PI / 180 * self.currentTiltAngle, 0.0, 0.0, 1.0);
     
-    NSMutableArray *animations = [NSMutableArray array];
-    
-    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    transformAnimation.fromValue = [NSValue valueWithCATransform3D:initialTilt];
-    transformAnimation.toValue = [NSValue valueWithCATransform3D:finalTilt];
-    transformAnimation.duration = self.duration/2;
-    [animations addObject:transformAnimation];
-    
-    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-    [animationGroup setAnimations:animations];
-    [animationGroup setDuration:self.duration/2];
-    animationGroup.removedOnCompletion = NO;
-    animationGroup.fillMode = kCAFillModeForwards;
-    animationGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    animationGroup.delegate = self;
-    
-    self.frontViewAnimation = animationGroup;
-    
-    [self.currentFrontView.layer addAnimation:animationGroup forKey:@"anim"];
+    [self animateLayer:self.mainFlashcardView.layer
+         fromTransform:initialTransform
+           toTransform:finalTransform
+              duration:self.duration/2
+        timingFunction:kCAMediaTimingFunctionEaseIn
+                forKey:@"frontViewFlip"];
 }
 
 - (void)flipBackView
 {
-    CATransform3D initialScale = CATransform3DMakeScale(1.0, 1.0, 1.0);
-    CATransform3D initialTransform = CATransform3DRotate(initialScale, M_PI/2, 0.0, -1.0, 0.0);
-    CATransform3D finalTransform = CATransform3DRotate(initialScale, 0, 0.0, -1.0, 0.0);
-    CATransform3D initialTilt = CATransform3DRotate(initialTransform, M_PI / 180 * self.currentTiltAngle, 0.0, 0.0, -1.0);
-    CATransform3D finalTilt = CATransform3DRotate(finalTransform, M_PI / 180 * self.currentTiltAngle, 0.0, 0.0, -1.0);
+    CATransform3D initialTransform = CATransform3DRotate(CATransform3DIdentity, -M_PI/2, 0.0, 1.0, 0.0);
+    initialTransform = CATransform3DRotate(initialTransform, - M_PI / 180 * self.currentTiltAngle, 0.0, 0.0, 1.0);
+    CATransform3D finalTransform = CATransform3DRotate(CATransform3DIdentity, - M_PI / 180 * self.currentTiltAngle, 0.0, 0.0, 1.0);
     
-    NSMutableArray *animations = [NSMutableArray array];
-    
-    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    transformAnimation.fromValue = [NSValue valueWithCATransform3D:initialTilt];
-    transformAnimation.toValue = [NSValue valueWithCATransform3D:finalTilt];
-    transformAnimation.duration = self.duration/2;
-    [animations addObject:transformAnimation];
-    
-    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-    [animationGroup setAnimations:animations];
-    [animationGroup setDuration:self.duration/2];
-    animationGroup.removedOnCompletion = NO;
-    animationGroup.fillMode = kCAFillModeForwards;
-    animationGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    self.backViewAnimation = animationGroup;
-    
-    [self.currentBackView.layer addAnimation:animationGroup forKey:@"anim"];
+    [self animateLayer:self.mainFlashcardView.layer
+         fromTransform:initialTransform
+           toTransform:finalTransform
+              duration:self.duration/2
+        timingFunction:kCAMediaTimingFunctionEaseOut
+                forKey:@"backViewFlip"];
 }
 
 
@@ -213,7 +227,7 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    if (anim == [self.currentFrontView.layer animationForKey:@"anim"])
+    if (anim == [self.mainFlashcardView.layer animationForKey:@"frontViewFlip"])
     {
         self.currentFrontView.hidden = YES;
         self.currentBackView.hidden = NO;

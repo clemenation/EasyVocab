@@ -126,6 +126,9 @@
                                                       options:nil] objectAtIndex:0];
     [self.flashcardSuperview addSubview:self.flashcardView];
     self.flashcardView.frame = self.flashcardSuperview.bounds;
+    // Content
+    self.flashcardView.image = [UIImage imageWithContentsOfFile:self.currentImagePath];
+    self.flashcardView.answer = self.currentAnswer;
     
     // Previous flashcard
     self.prevFlashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
@@ -141,24 +144,24 @@
     [self.nextFlashcardSuperview addSubview:self.nextFlashcardView];
     self.nextFlashcardView.frame = self.nextFlashcardSuperview.bounds;
     
+    // Setup flipper
     self.viewFlipper.mainFlashcardView = self.flashcardView;
     self.viewFlipper.nextFlashcardView = self.nextFlashcardView;
+    self.viewFlipper.prevFlashcardView = self.prevFlashcardView;
     
     self.viewFlipper.mainCardFrame = self.flashcardSuperview.frame;
     self.viewFlipper.nextCardFrame = self.nextFlashcardSuperview.frame;
+    self.viewFlipper.prevCardFrame = self.prevFlashcardSuperview.frame;
     
-  
-    self.flashcardView.image = [UIImage imageWithContentsOfFile:self.currentImagePath];
-    self.flashcardView.answer = self.currentAnswer;
-    
+    // Prev/next button hidden
     self.prevButton.hidden = (self.currentFlashCardID == 0);
     self.nextButton.hidden = (self.currentFlashCardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
     
+    // Walkthrough button hidden
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
     
     // Tilt flashcard
-    self.flashcardView.frontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * DEFAULT_TILT_ANGLE);
-    self.flashcardView.backView.transform = CGAffineTransformMakeRotation(- M_PI / 180 * DEFAULT_TILT_ANGLE);
+    self.flashcardView.layer.transform = CATransform3DRotate(CATransform3DIdentity, M_PI / 180 * DEFAULT_TILT_ANGLE, 0, 0, 1);
 }
 
 #pragma mark - Buttons fake Tabbar
