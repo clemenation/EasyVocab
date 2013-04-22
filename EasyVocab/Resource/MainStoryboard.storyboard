@@ -1187,6 +1187,7 @@
         <class className="AnswerFlashCardChallengeMode" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
             <relationships>
+                <relationship kind="action" name="giveUpButtonPressed:"/>
                 <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="giveUpButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
@@ -1214,7 +1215,11 @@
         <class className="ChoosePracticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
             <relationships>
+                <relationship kind="action" name="challengeModeSelected:"/>
+                <relationship kind="action" name="easyModeSelected:"/>
                 <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -1222,6 +1227,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
             <relationships>
                 <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToPratice:"/>
                 <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
@@ -1271,6 +1277,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
