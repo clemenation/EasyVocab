@@ -12,8 +12,8 @@
 
 @interface EVViewFlipper : NSObject
 
-@property (assign, nonatomic) BOOL displayingBackView;
 @property (assign, nonatomic) CGFloat duration;
+@property (assign, nonatomic) BOOL isSwitchingToNext;
 
 @property (weak, nonatomic) UIView *currentFrontView;
 @property (weak, nonatomic) UIView *currentBackView;

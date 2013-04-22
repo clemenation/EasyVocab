@@ -12,6 +12,6 @@
 #include <UIKit/UIKit.h>
 
 static CGFloat DEFAULT_TILT_ANGLE = 5.0f;
-static CGFloat DEFAULT_FLIP_DURATION = 2.0f;
+static CGFloat DEFAULT_FLIP_DURATION = 0.4f;
 
 #endif

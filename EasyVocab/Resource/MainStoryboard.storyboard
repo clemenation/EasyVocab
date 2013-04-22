@@ -380,6 +380,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" id="HlN-iW-YCe" userLabel="prevFlashcardSuperView">
+                                <rect key="frame" x="205" y="48" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleAspectFit" restorationIdentifier="" id="peu-U2-MbP" userLabel="flashcardSuperView">
                                 <rect key="frame" x="35" y="136" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -387,11 +392,6 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="We3-KJ-IIr" appends="YES" id="HMR-Hf-9dV"/>
                                 </connections>
-                            </view>
-                            <view contentMode="scaleToFill" id="HlN-iW-YCe" userLabel="prevFlashcardSuperView">
-                                <rect key="frame" x="205" y="48" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="kLr-Sc-Fks" userLabel="nextFlashcardSuperView">
                                 <rect key="frame" x="35" y="48" width="80" height="80"/>
@@ -1199,6 +1199,8 @@
         <class className="AnswerFlashCardChallengeMode" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
             <relationships>
+                <relationship kind="action" name="checkAnswerPressed:"/>
+                <relationship kind="action" name="giveUpButtonPressed:"/>
                 <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="giveUpButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
@@ -1234,6 +1236,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
             <relationships>
                 <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToPratice:"/>
                 <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
@@ -1244,6 +1247,8 @@
         <class className="ReviewFlashCardPraticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardPraticeModeVC.h"/>
             <relationships>
+                <relationship kind="action" name="speakAnswerPressed:"/>
+                <relationship kind="action" name="switchToLearn:"/>
                 <relationship kind="outlet" name="awesomeLabel" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
@@ -1284,6 +1289,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>

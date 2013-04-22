@@ -139,8 +139,17 @@
 
 - (void)next
 {
-    [self nextToMain];
-    [self mainToPrev];
+    if (self.currentFrontView == self.mainFlashcardView.frontView)
+    {
+        // currently showing front view, flip it first
+        self.isSwitchingToNext = YES;
+        [self flip];
+    }
+    else
+    {
+        [self nextToMain];
+        [self mainToPrev];
+    }
 }
 
 - (void)nextToMain
@@ -163,13 +172,13 @@
            toTransform:finalTransform
               duration:self.duration
         timingFunction:kCAMediaTimingFunctionEaseInEaseOut
-                forKey:@"anim"];
+                forKey:@"nextToMain"];
 }
 
 - (void)mainToPrev
 {
     CGFloat scale = self.prevCardFrame.size.height / self.mainCardFrame.size.height;
-    CATransform3D initialTransform = self.mainFlashcardView.layer.transform;
+    CATransform3D initialTransform = CATransform3DRotate(CATransform3DIdentity, - M_PI / 180 * self.tiltAngle, 0, 0, 1);
     CATransform3D finalTransform = CATransform3DTranslate(CATransform3DIdentity,
                                                           (self.prevCardFrame.origin.x - self.mainCardFrame.origin.x),
                                                           (self.prevCardFrame.origin.y - self.mainCardFrame.origin.y),
@@ -185,7 +194,7 @@
            toTransform:finalTransform
               duration:self.duration
         timingFunction:kCAMediaTimingFunctionEaseInEaseOut
-                forKey:@"anim"];
+                forKey:@"mainToPrev"];
 }
 
 - (void)flip
@@ -240,6 +249,19 @@
         self.currentBackView = temp;
         
         self.currentTiltAngle = -self.currentTiltAngle;
+    }
+    else if (anim == [self.mainFlashcardView.layer animationForKey:@"backViewFlip"])
+    {
+        if (self.isSwitchingToNext)
+        {
+            self.isSwitchingToNext = NO;
+            [self nextToMain];
+            [self mainToPrev];            
+        }
+    }
+    else if (anim == [self.mainFlashcardView.layer animationForKey:@"mainToPrev"])
+    {
+        
     }
 }
 
