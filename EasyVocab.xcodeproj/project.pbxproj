@@ -24,7 +24,6 @@
 		4A09FA3D17088BE2007D5733 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A09FA3C17088BE2007D5733 /* libz.dylib */; };
 		4A1633C51707D4DF000A94EA /* UVNVan_B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4A1633C31707D4DF000A94EA /* UVNVan_B.TTF */; };
 		4A1633C61707D4DF000A94EA /* UVNVan_R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4A1633C41707D4DF000A94EA /* UVNVan_R.TTF */; };
-		4A19E224171FE03D003EF4BD /* Transformifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E223171FE03D003EF4BD /* Transformifier.m */; };
 		4A2006FF17048A2700476EC2 /* EVFlashcardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */; };
 		4A46C72F170930BE0075C6D5 /* EVWalkthroughManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */; };
 		4A8D4AF4171B9E8500E73524 /* EVViewFlipper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4AF3171B9E8500E73524 /* EVViewFlipper.m */; };
@@ -188,8 +187,6 @@
 		4A09FA3C17088BE2007D5733 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4A1633C31707D4DF000A94EA /* UVNVan_B.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = UVNVan_B.TTF; path = Resource/Fonts/UVNVan_B.TTF; sourceTree = "<group>"; };
 		4A1633C41707D4DF000A94EA /* UVNVan_R.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = UVNVan_R.TTF; path = Resource/Fonts/UVNVan_R.TTF; sourceTree = "<group>"; };
-		4A19E222171FE03D003EF4BD /* Transformifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transformifier.h; path = Class/Library/Transformifier/Transformifier.h; sourceTree = "<group>"; };
-		4A19E223171FE03D003EF4BD /* Transformifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transformifier.m; path = Class/Library/Transformifier/Transformifier.m; sourceTree = "<group>"; };
 		4A2006FD17048A2600476EC2 /* EVFlashcardCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcardCollection.h; path = Class/Model/EVFlashcardCollection.h; sourceTree = "<group>"; };
 		4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardCollection.m; path = Class/Model/EVFlashcardCollection.m; sourceTree = "<group>"; };
 		4A46C72D170930BE0075C6D5 /* EVWalkthroughManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVWalkthroughManager.h; path = Class/Model/EVWalkthroughManager.h; sourceTree = "<group>"; };
@@ -397,15 +394,6 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		4A19E221171FE036003EF4BD /* Transformifier */ = {
-			isa = PBXGroup;
-			children = (
-				4A19E222171FE03D003EF4BD /* Transformifier.h */,
-				4A19E223171FE03D003EF4BD /* Transformifier.m */,
-			);
-			name = Transformifier;
-			sourceTree = "<group>";
-		};
 		4A8D4C08171BB91100E73524 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,7 +550,6 @@
 		4AC149E016F7437A009F7CBA /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				4A19E221171FE036003EF4BD /* Transformifier */,
 				4A09FA1617088B9C007D5733 /* ASIHTTPRequest */,
 				4A09FA1317088B57007D5733 /* EVGoogleTranslateTTS.h */,
 				4A09FA1417088B57007D5733 /* EVGoogleTranslateTTS.m */,
@@ -1003,7 +990,6 @@
 				4A8D4C03171BA14200E73524 /* ShowFlashCardLearnModeVC.m in Sources */,
 				4A8D4C04171BA14200E73524 /* FlashCardCollectionVC.m in Sources */,
 				4AEDCCEA171F8D1700EE0E98 /* EVFlashcardView.m in Sources */,
-				4A19E224171FE03D003EF4BD /* Transformifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
