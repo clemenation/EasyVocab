@@ -22,29 +22,57 @@
 @property (weak, nonatomic) IBOutlet UIButton       *nextButton;
 @property (weak, nonatomic) IBOutlet UIView         *flashcardSuperview;
 @property (weak, nonatomic) IBOutlet UIView         *prevFlashcardSuperview;
+@property (weak, nonatomic) IBOutlet UIView         *prevUnderFlashcardSuperview;
 @property (weak, nonatomic) IBOutlet UIView         *nextFlashcardSuperview;
+@property (weak, nonatomic) IBOutlet UIView         *nextUnderFlashcardSuperview;
 @property (weak, nonatomic) IBOutlet UIButton       *walkthroughButton;
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 @property (strong, nonatomic) EVViewFlipper         *viewFlipper;
-@property (strong, nonatomic) EVFlashcardView       *flashcardView;
-@property (strong, nonatomic) EVFlashcardView       *prevFlashcardView;
-@property (strong, nonatomic) EVFlashcardView       *nextFlashcardView;
-@property (strong, nonatomic) NSString              *currentImagePath;
-@property (strong, nonatomic) NSString              *currentAnswer;
+@property (strong, nonatomic) NSMutableArray        *flashcardsViews;
+@property (strong, nonatomic) NSArray               *flashcardsSuperviews;
+@property (strong, nonatomic) NSMutableArray        *imagesPaths;
+@property (strong, nonatomic) NSMutableArray        *answers;
 @property (strong, nonatomic) Transformifier        *transformifier;
 
+- (EVFlashcardView *)newFlashcardView:(UIView *)superview;
+- (void)loadFlashcardsViews;
+- (void)loadImagesAndAnswers;
 
 @end
 
 @implementation ShowFlashCardLearnModeVC
 
-@synthesize flashcardCollection = _flashcardCollection;
-@synthesize currentFlashCardID  = _currentFlashCardID;
-@synthesize currentImagePath    = _currentImagePath;
-@synthesize currentAnswer       = _currentAnswer;
-@synthesize viewFlipper         = _viewFlipper;
-@synthesize flashcardView       = _flashcardView;
-@synthesize transformifier      = _transformifier;
+@synthesize flashcardCollection     = _flashcardCollection;
+@synthesize currentFlashCardID      = _currentFlashCardID;
+@synthesize imagesPaths             = _imagesPaths;
+@synthesize answers                 = _answers;
+@synthesize viewFlipper             = _viewFlipper;
+@synthesize flashcardsViews         = _flashcardsViews;
+@synthesize flashcardsSuperviews    = _flashcardsSuperviews;
+@synthesize transformifier          = _transformifier;
+
+- (NSArray *)flashcardsViews
+{
+    if (!_flashcardsViews)
+    {
+        _flashcardsViews = [NSMutableArray arrayWithCapacity:5];
+    }
+    return _flashcardsViews;
+}
+
+- (NSArray *)flashcardsSuperviews
+{
+    if (!_flashcardsSuperviews)
+    {
+        _flashcardsSuperviews = [NSArray arrayWithObjects:self.prevUnderFlashcardSuperview,
+                               self.prevFlashcardSuperview,
+                               self.flashcardSuperview,
+                               self.nextFlashcardSuperview,
+                               self.nextUnderFlashcardSuperview,
+                               nil];
+    }
+    return _flashcardsSuperviews;
+}
 
 - (Transformifier *)transformifier
 {
@@ -60,7 +88,7 @@
     if (!_viewFlipper)
     {
         _viewFlipper = [[EVViewFlipper alloc] init];
-        _viewFlipper.mainFlashcardView = self.flashcardView;
+        _viewFlipper.mainFlashcardView = [self.flashcardsViews objectAtIndex:2];
         _viewFlipper.tiltAngle = DEFAULT_TILT_ANGLE;
         _viewFlipper.duration = DEFAULT_FLIP_DURATION;
     }
@@ -82,30 +110,64 @@
     if (currentFlashCardID >= 0 && currentFlashCardID < flashcardCount)
     {
         _currentFlashCardID = currentFlashCardID;
-        self.currentImagePath = [self.flashcardCollection flashcardPathAtIndex:_currentFlashCardID ofCategory:self.currentCategory];
-        self.currentAnswer = [self.flashcardCollection answerAtIndex:_currentFlashCardID
-                                                          ofCategory:self.currentCategory];
+        for (int i=0; i<5; i++)
+        {
+            int pos = _currentFlashCardID + (i-2);
+            if (pos >= 0 && pos < flashcardCount)
+            {
+                [self.imagesPaths setObject:[self.flashcardCollection flashcardPathAtIndex:pos
+                                                                                ofCategory:self.currentCategory]
+                         atIndexedSubscript:i];
+                [self.answers setObject:[self.flashcardCollection answerAtIndex:pos
+                                                                     ofCategory:self.currentCategory]
+                     atIndexedSubscript:i];
+            }
+            else
+            {
+                [self.imagesPaths setObject:[NSNull null] atIndexedSubscript:i];
+                [self.answers setObject:[NSNull null] atIndexedSubscript:i];
+            }
+        }
+        if (self.isViewLoaded) [self loadImagesAndAnswers];
         
-        self.prevButton.hidden = (currentFlashCardID == 0);
-        self.nextButton.hidden = (currentFlashCardID == flashcardCount-1);
+        self.prevUnderFlashcardSuperview.hidden = self.prevFlashcardSuperview.hidden = self.prevButton.hidden = (currentFlashCardID == 0);
+        self.nextUnderFlashcardSuperview.hidden = self.nextFlashcardSuperview.hidden = self.nextButton.hidden = (currentFlashCardID == flashcardCount-1);
     }
 }
 
-- (void)setCurrentImagePath:(NSString *)currentImagePath
+- (NSMutableArray *)imagesPaths
 {
-    if (_currentImagePath != currentImagePath)
+    if (!_imagesPaths)
     {
-        _currentImagePath = currentImagePath;
-        self.flashcardView.image = [UIImage imageWithContentsOfFile:_currentImagePath];
+        _imagesPaths = [NSMutableArray arrayWithCapacity:5];
     }
+    return _imagesPaths;
 }
 
-- (void)setCurrentAnswer:(NSString *)currentAnswer
+- (NSMutableArray *)answers
 {
-    if (_currentAnswer != currentAnswer)
+    if (!_answers)
     {
-        _currentAnswer = currentAnswer;
-        self.flashcardView.answer = _currentAnswer;
+        _answers = [NSMutableArray arrayWithCapacity:5];
+    }
+    return _answers;
+}
+
+- (void)loadImagesAndAnswers
+{
+    for (int i=0; i<5; i++)
+    {
+        EVFlashcardView *flashcardView = [self.flashcardsViews objectAtIndex:i];
+        id image = [self.imagesPaths objectAtIndex:i];
+        id answer = [self.answers objectAtIndex:i];
+        if (image != [NSNull null])
+        {
+            flashcardView.image = [UIImage imageWithContentsOfFile:image];
+        }
+        if (answer != [NSNull null])
+        {
+            flashcardView.answer = answer;
+        }
     }
 }
 
@@ -115,43 +177,41 @@
     self.transformifier.height = 100;
 }
 
+- (EVFlashcardView *)newFlashcardView:(UIView *)superview
+{
+    EVFlashcardView *flashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
+                                                                    owner:self
+                                                                  options:nil] objectAtIndex:0];
+    [superview addSubview:flashcardView];
+    flashcardView.frame = superview.bounds;
+    
+    return flashcardView;
+}
+
+- (void)loadFlashcardsViews
+{
+    for (int i=0; i<5; i++)
+    {
+        [self.flashcardsViews setObject:[self newFlashcardView:[self.flashcardsSuperviews objectAtIndex:i]]
+                     atIndexedSubscript:i];
+    }
+    [self loadImagesAndAnswers];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    // Main flashcard
-    self.flashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
-                                                        owner:self
-                                                      options:nil] objectAtIndex:0];
-    [self.flashcardSuperview addSubview:self.flashcardView];
-    self.flashcardView.frame = self.flashcardSuperview.bounds;
-    // Content
-    self.flashcardView.image = [UIImage imageWithContentsOfFile:self.currentImagePath];
-    self.flashcardView.answer = self.currentAnswer;
-    
-    // Previous flashcard
-    self.prevFlashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
-                                                            owner:self
-                                                          options:nil] objectAtIndex:0];
-    [self.prevFlashcardSuperview addSubview:self.prevFlashcardView];
-    self.prevFlashcardView.frame = self.prevFlashcardSuperview.bounds;
-    
-    // Next flashcard
-    self.nextFlashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
-                                                            owner:self
-                                                          options:nil] objectAtIndex:0];
-    [self.nextFlashcardSuperview addSubview:self.nextFlashcardView];
-    self.nextFlashcardView.frame = self.nextFlashcardSuperview.bounds;
+    [self loadFlashcardsViews];
     
     // Setup flipper
-    self.viewFlipper.mainFlashcardView = self.flashcardView;
-    self.viewFlipper.nextFlashcardView = self.nextFlashcardView;
-    self.viewFlipper.prevFlashcardView = self.prevFlashcardView;
+    self.viewFlipper.mainFlashcardView = [self.flashcardsViews objectAtIndex:2];
+    self.viewFlipper.nextFlashcardView = [self.flashcardsViews objectAtIndex:3];
+    self.viewFlipper.prevFlashcardView = [self.flashcardsViews objectAtIndex:1];
     
-    self.viewFlipper.mainCardFrame = self.flashcardSuperview.frame;
-    self.viewFlipper.nextCardFrame = self.nextFlashcardSuperview.frame;
-    self.viewFlipper.prevCardFrame = self.prevFlashcardSuperview.frame;
+    self.viewFlipper.mainCardFrame = ((UIView *)[self.flashcardsSuperviews objectAtIndex:2]).frame;
+    self.viewFlipper.nextCardFrame = ((UIView *)[self.flashcardsSuperviews objectAtIndex:3]).frame;
+    self.viewFlipper.prevCardFrame = ((UIView *)[self.flashcardsSuperviews objectAtIndex:1]).frame;
     
     // Prev/next button hidden
     self.prevButton.hidden = (self.currentFlashCardID == 0);
@@ -161,7 +221,9 @@
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
     
     // Tilt flashcard
-    self.flashcardView.layer.transform = CATransform3DRotate(CATransform3DIdentity, M_PI / 180 * DEFAULT_TILT_ANGLE, 0, 0, 1);
+    ((EVFlashcardView *)[self.flashcardsViews objectAtIndex:2]).layer.transform = CATransform3DRotate(CATransform3DIdentity,
+                                                                                                      M_PI / 180 * DEFAULT_TILT_ANGLE,
+                                                                                                      0, 0, 1);
 }
 
 #pragma mark - Buttons fake Tabbar
