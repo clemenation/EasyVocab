@@ -381,7 +381,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleAspectFit" id="peu-U2-MbP">
-                                <rect key="frame" x="35" y="136" width="250" height="250"/>
+                                <rect key="frame" x="35" y="91" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -434,7 +434,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zQG-3b-whE">
-                                <rect key="frame" x="38" y="398" width="21" height="29"/>
+                                <rect key="frame" x="38" y="371" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_prev.png">
@@ -449,7 +449,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3B-8w-xvQ">
-                                <rect key="frame" x="250" y="398" width="21" height="29"/>
+                                <rect key="frame" x="250" y="371" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_next.png">
@@ -1187,7 +1187,6 @@
         <class className="AnswerFlashCardChallengeMode" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
             <relationships>
-                <relationship kind="action" name="giveUpButtonPressed:"/>
                 <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="giveUpButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
@@ -1215,11 +1214,7 @@
         <class className="ChoosePracticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
             <relationships>
-                <relationship kind="action" name="challengeModeSelected:"/>
-                <relationship kind="action" name="easyModeSelected:"/>
                 <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="switchToLearn:"/>
-                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -1227,7 +1222,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
             <relationships>
                 <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="switchToPratice:"/>
                 <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
@@ -1248,12 +1242,6 @@
         <class className="ShowFlashCardLearnModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardLearnModeVC.h"/>
             <relationships>
-                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="nextButtonSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="prevButtonSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="returnToShowFlashCardLearnMode:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="switchToPratice:"/>
-                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="flashcardSuperview" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="prevButton" candidateClass="UIButton"/>
@@ -1277,9 +1265,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
