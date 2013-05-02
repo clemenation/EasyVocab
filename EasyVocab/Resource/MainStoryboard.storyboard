@@ -380,14 +380,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleAspectFit" id="peu-U2-MbP">
-                                <rect key="frame" x="35" y="91" width="250" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="We3-KJ-IIr" appends="YES" id="HMR-Hf-9dV"/>
-                                </connections>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IMt-3e-55j">
                                 <rect key="frame" x="15" y="10" width="112" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -483,8 +475,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="82Q-I7-jZb"/>
                     <connections>
-                        <outlet property="flashcardSuperview" destination="peu-U2-MbP" id="jnr-Rw-jhP"/>
-                        <outlet property="flashcardView" destination="peu-U2-MbP" id="gik-4D-L66"/>
                         <outlet property="nextButton" destination="s3B-8w-xvQ" id="eas-gB-Brf"/>
                         <outlet property="prevButton" destination="zQG-3b-whE" id="fDj-TG-UCm"/>
                         <outlet property="walkthroughButton" destination="wqu-yG-kUn" id="3aq-J7-IoS"/>
@@ -1242,7 +1232,10 @@
         <class className="ShowFlashCardLearnModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowFlashCardLearnModeVC.h"/>
             <relationships>
-                <relationship kind="outlet" name="flashcardSuperview" candidateClass="UIView"/>
+                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="nextButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="switchToPratice:"/>
+                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="prevButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
@@ -1265,6 +1258,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>

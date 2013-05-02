@@ -47,7 +47,12 @@
                         ofCategory:(NSString *)category
                               
 {
-    return [(NSArray *)[self flashcardPathsOfCategory:category] objectAtIndex:index];
+    NSArray *paths = [self flashcardPathsOfCategory:category];
+    if (index >= 0 && index <= paths.count)
+    {
+        return [paths objectAtIndex:index];
+    }
+    return nil;
 }
 
 - (NSArray *)flashcardPathsOfCategory:(NSString *)category
@@ -68,7 +73,12 @@
 - (NSString *)answerAtIndex:(int)index
                  ofCategory:(NSString *)category
 {
-    return [(NSArray *)[self.answerByCategoryDictionary objectForKey:category] objectAtIndex:index];
+    NSArray *answers = [self.answerByCategoryDictionary objectForKey:category];
+    if (index >= 0 && index <= answers.count)
+    {
+        return [answers objectAtIndex:index];
+    }
+    return nil;
 }
 
 @end
