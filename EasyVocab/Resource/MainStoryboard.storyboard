@@ -425,8 +425,8 @@
                                     <action selector="switchToPratice:" destination="Kk0-bd-l08" eventType="touchUpInside" id="JuT-Rn-47l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zQG-3b-whE">
-                                <rect key="frame" x="38" y="371" width="21" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zQG-3b-whE" userLabel="prevButton">
+                                <rect key="frame" x="38" y="391" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_prev.png">
@@ -440,8 +440,8 @@
                                     <action selector="prevButtonSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="jL3-iB-Mmx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3B-8w-xvQ">
-                                <rect key="frame" x="250" y="371" width="21" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3B-8w-xvQ" userLabel="nextButton">
+                                <rect key="frame" x="250" y="391" width="21" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_next.png">
@@ -503,24 +503,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="8vb-MP-nle">
-                                <rect key="frame" x="15" y="70" width="291" height="291"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="yid-4O-NVm">
-                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView contentMode="scaleAspectFit" image="image.png" id="XEt-Bz-3Mk">
-                                        <rect key="frame" x="23" y="24" width="244" height="244"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="a39-s4-cSF" appends="YES" id="Gfe-py-k7U"/>
-                                        </connections>
-                                    </imageView>
-                                </subviews>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G9n-dw-WVO">
                                 <rect key="frame" x="15" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -536,7 +518,7 @@
                                     <segue destination="AEx-Bu-hnn" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="e9A-e4-t3R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gsO-dZ-ynD">
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gsO-dZ-ynD" userLabel="learnTabButton">
                                 <rect key="frame" x="0.0" y="432" width="160" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -552,7 +534,7 @@
                                     <action selector="switchToLearn:" destination="wLD-fN-O1n" eventType="touchUpInside" id="Aig-if-7Jk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="11" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="yYV-bf-4qf">
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="yYV-bf-4qf" userLabel="practiceTabButton">
                                 <rect key="frame" x="160" y="432" width="160" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -568,7 +550,7 @@
                                     <action selector="switchToPratice:" destination="tGq-ji-LiM" eventType="touchUpInside" id="bl4-0h-YCP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="On6-jX-GGz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="On6-jX-GGz" userLabel="walkthroughButton">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -588,8 +570,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Nmr-K1-lha"/>
                     <connections>
-                        <outlet property="flashcardView" destination="8vb-MP-nle" id="PJG-w5-brG"/>
-                        <outlet property="imageView" destination="XEt-Bz-3Mk" id="VMF-dJ-r7m"/>
+                        <outlet property="flashcardTapGestureRecognizer" destination="a39-s4-cSF" id="Dus-6S-M03"/>
                         <outlet property="walkthroughButton" destination="On6-jX-GGz" id="llA-1A-wK0"/>
                         <segue destination="3Wl-JI-VRq" kind="push" identifier="answerFlashCardChallengeMode" id="cfP-bC-HgM"/>
                         <segue destination="oig-37-71d" kind="push" identifier="answerFlashCardEasyMode" id="FmA-ag-8Zu"/>
@@ -599,7 +580,7 @@
                 <exit id="AEx-Bu-hnn" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="a39-s4-cSF">
                     <connections>
-                        <action selector="tapGestureAction:" destination="wLD-fN-O1n" id="NwY-Mb-tMJ"/>
+                        <action selector="flashcardSelected:" destination="wLD-fN-O1n" id="yWH-HO-rSD"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1150,7 +1131,6 @@
         <image name="category_icon_food.png" width="63" height="62"/>
         <image name="category_walkthrough.png" width="320" height="480"/>
         <image name="flashcard.png" width="291" height="291"/>
-        <image name="image.png" width="16" height="16"/>
         <image name="learn_front_walkthrough.png" width="320" height="480"/>
         <image name="learn_grid_walkthrough.png" width="320" height="480"/>
         <image name="practice_back_answer_awesome.png" width="205" height="60"/>
@@ -1180,6 +1160,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZC7-de-Uws"/>
+        <segue reference="D4N-ev-iQn"/>
     </inferredMetricsTieBreakers>
 </document>

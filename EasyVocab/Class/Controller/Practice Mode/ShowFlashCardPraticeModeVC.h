@@ -12,10 +12,7 @@
 
 @property(weak,nonatomic) NSString * currentCategory;
 @property(nonatomic) int currentFlashCardID;
-@property(strong,nonatomic) NSString * currentFlashCard;
 
 @property(nonatomic) int currentPraticeMode;
-
--(IBAction)returnToShowFlashCardPraticeMode:(UIStoryboardSegue *)segue;
 
 @end

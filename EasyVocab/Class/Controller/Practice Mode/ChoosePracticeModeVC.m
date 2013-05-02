@@ -71,7 +71,6 @@
 		
 		NSArray * allCard = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:self.currentCategory];
 		vc.currentFlashCardID = rand()%[allCard count];
-		vc.currentFlashCard = [allCard objectAtIndex:vc.currentFlashCardID];
 	}
 	
 }

@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *answerLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *speakerButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *answerButtons;
 
 @property (strong, nonatomic) EVGoogleTranslateTTS *tts;
 
@@ -21,10 +24,35 @@
 
 @implementation EVFlashcardView
 
-@synthesize image = _image;
-@synthesize answer = _answer;
-@synthesize tts = _tts;
-@synthesize containerView = _containerView;
+@synthesize image               = _image;
+@synthesize answer              = _answer;
+@synthesize tts                 = _tts;
+@synthesize containerView       = _containerView;
+@synthesize flashcardViewType   = _flashcardViewType;
+
+- (void)setFlashcardViewType:(EVFlashcardViewType)flashcardViewType
+{
+    _flashcardViewType = flashcardViewType;
+    
+    switch (_flashcardViewType)
+    {
+        case EVFlashcardViewLearn:
+            self.answerLabel.hidden = self.speakerButton.hidden = NO;
+            self.nextButton.hidden = YES;
+            for (UIButton *button in self.answerButtons) button.hidden = YES;
+            break;
+        case EVFlashcardViewPracticeEasy:
+            self.answerLabel.hidden = self.speakerButton.hidden = self.nextButton.hidden = YES;
+            for (UIButton *button in self.answerButtons) button.hidden = NO;
+            break;
+        case EVFlashcardViewPracticeChallenge:
+            
+            break;
+        case EVFlashcardViewPracticeAnswer:
+            
+            break;
+    }
+}
 
 - (void)setImage:(UIImage *)image
 {
@@ -43,14 +71,6 @@
         self.answerLabel.text = [_answer uppercaseString];
         self.answerLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
     }
-}
-
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    
-//    self.speakerButton.center = CGPointMake(self.center.x, self.speakerButton.center.y);
-//    self.speakerButton.transform = CGAffineTransformScale(self.speakerButton.transform, self.frame.size.width/291.0, self.frame.size.height/291.0);
 }
 
 

@@ -10,8 +10,16 @@
 
 @interface EVFlashcardView : UIControl
 
+typedef enum {
+    EVFlashcardViewLearn,
+    EVFlashcardViewPracticeEasy,
+    EVFlashcardViewPracticeChallenge,
+    EVFlashcardViewPracticeAnswer
+} EVFlashcardViewType;
+
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UIView *frontView;
+@property (assign, nonatomic) EVFlashcardViewType flashcardViewType;
 
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *answer;
