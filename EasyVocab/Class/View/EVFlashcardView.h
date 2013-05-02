@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EVFlashcardView : UIView
+@interface EVFlashcardView : UIControl
 
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UIView *frontView;
 
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *answer;
+@property (strong, nonatomic) UIView *containerView;
 
 - (IBAction)speakerSelected:(id)sender;
 

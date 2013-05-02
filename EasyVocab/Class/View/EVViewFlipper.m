@@ -18,21 +18,36 @@
 @property (strong, nonatomic) CAAnimationGroup *frontViewAnimation;
 @property (strong, nonatomic) CAAnimationGroup *backViewAnimation;
 @property (assign, nonatomic) CGFloat currentTiltAngle;
+@property (copy, nonatomic) void (^completion)(void);
 
 @end
 
 @implementation EVViewFlipper
 
-@synthesize frontView = _frontView;
-@synthesize frontViewAnimation = _frontViewAnimation;
-@synthesize backViewAnimation = _backViewAnimation;
-@synthesize currentFrontView = _currentFrontView;
-@synthesize currentBackView = _currentBackView;
-@synthesize currentTiltAngle = _currentTiltAngle;
+@synthesize frontViewAnimation  = _frontViewAnimation;
+@synthesize backViewAnimation   = _backViewAnimation;
+@synthesize currentFrontView    = _currentFrontView;
+@synthesize currentBackView     = _currentBackView;
+@synthesize currentTiltAngle    = _currentTiltAngle;
+@synthesize flashcardView       = _flashcardView;
 
 
 
 #pragma mark - Setters/getters
+
+- (void)setFlashcardView:(EVFlashcardView *)flashcardView
+{
+    if (_flashcardView != flashcardView)
+    {
+        _flashcardView = flashcardView;
+        _flashcardView.frontView.layer.zPosition = _flashcardView.frontView.frame.size.width/2;        
+        _flashcardView.backView.layer.zPosition = _flashcardView.backView.frame.size.width/2;
+        
+        _currentBackView = nil;     // reset
+        _currentFrontView = nil;    // reset
+        _currentTiltAngle = self.tiltAngle;
+    }
+}
 
 - (CGFloat)currentTiltAngle
 {
@@ -47,7 +62,7 @@
 {
     if (!_currentFrontView)
     {
-        _currentFrontView = self.frontView;
+        _currentFrontView = self.flashcardView.frontView;
         _currentFrontView.hidden = NO;
     }
     return _currentFrontView;
@@ -57,28 +72,15 @@
 {
     if (!_currentBackView)
     {
-        _currentBackView = self.backView;
+        _currentBackView = self.flashcardView.backView;
         _currentBackView.hidden = YES;
     }
     return _currentBackView;
 }
 
-- (void)setFrontView:(UIView *)frontView
+- (BOOL)displayingBackView
 {
-    if (_frontView != frontView)
-    {
-        _frontView = frontView;
-        _frontView.layer.zPosition = _frontView.frame.size.width/2;
-    }
-}
-
-- (void)setBackView:(UIView *)backView
-{
-    if (_backView != backView)
-    {
-        _backView = backView;
-        _backView.layer.zPosition = _backView.frame.size.width/2;
-    }
+    return (self.currentFrontView != self.flashcardView.frontView);
 }
 
 
@@ -100,6 +102,12 @@
 
 - (void)flip
 {
+    [self flip:nil];
+}
+
+- (void)flip:(void (^)(void))completion
+{
+    self.completion = completion;
     [self flipFrontView];
 }
 
@@ -129,7 +137,7 @@
     
     self.frontViewAnimation = animationGroup;
     
-    [self.currentFrontView.layer addAnimation:animationGroup forKey:@"anim"];
+    [self.currentFrontView.layer addAnimation:animationGroup forKey:@"flipFrontView"];
 }
 
 - (void)flipBackView
@@ -154,10 +162,11 @@
     animationGroup.removedOnCompletion = NO;
     animationGroup.fillMode = kCAFillModeForwards;
     animationGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animationGroup.delegate = self;
     
     self.backViewAnimation = animationGroup;
     
-    [self.currentBackView.layer addAnimation:animationGroup forKey:@"anim"];
+    [self.currentBackView.layer addAnimation:animationGroup forKey:@"flipBackView"];
 }
 
 
@@ -166,17 +175,27 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    self.currentFrontView.hidden = YES;
-    self.currentBackView.hidden = NO;
-    
-    [self flipBackView];
-    
-    // Switch current front/back view role
-    UIView *temp = self.currentFrontView;
-    self.currentFrontView = self.currentBackView;
-    self.currentBackView = temp;
-    
-    self.currentTiltAngle = -self.currentTiltAngle;
+    if (anim == [self.currentFrontView.layer animationForKey:@"flipBackView"])
+    {
+        if (self.completion != nil)
+        {
+            self.completion();
+        }
+    }
+    else if (anim == [self.currentFrontView.layer animationForKey:@"flipFrontView"])
+    {
+        self.currentFrontView.hidden = YES;
+        self.currentBackView.hidden = NO;
+        
+        [self flipBackView];
+        
+        // Switch current front/back view role
+        UIView *temp = self.currentFrontView;
+        self.currentFrontView = self.currentBackView;
+        self.currentBackView = temp;
+        
+        self.currentTiltAngle = -self.currentTiltAngle;
+    }
 }
 
 @end

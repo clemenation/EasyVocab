@@ -23,6 +23,7 @@
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 @property (strong, nonatomic) EVViewFlipper         *viewFlipper;
 @property (strong, nonatomic) NSMutableArray        *flashcardViews;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *flashcardTapGestureRecognizer;
 
 - (void)loadFlashcardsContent;
 
@@ -49,8 +50,6 @@
     if (!_viewFlipper)
     {
         _viewFlipper = [[EVViewFlipper alloc] init];
-//        _viewFlipper.frontView = self.flashcardView.frontView;
-//        _viewFlipper.backView = self.flashcardView.backView;
         _viewFlipper.tiltAngle = DEFAULT_TILT_ANGLE;
         _viewFlipper.duration = DEFAULT_FLIP_DURATION;
     }
@@ -131,6 +130,12 @@
                                                                   ofCategory:self.currentCategory]];
         flashcardView.answer = [self.flashcardCollection answerAtIndex:(self.currentFlashCardID + (i-1))
                                                             ofCategory:self.currentCategory];
+        
+        [flashcardView removeGestureRecognizer:self.flashcardTapGestureRecognizer];
+        if (i == 1)
+        {
+            [flashcardView addGestureRecognizer:self.flashcardTapGestureRecognizer];
+        }
     }
 }
 
@@ -151,20 +156,32 @@
     
     sender.enabled = NO;
     
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         firstCard.frame = secondCard.frame;
-                         secondCard.frame = thirdCard.frame;
-                     }
-                     completion:^(BOOL finished) {
-                         thirdCard.frame = firstCardFrame;
-                         [self.flashcardViews exchangeObjectAtIndex:0 withObjectAtIndex:1];
-                         [self.flashcardViews exchangeObjectAtIndex:0 withObjectAtIndex:2];
-                         
-                         self.currentFlashCardID--;
-                         
-                         sender.enabled = YES;
-                     }];
+    void (^prevAnimation)(void) = ^{
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             firstCard.frame = secondCard.frame;
+                             secondCard.frame = thirdCard.frame;
+                         }
+                         completion:^(BOOL finished) {
+                             thirdCard.frame = firstCardFrame;
+                             [self.flashcardViews exchangeObjectAtIndex:0 withObjectAtIndex:1];
+                             [self.flashcardViews exchangeObjectAtIndex:0 withObjectAtIndex:2];
+                             
+                             self.currentFlashCardID--;
+                             
+                             sender.enabled = YES;
+                         }];
+
+    };
+    
+    if (self.viewFlipper.flashcardView == secondCard && self.viewFlipper.displayingBackView)
+    {
+        [self.viewFlipper flip:prevAnimation];
+    }
+    else
+    {
+        prevAnimation();
+    }
 }
 
 - (IBAction)nextButtonSelected:(UIButton *)sender {
@@ -178,20 +195,31 @@
     
     sender.enabled = NO;
     
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         thirdCard.frame = secondCard.frame;
-                         secondCard.frame = firstCard.frame;
-                     }
-                     completion:^(BOOL finished) {
-                         firstCard.frame = thirdCardFrame;
-                         [self.flashcardViews exchangeObjectAtIndex:2 withObjectAtIndex:1];
-                         [self.flashcardViews exchangeObjectAtIndex:2 withObjectAtIndex:0];
-                         
-                         self.currentFlashCardID++;
-                         
-                         sender.enabled = YES;
-                     }];
+    void (^nextAnimation)(void) = ^{
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             thirdCard.frame = secondCard.frame;
+                             secondCard.frame = firstCard.frame;
+                         }
+                         completion:^(BOOL finished) {
+                             firstCard.frame = thirdCardFrame;
+                             [self.flashcardViews exchangeObjectAtIndex:2 withObjectAtIndex:1];
+                             [self.flashcardViews exchangeObjectAtIndex:2 withObjectAtIndex:0];
+                             
+                             self.currentFlashCardID++;
+                             
+                             sender.enabled = YES;
+                         }];        
+    };
+    
+    if (self.viewFlipper.flashcardView == secondCard && self.viewFlipper.displayingBackView)
+    {
+        [self.viewFlipper flip:nextAnimation];
+    }
+    else
+    {
+        nextAnimation();
+    }
 }
 
 #pragma mark - segue
@@ -210,6 +238,7 @@
 #pragma mark - Target/action
 
 - (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender {
+    self.viewFlipper.flashcardView = [self.flashcardViews objectAtIndex:1];
     [self.viewFlipper flip];
 }
 

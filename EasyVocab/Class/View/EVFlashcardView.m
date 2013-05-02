@@ -24,6 +24,7 @@
 @synthesize image = _image;
 @synthesize answer = _answer;
 @synthesize tts = _tts;
+@synthesize containerView = _containerView;
 
 - (void)setImage:(UIImage *)image
 {
@@ -48,8 +49,8 @@
 {
     [super drawRect:rect];
     
-    self.speakerButton.center = CGPointMake(self.center.x, self.speakerButton.center.y);
-    self.speakerButton.transform = CGAffineTransformScale(self.speakerButton.transform, self.frame.size.width/291.0, self.frame.size.height/291.0);
+//    self.speakerButton.center = CGPointMake(self.center.x, self.speakerButton.center.y);
+//    self.speakerButton.transform = CGAffineTransformScale(self.speakerButton.transform, self.frame.size.width/291.0, self.frame.size.height/291.0);
 }
 
 
