@@ -17,6 +17,7 @@
 
 @interface ShowFlashCardPraticeModeVC ()
 
+@property (assign, nonatomic) NSUInteger            currentFlashCardID;
 @property (weak, nonatomic) IBOutlet UIButton       *walkthroughButton;
 @property (strong, nonatomic) EVFlashcardCollection *flashcardCollection;
 @property (strong, nonatomic) EVViewFlipper         *viewFlipper;
@@ -74,10 +75,10 @@
     }
 }
 
-- (void)setCurrentFlashCardID:(int)currentFlashCardID
+- (void)setCurrentFlashCardID:(NSUInteger)currentFlashCardID
 {
     int flashcardCount = self.flashcardCollection.count;
-    if (currentFlashCardID >= 0 && currentFlashCardID < flashcardCount)
+    if (currentFlashCardID < flashcardCount)
     {
         _currentFlashCardID = currentFlashCardID;
         

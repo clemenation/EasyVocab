@@ -11,7 +11,6 @@
 @interface ShowFlashCardPraticeModeVC : UIViewController
 
 @property(weak,nonatomic) NSString * currentCategory;
-@property(nonatomic) int currentFlashCardID;
 
 @property(nonatomic) int currentPraticeMode;
 

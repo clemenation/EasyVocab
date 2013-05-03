@@ -12,14 +12,14 @@
 
 @interface EVFlashcardCollection : NSObject
 
-@property (strong, nonatomic) NSString *category;
-@property (readonly, nonatomic) NSUInteger count;
+@property (strong, nonatomic) NSString      *category;
+@property (readonly, nonatomic) NSUInteger  count;
 
 - (id)initWithCategory:(NSString *)category;
 - (void)shuffle;
-- (EVFlashcard *)flashcardAtIndex:(int)index;
-- (NSString *)imagePathAtIndex:(int)index;
-- (NSString *)answerAtIndex:(int)index;
+- (EVFlashcard *)flashcardAtIndex:(NSUInteger)index;
+- (NSString *)imagePathAtIndex:(NSUInteger)index;
+- (NSString *)answerAtIndex:(NSUInteger)index;
 
 + (int)numberOfFlashcardInCategory:(NSString *)category;
 + (NSString *)flashcardPathAtIndex:(int)index

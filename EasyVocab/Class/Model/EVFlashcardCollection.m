@@ -58,27 +58,27 @@
     self.flashcards = flashcards;
 }
 
-- (EVFlashcard *)flashcardAtIndex:(int)index
+- (EVFlashcard *)flashcardAtIndex:(NSUInteger)index
 {
-    if (index >= 0 && index < self.flashcards.count)
+    if (index < self.flashcards.count)
     {
         return [self.flashcards objectAtIndex:index];
     }
     return nil;
 }
 
-- (NSString *)imagePathAtIndex:(int)index
+- (NSString *)imagePathAtIndex:(NSUInteger)index
 {
-    if (index >= 0 && index < self.flashcards.count)
+    if (index < self.flashcards.count)
     {
         return [self flashcardAtIndex:index].imagePath;
     }
     return nil;
 }
 
-- (NSString *)answerAtIndex:(int)index
+- (NSString *)answerAtIndex:(NSUInteger)index
 {
-    if (index >= 0 && index < self.flashcards.count)
+    if (index < self.flashcards.count)
     {
         return [self flashcardAtIndex:index].answer;
     }
