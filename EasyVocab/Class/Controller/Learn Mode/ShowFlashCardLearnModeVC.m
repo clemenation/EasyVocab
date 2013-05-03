@@ -60,14 +60,23 @@
 {
     if (!_flashcardCollection)
     {
-        _flashcardCollection = [[EVFlashcardCollection alloc] init];
+        _flashcardCollection = [[EVFlashcardCollection alloc] initWithCategory:self.currentCategory];
     }
     return _flashcardCollection;
 }
 
+- (void)setCurrentCategory:(NSString *)currentCategory
+{
+    if (_currentCategory != currentCategory)
+    {
+        _currentCategory = currentCategory;
+        self.flashcardCollection.category = _currentCategory;
+    }
+}
+
 - (void)setCurrentFlashCardID:(int)currentFlashCardID
 {
-    int flashcardCount = [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory];
+    int flashcardCount = self.flashcardCollection.count;
     if (currentFlashCardID >= 0 && currentFlashCardID < flashcardCount)
     {
         _currentFlashCardID = currentFlashCardID;
@@ -116,7 +125,7 @@
     [self loadFlashcardsContent];
     
     self.prevButton.hidden = (self.currentFlashCardID == 0);
-    self.nextButton.hidden = (self.currentFlashCardID == [self.flashcardCollection numberOfFlashcardInCategory:self.currentCategory]-1);
+    self.nextButton.hidden = (self.currentFlashCardID == self.flashcardCollection.count - 1);
     
     self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
@@ -127,10 +136,7 @@
     {
         EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:i];
         
-        flashcardView.image = [UIImage imageWithContentsOfFile:[self.flashcardCollection flashcardPathAtIndex:(self.currentFlashCardID + (i-1))
-                                                                  ofCategory:self.currentCategory]];
-        flashcardView.answer = [self.flashcardCollection answerAtIndex:(self.currentFlashCardID + (i-1))
-                                                            ofCategory:self.currentCategory];
+        flashcardView.flashcard = [self.flashcardCollection flashcardAtIndex:(self.currentFlashCardID + (i-1))];
         
         [flashcardView removeGestureRecognizer:self.flashcardTapGestureRecognizer];
         if (i == 1)

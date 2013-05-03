@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "EVFlashcard.h"
+
 @interface EVFlashcardView : UIControl
 
 typedef enum {
@@ -17,13 +19,12 @@ typedef enum {
     EVFlashcardViewPracticeAnswer
 } EVFlashcardViewType;
 
-@property (weak, nonatomic) IBOutlet UIView *backView;
-@property (weak, nonatomic) IBOutlet UIView *frontView;
-@property (assign, nonatomic) EVFlashcardViewType flashcardViewType;
+@property (weak, nonatomic) IBOutlet UIView         *backView;
+@property (weak, nonatomic) IBOutlet UIView         *frontView;
+@property (assign, nonatomic) EVFlashcardViewType   flashcardViewType;
 
-@property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) NSString *answer;
-@property (strong, nonatomic) UIView *containerView;
+@property (strong ,nonatomic) EVFlashcard           *flashcard;
+@property (strong, nonatomic) UIView                *containerView;
 
 - (IBAction)speakerSelected:(id)sender;
 

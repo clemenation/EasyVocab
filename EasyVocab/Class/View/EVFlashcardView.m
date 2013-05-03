@@ -24,8 +24,7 @@
 
 @implementation EVFlashcardView
 
-@synthesize image               = _image;
-@synthesize answer              = _answer;
+@synthesize flashcard           = _flashcard;
 @synthesize tts                 = _tts;
 @synthesize containerView       = _containerView;
 @synthesize flashcardViewType   = _flashcardViewType;
@@ -54,21 +53,13 @@
     }
 }
 
-- (void)setImage:(UIImage *)image
+- (void)setFlashcard:(EVFlashcard *)flashcard
 {
-    if (_image != image)
+    if (_flashcard != flashcard)
     {
-        _image = image;
-        self.imageView.image = _image;
-    }
-}
-
-- (void)setAnswer:(NSString *)answer
-{
-    if (_answer != answer)
-    {
-        _answer = answer;
-        self.answerLabel.text = [_answer uppercaseString];
+        _flashcard = flashcard;
+        self.imageView.image = _flashcard.image;
+        self.answerLabel.text = [_flashcard.answer uppercaseString];
         self.answerLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
     }
 }
@@ -78,7 +69,7 @@
 #pragma mark - Target/action
 
 - (IBAction)speakerSelected:(id)sender {
-    self.tts = [[EVGoogleTranslateTTS alloc] initWithLanguage:@"en" andContent:self.answer];
+    self.tts = [[EVGoogleTranslateTTS alloc] initWithLanguage:@"en" andContent:self.flashcard.answer];
     [self.tts startAsynchronous];
 }
 @end

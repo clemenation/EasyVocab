@@ -8,12 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+#import "EVFlashcard.h"
+
 @interface EVFlashcardCollection : NSObject
 
-- (int)numberOfFlashcardInCategory:(NSString *)category;
-- (NSString *)flashcardPathAtIndex:(int)index
+@property (strong, nonatomic) NSString *category;
+@property (readonly, nonatomic) NSUInteger count;
+
+- (id)initWithCategory:(NSString *)category;
+- (void)shuffle;
+- (EVFlashcard *)flashcardAtIndex:(int)index;
+- (NSString *)imagePathAtIndex:(int)index;
+- (NSString *)answerAtIndex:(int)index;
+
++ (int)numberOfFlashcardInCategory:(NSString *)category;
++ (NSString *)flashcardPathAtIndex:(int)index
                         ofCategory:(NSString *)category;
-- (NSString *)answerAtIndex:(int)index
++ (NSString *)answerAtIndex:(int)index
                  ofCategory:(NSString *)category;
 
 @end

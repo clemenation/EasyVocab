@@ -26,6 +26,7 @@
 		4A1633C61707D4DF000A94EA /* UVNVan_R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4A1633C41707D4DF000A94EA /* UVNVan_R.TTF */; };
 		4A2006FF17048A2700476EC2 /* EVFlashcardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */; };
 		4A46C72F170930BE0075C6D5 /* EVWalkthroughManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */; };
+		4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2B1733C8180029C048 /* EVFlashcard.m */; };
 		4A7EBA141732A3AB0074E3C5 /* EVShowFlashcardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBA131732A3AB0074E3C5 /* EVShowFlashcardViewController.m */; };
 		4A8D4AF4171B9E8500E73524 /* EVViewFlipper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4AF3171B9E8500E73524 /* EVViewFlipper.m */; };
 		4A8D4AFD171B9EEE00E73524 /* practice_back_challenge_button_answer.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D4AF5171B9EEE00E73524 /* practice_back_challenge_button_answer.png */; };
@@ -192,6 +193,8 @@
 		4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardCollection.m; path = Class/Model/EVFlashcardCollection.m; sourceTree = "<group>"; };
 		4A46C72D170930BE0075C6D5 /* EVWalkthroughManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVWalkthroughManager.h; path = Class/Model/EVWalkthroughManager.h; sourceTree = "<group>"; };
 		4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVWalkthroughManager.m; path = Class/Model/EVWalkthroughManager.m; sourceTree = "<group>"; };
+		4A640A2A1733C8180029C048 /* EVFlashcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcard.h; path = Class/Model/EVFlashcard.h; sourceTree = "<group>"; };
+		4A640A2B1733C8180029C048 /* EVFlashcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcard.m; path = Class/Model/EVFlashcard.m; sourceTree = "<group>"; };
 		4A7EBA121732A3AB0074E3C5 /* EVShowFlashcardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVShowFlashcardViewController.h; path = Class/Controller/EVShowFlashcardViewController.h; sourceTree = "<group>"; };
 		4A7EBA131732A3AB0074E3C5 /* EVShowFlashcardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVShowFlashcardViewController.m; path = Class/Controller/EVShowFlashcardViewController.m; sourceTree = "<group>"; };
 		4A8D4AF2171B9E8500E73524 /* EVViewFlipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVViewFlipper.h; path = Class/View/EVViewFlipper.h; sourceTree = "<group>"; };
@@ -499,6 +502,8 @@
 				4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */,
 				4A46C72D170930BE0075C6D5 /* EVWalkthroughManager.h */,
 				4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */,
+				4A640A2A1733C8180029C048 /* EVFlashcard.h */,
+				4A640A2B1733C8180029C048 /* EVFlashcard.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -645,14 +650,14 @@
 			isa = PBXGroup;
 			children = (
 				4A8D4BEE171BA13100E73524 /* ChoosePracticeModeVC.h */,
-				4A8D4BEF171BA13100E73524 /* AnswerFlashCardChallengeMode.h */,
-				4A8D4BF0171BA13100E73524 /* ReviewFlashCardPraticeModeVC.h */,
-				4A8D4BF1171BA13100E73524 /* AnswerFlashCardEasyModeVC.h */,
-				4A8D4BF2171BA13100E73524 /* ShowFlashCardPraticeModeVC.h */,
 				4A8D4BF3171BA13100E73524 /* ChoosePracticeModeVC.m */,
+				4A8D4BF1171BA13100E73524 /* AnswerFlashCardEasyModeVC.h */,
 				4A8D4BF4171BA13100E73524 /* AnswerFlashCardEasyModeVC.m */,
+				4A8D4BF2171BA13100E73524 /* ShowFlashCardPraticeModeVC.h */,
 				4A8D4BF5171BA13100E73524 /* ShowFlashCardPraticeModeVC.m */,
+				4A8D4BEF171BA13100E73524 /* AnswerFlashCardChallengeMode.h */,
 				4A8D4BF6171BA13100E73524 /* AnswerFlashCardChallengeMode.m */,
+				4A8D4BF0171BA13100E73524 /* ReviewFlashCardPraticeModeVC.h */,
 				4A8D4BF7171BA13100E73524 /* ReviewFlashCardPraticeModeVC.m */,
 			);
 			name = "Practice Mode";
@@ -996,6 +1001,7 @@
 				4A8D4C04171BA14200E73524 /* FlashCardCollectionVC.m in Sources */,
 				4AEDCCEA171F8D1700EE0E98 /* EVFlashcardView.m in Sources */,
 				4A7EBA141732A3AB0074E3C5 /* EVShowFlashcardViewController.m in Sources */,
+				4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
