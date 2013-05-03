@@ -9,7 +9,7 @@
 #import "EVFlashcardViewController.h"
 #import "EVWalkthroughManager.h"
 #import "EVViewFlipper.h"
-#import "EVConstant.h"
+#import "EVCommon.h"
 
 @interface EVFlashcardViewController ()
 

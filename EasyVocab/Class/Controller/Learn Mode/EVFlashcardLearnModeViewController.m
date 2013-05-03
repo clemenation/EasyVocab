@@ -11,7 +11,7 @@
 #import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
 #import "EVViewFlipper.h"
-#import "EVConstant.h"
+#import "EVCommon.h"
 #import "EVFlashcardView.h"
 
 

@@ -27,6 +27,7 @@
 		4A2006FF17048A2700476EC2 /* EVFlashcardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */; };
 		4A46C72F170930BE0075C6D5 /* EVWalkthroughManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */; };
 		4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2B1733C8180029C048 /* EVFlashcard.m */; };
+		4A640A2E173425FF0029C048 /* EVCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2D173425FF0029C048 /* EVCommon.m */; };
 		4A7EBA141732A3AB0074E3C5 /* EVFlashcardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBA131732A3AB0074E3C5 /* EVFlashcardViewController.m */; };
 		4A8D4AF4171B9E8500E73524 /* EVViewFlipper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4AF3171B9E8500E73524 /* EVViewFlipper.m */; };
 		4A8D4AFD171B9EEE00E73524 /* practice_back_challenge_button_answer.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D4AF5171B9EEE00E73524 /* practice_back_challenge_button_answer.png */; };
@@ -195,6 +196,7 @@
 		4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVWalkthroughManager.m; path = Class/Model/EVWalkthroughManager.m; sourceTree = "<group>"; };
 		4A640A2A1733C8180029C048 /* EVFlashcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcard.h; path = Class/Model/EVFlashcard.h; sourceTree = "<group>"; };
 		4A640A2B1733C8180029C048 /* EVFlashcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcard.m; path = Class/Model/EVFlashcard.m; sourceTree = "<group>"; };
+		4A640A2D173425FF0029C048 /* EVCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVCommon.m; path = Class/Constant/EVCommon.m; sourceTree = "<group>"; };
 		4A7EBA121732A3AB0074E3C5 /* EVFlashcardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcardViewController.h; path = Class/Controller/EVFlashcardViewController.h; sourceTree = "<group>"; };
 		4A7EBA131732A3AB0074E3C5 /* EVFlashcardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardViewController.m; path = Class/Controller/EVFlashcardViewController.m; sourceTree = "<group>"; };
 		4A8D4AF2171B9E8500E73524 /* EVViewFlipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVViewFlipper.h; path = Class/View/EVViewFlipper.h; sourceTree = "<group>"; };
@@ -323,7 +325,7 @@
 		4A8D4C00171BA14200E73524 /* EVFlashcardLearnModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardLearnModeViewController.m; path = "Class/Controller/Learn Mode/EVFlashcardLearnModeViewController.m"; sourceTree = "<group>"; };
 		4A8D4C01171BA14200E73524 /* FlashCardCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlashCardCollectionVC.m; path = "Class/Controller/Learn Mode/FlashCardCollectionVC.m"; sourceTree = "<group>"; };
 		4A8D4C06171BAB7100E73524 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		4A8D4C09171BB92700E73524 /* EVConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EVConstant.h; path = Class/Constant/EVConstant.h; sourceTree = "<group>"; };
+		4A8D4C09171BB92700E73524 /* EVCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EVCommon.h; path = Class/Constant/EVCommon.h; sourceTree = "<group>"; };
 		4AC149AB16F7426A009F7CBA /* EasyVocab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = EasyVocab.app; path = "Bé Học Từ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC149AE16F7426A009F7CBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4AC149B016F7426A009F7CBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -400,12 +402,13 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		4A8D4C08171BB91100E73524 /* Constant */ = {
+		4A8D4C08171BB91100E73524 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				4A8D4C09171BB92700E73524 /* EVConstant.h */,
+				4A8D4C09171BB92700E73524 /* EVCommon.h */,
+				4A640A2D173425FF0029C048 /* EVCommon.m */,
 			);
-			name = Constant;
+			name = Common;
 			sourceTree = "<group>";
 		};
 		4AC149A216F7426A009F7CBA = {
@@ -469,7 +472,7 @@
 		4AC149D716F7432E009F7CBA /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				4A8D4C08171BB91100E73524 /* Constant */,
+				4A8D4C08171BB91100E73524 /* Common */,
 				4AC149E016F7437A009F7CBA /* Library */,
 				4AC149D916F74336009F7CBA /* Model */,
 				4AC149DA16F7433A009F7CBA /* View */,
@@ -1002,6 +1005,7 @@
 				4AEDCCEA171F8D1700EE0E98 /* EVFlashcardView.m in Sources */,
 				4A7EBA141732A3AB0074E3C5 /* EVFlashcardViewController.m in Sources */,
 				4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */,
+				4A640A2E173425FF0029C048 /* EVCommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
