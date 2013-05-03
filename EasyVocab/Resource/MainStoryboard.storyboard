@@ -368,10 +368,10 @@
             </objects>
             <point key="canvasLocation" x="1778" y="771"/>
         </scene>
-        <!--Show Flash Card Learn ModeVC-->
+        <!--Flashcard Learn Mode View Controller-->
         <scene sceneID="fFu-pp-B8c">
             <objects>
-                <viewController id="Kk0-bd-l08" customClass="ShowFlashCardLearnModeVC" sceneMemberID="viewController">
+                <viewController id="Kk0-bd-l08" customClass="EVFlashcardLearnModeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JJ3-Hl-fmw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

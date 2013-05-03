@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShowFlashCardLearnModeVC : UIViewController
+#import "EVFlashcardViewController.h"
 
-@property(weak,nonatomic) NSString * currentCategory;
-@property(nonatomic) int currentFlashCardID;
+@interface EVFlashcardLearnModeViewController : EVFlashcardViewController
 
 @end

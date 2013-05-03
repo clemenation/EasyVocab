@@ -1,21 +1,18 @@
 //
-//  ShowFlashCardLearnModeVC.m
+//  EVShowFlashcardViewController.m
 //  EasyVocab
 //
-//  Created by V.Anh Tran on 3/21/13.
+//  Created by Dung Nguyen on 5/2/13.
 //  Copyright (c) 2013 ICT54. All rights reserved.
 //
 
-#import "ShowFlashCardLearnModeVC.h"
-#import "ChoosePracticeModeVC.h"
+#import "EVFlashcardViewController.h"
 #import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
 #import "EVViewFlipper.h"
 #import "EVConstant.h"
-#import "EVFlashcardView.h"
 
-
-@interface ShowFlashCardLearnModeVC ()
+@interface EVFlashcardViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton       *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton       *nextButton;
@@ -29,7 +26,7 @@
 
 @end
 
-@implementation ShowFlashCardLearnModeVC
+@implementation EVFlashcardViewController
 
 @synthesize flashcardCollection = _flashcardCollection;
 @synthesize currentFlashCardID  = _currentFlashCardID;
@@ -74,10 +71,10 @@
     }
 }
 
-- (void)setCurrentFlashCardID:(int)currentFlashCardID
+- (void)setCurrentFlashCardID:(NSUInteger)currentFlashCardID
 {
     int flashcardCount = self.flashcardCollection.count;
-    if (currentFlashCardID >= 0 && currentFlashCardID < flashcardCount)
+    if (currentFlashCardID < flashcardCount)
     {
         _currentFlashCardID = currentFlashCardID;
         
@@ -88,13 +85,25 @@
     }
 }
 
+- (void)setFlashcardViewType:(EVFlashcardViewType)flashcardViewType
+{
+    if (_flashcardViewType != flashcardViewType)
+    {
+        _flashcardViewType = flashcardViewType;
+        for (EVFlashcardView *flashcardView in self.flashcardViews)
+        {
+            flashcardView.flashcardViewType = _flashcardViewType;
+        }
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     for (int i=0; i<self.flashcardViews.count; i++)
     {
         EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:i];
         flashcardView.frame = CGRectMake(14.5 + self.view.bounds.size.width * (i-1), 70.0, 291.0, 291.0);
-        flashcardView.flashcardViewType = EVFlashcardViewLearn;
+        flashcardView.flashcardViewType = self.flashcardViewType;
         
         // Tilt flashcard
         flashcardView.frontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * DEFAULT_TILT_ANGLE);
@@ -146,10 +155,17 @@
     }
 }
 
-#pragma mark - Buttons fake Tabbar
+#pragma mark - Target/action
 
-- (IBAction)switchToPratice:(id)sender {
-	[self.tabBarController setSelectedIndex:1];
+- (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender {
+    self.viewFlipper.flashcardView = [self.flashcardViews objectAtIndex:1];
+    [self.viewFlipper flip];
+}
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES
+                                  forController:NSStringFromClass(self.class)];
 }
 
 - (IBAction)prevButtonSelected:(UIButton *)sender {
@@ -178,7 +194,7 @@
                              
                              sender.enabled = YES;
                          }];
-
+        
     };
     
     if (self.viewFlipper.flashcardView == secondCard && self.viewFlipper.displayingBackView)
@@ -216,7 +232,7 @@
                              self.currentFlashCardID++;
                              
                              sender.enabled = YES;
-                         }];        
+                         }];
     };
     
     if (self.viewFlipper.flashcardView == secondCard && self.viewFlipper.displayingBackView)
@@ -227,32 +243,6 @@
     {
         nextAnimation();
     }
-}
-
-#pragma mark - segue
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-	NSLog(@"Perform a segue:%@",segue.identifier);
-	//NSLog(@"dest=%@",segue.destinationViewController);
-	
-	//geting view from container bind to property without create a new view controller
-	if ([segue.identifier isEqualToString:@"goToPracticeMode"]) {
-		NSLog(@"category=%@",self.currentCategory);
-		((ChoosePracticeModeVC*)segue.destinationViewController).currentCategory = self.currentCategory;
-	}	
-}
-
-#pragma mark - Target/action
-
-- (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender {
-    self.viewFlipper.flashcardView = [self.flashcardViews objectAtIndex:1];
-    [self.viewFlipper flip];
-}
-
-- (IBAction)walkthroughSelected:(UIButton *)sender {
-    sender.hidden = YES;
-    [EVWalkthroughManager setHasReadWalkthrough:YES
-                                  forController:NSStringFromClass(self.class)];
 }
 
 @end

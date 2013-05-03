@@ -7,7 +7,7 @@
 //
 
 #import "FlashCardCollectionVC.h"
-#import "ShowFlashCardLearnModeVC.h"
+#import "EVFlashcardLearnModeViewController.h"
 #import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
 
@@ -146,7 +146,7 @@
 	//NSLog(@"dest=%@",segue.destinationViewController);
 	
 	if ([segue.identifier isEqualToString:@"showFlashCardLearnMode"]) {
-		ShowFlashCardLearnModeVC * vc= segue.destinationViewController;
+		EVFlashcardLearnModeViewController * vc= segue.destinationViewController;
 		vc.currentCategory=self.currentCategory;
 		vc.currentFlashCardID=chosenFlashCardID;
 	}
