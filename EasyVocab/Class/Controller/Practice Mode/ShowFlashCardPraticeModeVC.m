@@ -69,6 +69,8 @@
     {
         _currentCategory = currentCategory;
         self.flashcardCollection.category = _currentCategory;
+        [self.flashcardCollection shuffle]; // auto shuffle flashcards
+        self.currentFlashCardID = 0;        // and start from beginning
     }
 }
 

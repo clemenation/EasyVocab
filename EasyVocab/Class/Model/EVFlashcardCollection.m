@@ -55,6 +55,7 @@
         int randPos = (i + 1) + (arc4random() % remain);
         [flashcards exchangeObjectAtIndex:i withObjectAtIndex:randPos];
     }
+    self.flashcards = flashcards;
 }
 
 - (EVFlashcard *)flashcardAtIndex:(int)index

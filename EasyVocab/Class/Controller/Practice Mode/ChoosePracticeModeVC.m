@@ -68,17 +68,8 @@
 		ShowFlashCardPraticeModeVC * vc = segue.destinationViewController;
 		vc.currentCategory=self.currentCategory;
 		vc.currentPraticeMode = praticeModeSelected;
-		
-		NSArray * allCard = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:self.currentCategory];
-		vc.currentFlashCardID = rand()%[allCard count];
 	}
 	
 }
-
-
-
-
-
-
 
 @end
