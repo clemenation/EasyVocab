@@ -127,7 +127,7 @@
                                                                         owner:self
                                                                       options:nil] objectAtIndex:0];
         [self.flashcardViews addObject:flashcardView];
-        [self.view addSubview:flashcardView];
+        [self.view insertSubview:flashcardView belowSubview:self.walkthroughButton];
     }
     
     [self loadFlashcardsContent];
