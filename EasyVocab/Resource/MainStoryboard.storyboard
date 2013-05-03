@@ -491,10 +491,10 @@
             </objects>
             <point key="canvasLocation" x="2559" y="24"/>
         </scene>
-        <!--Show Flash Card Pratice ModeVC-->
+        <!--Flashcard Practice Mode Easy View Controller-->
         <scene sceneID="WD7-rL-qxb">
             <objects>
-                <viewController id="wLD-fN-O1n" customClass="ShowFlashCardPraticeModeVC" sceneMemberID="viewController">
+                <viewController id="wLD-fN-O1n" customClass="EVFlashcardPracticeModeEasyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pTd-lz-c5m">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

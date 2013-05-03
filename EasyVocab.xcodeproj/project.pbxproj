@@ -139,7 +139,7 @@
 		4A8D4BED171BA11500E73524 /* CategoryPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4BEC171BA11500E73524 /* CategoryPickerVC.m */; };
 		4A8D4BF8171BA13100E73524 /* ChoosePracticeModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4BF3171BA13100E73524 /* ChoosePracticeModeVC.m */; };
 		4A8D4BF9171BA13100E73524 /* AnswerFlashCardEasyModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4BF4171BA13100E73524 /* AnswerFlashCardEasyModeVC.m */; };
-		4A8D4BFA171BA13100E73524 /* ShowFlashCardPraticeModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4BF5171BA13100E73524 /* ShowFlashCardPraticeModeVC.m */; };
+		4A8D4BFA171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4BF5171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.m */; };
 		4A8D4BFB171BA13100E73524 /* AnswerFlashCardChallengeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4BF6171BA13100E73524 /* AnswerFlashCardChallengeMode.m */; };
 		4A8D4BFC171BA13100E73524 /* ReviewFlashCardPraticeModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4BF7171BA13100E73524 /* ReviewFlashCardPraticeModeVC.m */; };
 		4A8D4C03171BA14200E73524 /* EVFlashcardLearnModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D4C00171BA14200E73524 /* EVFlashcardLearnModeViewController.m */; };
@@ -312,10 +312,10 @@
 		4A8D4BEF171BA13100E73524 /* AnswerFlashCardChallengeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnswerFlashCardChallengeMode.h; path = "Class/Controller/Practice Mode/AnswerFlashCardChallengeMode.h"; sourceTree = "<group>"; };
 		4A8D4BF0171BA13100E73524 /* ReviewFlashCardPraticeModeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewFlashCardPraticeModeVC.h; path = "Class/Controller/Practice Mode/ReviewFlashCardPraticeModeVC.h"; sourceTree = "<group>"; };
 		4A8D4BF1171BA13100E73524 /* AnswerFlashCardEasyModeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnswerFlashCardEasyModeVC.h; path = "Class/Controller/Practice Mode/AnswerFlashCardEasyModeVC.h"; sourceTree = "<group>"; };
-		4A8D4BF2171BA13100E73524 /* ShowFlashCardPraticeModeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowFlashCardPraticeModeVC.h; path = "Class/Controller/Practice Mode/ShowFlashCardPraticeModeVC.h"; sourceTree = "<group>"; };
+		4A8D4BF2171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcardPracticeModeEasyViewController.h; path = "Class/Controller/Practice Mode/EVFlashcardPracticeModeEasyViewController.h"; sourceTree = "<group>"; };
 		4A8D4BF3171BA13100E73524 /* ChoosePracticeModeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoosePracticeModeVC.m; path = "Class/Controller/Practice Mode/ChoosePracticeModeVC.m"; sourceTree = "<group>"; };
 		4A8D4BF4171BA13100E73524 /* AnswerFlashCardEasyModeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerFlashCardEasyModeVC.m; path = "Class/Controller/Practice Mode/AnswerFlashCardEasyModeVC.m"; sourceTree = "<group>"; };
-		4A8D4BF5171BA13100E73524 /* ShowFlashCardPraticeModeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowFlashCardPraticeModeVC.m; path = "Class/Controller/Practice Mode/ShowFlashCardPraticeModeVC.m"; sourceTree = "<group>"; };
+		4A8D4BF5171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardPracticeModeEasyViewController.m; path = "Class/Controller/Practice Mode/EVFlashcardPracticeModeEasyViewController.m"; sourceTree = "<group>"; };
 		4A8D4BF6171BA13100E73524 /* AnswerFlashCardChallengeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerFlashCardChallengeMode.m; path = "Class/Controller/Practice Mode/AnswerFlashCardChallengeMode.m"; sourceTree = "<group>"; };
 		4A8D4BF7171BA13100E73524 /* ReviewFlashCardPraticeModeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewFlashCardPraticeModeVC.m; path = "Class/Controller/Practice Mode/ReviewFlashCardPraticeModeVC.m"; sourceTree = "<group>"; };
 		4A8D4BFD171BA14200E73524 /* FlashCardCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashCardCollectionVC.h; path = "Class/Controller/Learn Mode/FlashCardCollectionVC.h"; sourceTree = "<group>"; };
@@ -653,8 +653,8 @@
 				4A8D4BF3171BA13100E73524 /* ChoosePracticeModeVC.m */,
 				4A8D4BF1171BA13100E73524 /* AnswerFlashCardEasyModeVC.h */,
 				4A8D4BF4171BA13100E73524 /* AnswerFlashCardEasyModeVC.m */,
-				4A8D4BF2171BA13100E73524 /* ShowFlashCardPraticeModeVC.h */,
-				4A8D4BF5171BA13100E73524 /* ShowFlashCardPraticeModeVC.m */,
+				4A8D4BF2171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.h */,
+				4A8D4BF5171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.m */,
 				4A8D4BEF171BA13100E73524 /* AnswerFlashCardChallengeMode.h */,
 				4A8D4BF6171BA13100E73524 /* AnswerFlashCardChallengeMode.m */,
 				4A8D4BF0171BA13100E73524 /* ReviewFlashCardPraticeModeVC.h */,
@@ -994,7 +994,7 @@
 				4A8D4BED171BA11500E73524 /* CategoryPickerVC.m in Sources */,
 				4A8D4BF8171BA13100E73524 /* ChoosePracticeModeVC.m in Sources */,
 				4A8D4BF9171BA13100E73524 /* AnswerFlashCardEasyModeVC.m in Sources */,
-				4A8D4BFA171BA13100E73524 /* ShowFlashCardPraticeModeVC.m in Sources */,
+				4A8D4BFA171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.m in Sources */,
 				4A8D4BFB171BA13100E73524 /* AnswerFlashCardChallengeMode.m in Sources */,
 				4A8D4BFC171BA13100E73524 /* ReviewFlashCardPraticeModeVC.m in Sources */,
 				4A8D4C03171BA14200E73524 /* EVFlashcardLearnModeViewController.m in Sources */,

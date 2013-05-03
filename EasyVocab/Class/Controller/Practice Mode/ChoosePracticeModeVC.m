@@ -7,7 +7,7 @@
 //
 
 #import "ChoosePracticeModeVC.h"
-#import "ShowFlashCardPraticeModeVC.h"
+#import "EVFlashcardPracticeModeEasyViewController.h"
 #import "EVWalkthroughManager.h"
 
 @interface ChoosePracticeModeVC ()
@@ -65,9 +65,8 @@
 	if ([segue.identifier isEqualToString:@"showFlashCardPraticeMode"]) {
 		NSLog(@"category=%@",self.currentCategory);
 		NSLog(@"praticeMode=%d",praticeModeSelected);
-		ShowFlashCardPraticeModeVC * vc = segue.destinationViewController;
+		EVFlashcardPracticeModeEasyViewController * vc = segue.destinationViewController;
 		vc.currentCategory=self.currentCategory;
-		vc.currentPraticeMode = praticeModeSelected;
 	}
 	
 }

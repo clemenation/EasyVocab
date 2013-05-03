@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "EVFlashcardView.h"
+#import "EVFlashcardCollection.h"
 
 @interface EVFlashcardViewController : UIViewController
 
 @property (weak,nonatomic) NSString                 *currentCategory;
 @property (assign, nonatomic) NSUInteger            currentFlashCardID;
 @property (assign, nonatomic) EVFlashcardViewType   flashcardViewType;
+@property (readonly, nonatomic) EVFlashcardCollection *flashcardCollection;
 
 @end

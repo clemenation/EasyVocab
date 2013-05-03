@@ -7,7 +7,6 @@
 //
 
 #import "EVFlashcardViewController.h"
-#import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
 #import "EVViewFlipper.h"
 #import "EVConstant.h"
