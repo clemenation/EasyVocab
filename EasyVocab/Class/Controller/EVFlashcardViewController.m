@@ -95,19 +95,22 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    for (int i=0; i<self.flashcardViews.count; i++)
+    if (animated)
     {
-        EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:i];
-        flashcardView.frame = CGRectMake(14.5 + self.view.bounds.size.width * (i-1), 70.0, 291.0, 291.0);
-        flashcardView.flashcardViewType = self.flashcardViewType;
-        
-        // Tilt flashcard
-        flashcardView.frontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * DEFAULT_TILT_ANGLE);
-        flashcardView.backView.transform = CGAffineTransformMakeRotation(- M_PI / 180 * DEFAULT_TILT_ANGLE);
-        
-        if (i==0 || i==2)
+        for (int i=0; i<self.flashcardViews.count; i++)
         {
-            flashcardView.hidden = YES;
+            EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:i];
+            flashcardView.frame = CGRectMake(14.5 + self.view.bounds.size.width * (i-1), 70.0, 291.0, 291.0);
+            flashcardView.flashcardViewType = self.flashcardViewType;
+            
+            // Tilt flashcard
+            flashcardView.frontView.transform = CGAffineTransformMakeRotation(M_PI / 180 * DEFAULT_TILT_ANGLE);
+            flashcardView.backView.transform = CGAffineTransformMakeRotation(- M_PI / 180 * DEFAULT_TILT_ANGLE);
+            
+            if (i==0 || i==2)
+            {
+                flashcardView.hidden = YES;
+            }
         }
     }
 }

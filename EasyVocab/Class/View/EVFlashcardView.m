@@ -39,16 +39,19 @@
             self.answerLabel.hidden = self.speakerButton.hidden = NO;
             self.nextButton.hidden = YES;
             for (UIButton *button in self.answerButtons) button.hidden = YES;
+            self.speakerButton.frame = CGRectMake(116, 195, 59, 54);
             break;
         case EVFlashcardViewPracticeEasy:
             self.answerLabel.hidden = self.speakerButton.hidden = self.nextButton.hidden = YES;
             for (UIButton *button in self.answerButtons) button.hidden = NO;
             break;
         case EVFlashcardViewPracticeChallenge:
-            
+
             break;
         case EVFlashcardViewPracticeAnswer:
-            
+            self.answerLabel.hidden = self.speakerButton.hidden = self.nextButton.hidden = NO;
+            for (UIButton *button in self.answerButtons) button.hidden = YES;
+            self.speakerButton.frame = CGRectMake(65, 195, 59, 54);
             break;
     }
 }

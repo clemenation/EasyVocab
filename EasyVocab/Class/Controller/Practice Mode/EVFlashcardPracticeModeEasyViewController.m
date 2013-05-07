@@ -18,6 +18,7 @@
 @interface EVFlashcardPracticeModeEasyViewController () <EVViewFlipperDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
+@property (weak, nonatomic) IBOutlet UIImageView *awesomeImageView;
 
 @end
 
@@ -83,7 +84,12 @@
 - (IBAction)checkAnswer:(UIButton *)sender
 {
     EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
-    [flashcardView checkAnswer];
+    if ([flashcardView checkAnswer])
+    {        
+        self.checkButton.hidden = YES;
+        self.awesomeImageView.hidden = NO;
+        flashcardView.flashcardViewType = EVFlashcardViewPracticeAnswer;
+    }
 }
 
 - (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender

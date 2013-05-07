@@ -566,6 +566,10 @@
                                     <action selector="switchToPratice:" destination="tGq-ji-LiM" eventType="touchUpInside" id="bl4-0h-YCP"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="practice_back_answer_awesome.png" id="ROv-0Z-vQq">
+                                <rect key="frame" x="58" y="364" width="205" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="On6-jX-GGz" userLabel="walkthroughButton">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -586,6 +590,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Nmr-K1-lha"/>
                     <connections>
+                        <outlet property="awesomeImageView" destination="ROv-0Z-vQq" id="1nx-PM-ayB"/>
                         <outlet property="checkButton" destination="LFF-YF-lUJ" id="4Ka-VJ-Akt"/>
                         <outlet property="flashcardTapGestureRecognizer" destination="a39-s4-cSF" id="Dus-6S-M03"/>
                         <outlet property="walkthroughButton" destination="On6-jX-GGz" id="llA-1A-wK0"/>
@@ -1171,106 +1176,6 @@
         <image name="tab_practice_off.png" width="160" height="49"/>
         <image name="tick.png" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="AnswerFlashCardChallengeMode" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardChallengeMode.h"/>
-            <relationships>
-                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="giveUpButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="AnswerFlashCardEasyModeVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerFlashCardEasyModeVC.h"/>
-            <relationships>
-                <relationship kind="action" name="chooseAnswer:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
-                <relationship kind="outletCollection" name="answerButtons" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="CategoryPickerVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerVC.h"/>
-            <relationships>
-                <relationship kind="action" name="returnToCategoryPicker:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ChoosePracticeModeVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
-            <relationships>
-                <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="EVFlashcardLearnModeViewController" superclassName="EVFlashcardViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardLearnModeViewController.h"/>
-        </class>
-        <class className="EVFlashcardPracticeModeEasyViewController" superclassName="EVFlashcardViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardPracticeModeEasyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="checkAnswer:" candidateClass="UIButton"/>
-                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="switchToLearn:"/>
-                <relationship kind="outlet" name="checkButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="EVFlashcardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="flashcardTapGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="prevButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="FlashCardCollectionVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
-            <relationships>
-                <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="switchToPratice:"/>
-                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ReviewFlashCardPraticeModeVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewFlashCardPraticeModeVC.h"/>
-            <relationships>
-                <relationship kind="action" name="nextAnswerPressed:"/>
-                <relationship kind="action" name="speakAnswerPressed:"/>
-                <relationship kind="action" name="switchToLearn:"/>
-                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="awesomeLabel" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="flashcardView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
