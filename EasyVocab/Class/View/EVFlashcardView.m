@@ -74,6 +74,7 @@
             UIButton *button = [self.answerButtons objectAtIndex:i];
             [button setTitle:[[choices objectAtIndex:i] uppercaseString]
                     forState:UIControlStateNormal];
+            ((UIButton *)[self.answerButtons objectAtIndex:i]).titleLabel.font = [UIFont fontWithName:@"UVNVanBold" size:20];
         }
     }
 }
