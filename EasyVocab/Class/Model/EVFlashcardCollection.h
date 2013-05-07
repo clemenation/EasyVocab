@@ -20,6 +20,7 @@
 - (EVFlashcard *)flashcardAtIndex:(NSUInteger)index;
 - (NSString *)imagePathAtIndex:(NSUInteger)index;
 - (NSString *)answerAtIndex:(NSUInteger)index;
+- (NSArray *)choicesForAnswerAtIndex:(NSUInteger)index;
 
 + (int)numberOfFlashcardInCategory:(NSString *)category;
 + (NSString *)flashcardPathAtIndex:(int)index

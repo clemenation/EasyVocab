@@ -21,8 +21,6 @@
 @property (strong, nonatomic) NSMutableArray        *flashcardViews;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *flashcardTapGestureRecognizer;
 
-- (void)loadFlashcardsContent;
-
 @end
 
 @implementation EVFlashcardViewController

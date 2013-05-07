@@ -25,6 +25,7 @@ typedef enum {
 
 @property (strong ,nonatomic) EVFlashcard           *flashcard;
 @property (strong, nonatomic) UIView                *containerView;
+@property (strong, nonatomic) NSArray               *choices;
 
 - (IBAction)speakerSelected:(id)sender;
 

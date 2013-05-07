@@ -151,14 +151,15 @@
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="95007653"/>
+								<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="939521290">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">practice_back_easy_button_choice_selected.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUIDisabledBackgroundImage" id="524604921">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">practice_back_button_choice_wrong.png</string>
 								</object>
-								<object class="NSCustomResource" key="IBUISelectedBackgroundImage" id="623760356">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">practice_back_easy_button_choice_selected.png</string>
-								</object>
+								<reference key="IBUISelectedBackgroundImage" ref="939521290"/>
 								<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="844869712">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">practice_back_easy_button_choice.png</string>
@@ -192,9 +193,9 @@
 								<reference key="IBUIHighlightedTitleColor" ref="611607312"/>
 								<reference key="IBUINormalTitleColor" ref="595306839"/>
 								<reference key="IBUINormalTitleShadowColor" ref="95007653"/>
-								<reference key="IBUIHighlightedBackgroundImage" ref="623760356"/>
+								<reference key="IBUIHighlightedBackgroundImage" ref="939521290"/>
 								<reference key="IBUIDisabledBackgroundImage" ref="524604921"/>
-								<reference key="IBUISelectedBackgroundImage" ref="623760356"/>
+								<reference key="IBUISelectedBackgroundImage" ref="939521290"/>
 								<reference key="IBUINormalBackgroundImage" ref="844869712"/>
 								<reference key="IBUIFontDescription" ref="507241088"/>
 								<reference key="IBUIFont" ref="831703604"/>
@@ -218,11 +219,12 @@
 								<reference key="IBUIHighlightedTitleColor" ref="611607312"/>
 								<reference key="IBUINormalTitleColor" ref="595306839"/>
 								<reference key="IBUINormalTitleShadowColor" ref="95007653"/>
+								<reference key="IBUIHighlightedBackgroundImage" ref="939521290"/>
 								<object class="NSCustomResource" key="IBUIDisabledBackgroundImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">practice_back_button_choice_wrong@2x.png</string>
 								</object>
-								<reference key="IBUISelectedBackgroundImage" ref="623760356"/>
+								<reference key="IBUISelectedBackgroundImage" ref="939521290"/>
 								<reference key="IBUINormalBackgroundImage" ref="844869712"/>
 								<reference key="IBUIFontDescription" ref="507241088"/>
 								<reference key="IBUIFont" ref="831703604"/>
@@ -246,8 +248,9 @@
 								<reference key="IBUIHighlightedTitleColor" ref="611607312"/>
 								<reference key="IBUINormalTitleColor" ref="595306839"/>
 								<reference key="IBUINormalTitleShadowColor" ref="95007653"/>
+								<reference key="IBUIHighlightedBackgroundImage" ref="939521290"/>
 								<reference key="IBUIDisabledBackgroundImage" ref="524604921"/>
-								<reference key="IBUISelectedBackgroundImage" ref="623760356"/>
+								<reference key="IBUISelectedBackgroundImage" ref="939521290"/>
 								<reference key="IBUINormalBackgroundImage" ref="844869712"/>
 								<object class="IBUIFontDescription" key="IBUIFontDescription" id="671284151">
 									<int key="type">2</int>
@@ -566,15 +569,19 @@
 				<reference key="5.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="5.showNotes"/>
 				<string key="51.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="1" key="51.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<reference key="51.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="51.showNotes"/>
 				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="1" key="52.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<reference key="52.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="52.showNotes"/>
 				<string key="53.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="1" key="53.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<reference key="53.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="53.showNotes"/>
 				<string key="54.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="1" key="54.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<reference key="54.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="54.showNotes"/>
 				<string key="59.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

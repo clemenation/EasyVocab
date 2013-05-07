@@ -17,6 +17,8 @@
 + (NSArray *)flashcardsOfCategory:(NSString *)category;
 + (NSDictionary *)answerByCategoryDictionary;
 
+- (NSArray *)shuffle:(NSArray *)array;
+
 @end
 
 @implementation EVFlashcardCollection
@@ -46,6 +48,18 @@
     return self;
 }
 
+- (NSArray *)shuffle:(NSArray *)array
+{
+    NSMutableArray *mutableArray = [array mutableCopy];
+    for (int i=0; i<array.count-1; i++)
+    {
+        int remain = array.count - (i + 1);
+        int randPos = (i + 1) + (arc4random() % remain);
+        [mutableArray exchangeObjectAtIndex:i withObjectAtIndex:randPos];
+    }
+    return mutableArray;
+}
+
 - (void)shuffle
 {
     NSMutableArray *flashcards = [self.flashcards mutableCopy];
@@ -56,6 +70,20 @@
         [flashcards exchangeObjectAtIndex:i withObjectAtIndex:randPos];
     }
     self.flashcards = flashcards;
+}
+
+- (NSArray *)choicesForAnswerAtIndex:(NSUInteger)index
+{
+    NSMutableArray *choices = [NSMutableArray arrayWithCapacity:4];
+    [choices addObject:[self answerAtIndex:index]]; // first choice is right choice
+    NSMutableArray *flashcards = [NSMutableArray arrayWithArray:self.flashcards];
+    [flashcards removeObjectAtIndex:index];
+    flashcards = [[self shuffle:(NSArray *)flashcards] mutableCopy];
+    for (int i=0; i<3; i++)
+    {
+        [choices addObject:((EVFlashcard *)[flashcards objectAtIndex:i]).answer];
+    }
+    return [self shuffle:choices];
 }
 
 - (EVFlashcard *)flashcardAtIndex:(NSUInteger)index

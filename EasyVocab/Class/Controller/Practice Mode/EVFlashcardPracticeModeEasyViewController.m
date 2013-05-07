@@ -41,6 +41,17 @@
     self.flashcardViewType = EVFlashcardViewPracticeEasy;
 }
 
+- (void)loadFlashcardsContent
+{
+    [super loadFlashcardsContent];
+    
+    if (self.flashcardViews.count == 3)
+    {
+        EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
+        flashcardView.choices = [self.flashcardCollection choicesForAnswerAtIndex:self.currentFlashCardID];
+    }
+}
+
 
 
 #pragma mark - Buttons fake Tabbar

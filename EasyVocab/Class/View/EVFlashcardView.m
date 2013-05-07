@@ -64,6 +64,20 @@
     }
 }
 
+- (void)setChoices:(NSArray *)choices
+{
+    if (_choices != choices && choices.count == 4)
+    {
+        _choices = choices;
+        for (int i=0; i<4; i++)
+        {
+            UIButton *button = [self.answerButtons objectAtIndex:i];
+            [button setTitle:[[choices objectAtIndex:i] uppercaseString]
+                    forState:UIControlStateNormal];
+        }
+    }
+}
+
 
 
 #pragma mark - Target/action

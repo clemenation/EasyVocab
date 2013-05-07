@@ -17,5 +17,8 @@
 @property (assign, nonatomic) NSUInteger            currentFlashCardID;
 @property (assign, nonatomic) EVFlashcardViewType   flashcardViewType;
 @property (readonly, nonatomic) EVFlashcardCollection *flashcardCollection;
+@property (readonly, nonatomic) NSMutableArray      *flashcardViews;
+
+- (void)loadFlashcardsContent;
 
 @end
