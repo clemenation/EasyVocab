@@ -62,6 +62,16 @@
 
 
 
+#pragma mark - Target/action
+
+- (IBAction)checkAnswer:(UIButton *)sender
+{
+    EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
+    [flashcardView checkAnswer];
+}
+
+
+
 #pragma mark - segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

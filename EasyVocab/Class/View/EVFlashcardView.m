@@ -83,6 +83,37 @@
 
 #pragma mark - Target/action
 
+- (IBAction)choiceChosen:(UIButton *)sender {
+    for (UIButton *button in self.answerButtons)
+    {
+        if (button == sender)
+        {
+            [button setBackgroundImage:[UIImage imageNamed:@"practice_back_easy_button_choice_selected.png"]
+                              forState:UIControlStateNormal];
+            [button setTag:YES];
+        }
+        else
+        {
+            [button setBackgroundImage:[UIImage imageNamed:@"practice_back_easy_button_choice.png"]
+                              forState:UIControlStateNormal];
+            [button setTag:NO];
+        }
+    }
+}
+
+- (BOOL)checkAnswer
+{
+    for (UIButton *button in self.answerButtons)
+    {
+        if (button.tag == YES &&
+            [[button titleForState:UIControlStateNormal] isEqualToString:[self.flashcard.answer uppercaseString]])
+        {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (IBAction)speakerSelected:(id)sender {
     self.tts = [[EVGoogleTranslateTTS alloc] initWithLanguage:@"en" andContent:self.flashcard.answer];
     [self.tts startAsynchronous];

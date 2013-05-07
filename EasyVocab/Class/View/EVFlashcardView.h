@@ -28,5 +28,6 @@ typedef enum {
 @property (strong, nonatomic) NSArray               *choices;
 
 - (IBAction)speakerSelected:(id)sender;
+- (BOOL)checkAnswer;
 
 @end

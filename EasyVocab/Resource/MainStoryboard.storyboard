@@ -518,6 +518,22 @@
                                     <segue destination="AEx-Bu-hnn" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="e9A-e4-t3R"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LFF-YF-lUJ">
+                                <rect key="frame" x="211" y="10" width="95" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Kiểm tra" image="practice_back_button_check.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkAnswer:" destination="wLD-fN-O1n" eventType="touchUpInside" id="L7G-9N-ito"/>
+                                    <action selector="checkAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="lNA-J2-LdZ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gsO-dZ-ynD" userLabel="learnTabButton">
                                 <rect key="frame" x="0.0" y="432" width="160" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
