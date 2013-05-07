@@ -67,6 +67,18 @@
 
 
 
+#pragma mark - EVFlashcardViewDelegate methods
+
+- (void)nextButtonOfFlashcardView:(EVFlashcardView *)flashcardView
+                         selected:(UIButton *)sender
+{
+    flashcardView.flashcardViewType = EVFlashcardViewPracticeEasy;
+    self.awesomeImageView.hidden = YES;
+    [self nextButtonSelected:sender];
+}
+
+
+
 #pragma mark - EVViewFlipperDelegate methods
 
 - (void)viewFlipperDidFlipped:(EVViewFlipper *)viewFlipper

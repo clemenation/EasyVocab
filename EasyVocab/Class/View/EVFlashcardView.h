@@ -10,6 +10,8 @@
 
 #import "EVFlashcard.h"
 
+@protocol EVFlashcardViewDelegate;
+
 @interface EVFlashcardView : UIControl
 
 typedef enum {
@@ -21,6 +23,7 @@ typedef enum {
 
 @property (weak, nonatomic) IBOutlet UIView         *backView;
 @property (weak, nonatomic) IBOutlet UIView         *frontView;
+@property (weak, nonatomic) id <EVFlashcardViewDelegate> delegate;
 @property (assign, nonatomic) EVFlashcardViewType   flashcardViewType;
 
 @property (strong ,nonatomic) EVFlashcard           *flashcard;
@@ -28,6 +31,14 @@ typedef enum {
 @property (strong, nonatomic) NSArray               *choices;
 
 - (IBAction)speakerSelected:(id)sender;
+- (IBAction)nextButtonSelected:(UIButton *)sender;
 - (BOOL)checkAnswer;
+
+@end
+
+@protocol EVFlashcardViewDelegate
+
+- (void)nextButtonOfFlashcardView:(EVFlashcardView *)flashcardView
+                         selected:(UIButton *)sender;
 
 @end

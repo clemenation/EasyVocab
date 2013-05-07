@@ -126,6 +126,7 @@
         EVFlashcardView *flashcardView = [[[NSBundle mainBundle] loadNibNamed:@"EVFlashcardView"
                                                                         owner:self
                                                                       options:nil] objectAtIndex:0];
+        flashcardView.delegate = self;
         [self.flashcardViews addObject:flashcardView];
         [self.view insertSubview:flashcardView belowSubview:self.walkthroughButton];
     }
@@ -152,6 +153,16 @@
             [flashcardView addGestureRecognizer:self.flashcardTapGestureRecognizer];
         }
     }
+}
+
+
+
+#pragma mark - EVFlashcardViewDelegate methods
+
+- (void)nextButtonOfFlashcardView:(EVFlashcardView *)flashcardView
+                         selected:(UIButton *)sender
+{
+    
 }
 
 #pragma mark - Target/action

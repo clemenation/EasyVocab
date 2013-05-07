@@ -12,7 +12,7 @@
 #import "EVFlashcardCollection.h"
 #import "EVViewFlipper.h"
 
-@interface EVFlashcardViewController : UIViewController
+@interface EVFlashcardViewController : UIViewController <EVFlashcardViewDelegate>
 
 @property (weak,nonatomic) NSString                 *currentCategory;
 @property (assign, nonatomic) NSUInteger            currentFlashCardID;
@@ -24,5 +24,7 @@
 
 - (void)loadFlashcardsContent;
 - (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender;
+- (IBAction)nextButtonSelected:(UIButton *)sender;
+- (IBAction)prevButtonSelected:(UIButton *)sender;
 
 @end

@@ -64,6 +64,7 @@
         self.imageView.image = _flashcard.image;
         self.answerLabel.text = [_flashcard.answer uppercaseString];
         self.answerLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
+        [self choiceChosen:nil];
     }
 }
 
@@ -127,4 +128,13 @@
     self.tts = [[EVGoogleTranslateTTS alloc] initWithLanguage:@"en" andContent:self.flashcard.answer];
     [self.tts startAsynchronous];
 }
+
+- (IBAction)nextButtonSelected:(UIButton *)sender {
+    if (self.delegate)
+    {
+        [self.delegate nextButtonOfFlashcardView:self
+                                        selected:sender];
+    }
+}
+
 @end
