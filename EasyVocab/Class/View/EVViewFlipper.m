@@ -181,6 +181,10 @@
         {
             self.completion();
         }
+        if (self.delegate)
+        {
+            [self.delegate viewFlipperDidFlipped:self];
+        }
     }
     else if (anim == [self.currentFrontView.layer animationForKey:@"flipFrontView"])
     {

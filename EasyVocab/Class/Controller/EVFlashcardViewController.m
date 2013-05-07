@@ -8,7 +8,6 @@
 
 #import "EVFlashcardViewController.h"
 #import "EVWalkthroughManager.h"
-#import "EVViewFlipper.h"
 #import "EVCommon.h"
 
 @interface EVFlashcardViewController ()
@@ -155,8 +154,12 @@
 #pragma mark - Target/action
 
 - (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender {
-    self.viewFlipper.flashcardView = [self.flashcardViews objectAtIndex:1];
-    [self.viewFlipper flip];
+    EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
+    self.viewFlipper.flashcardView = flashcardView;
+    if (!self.flipOnce || !self.viewFlipper.displayingBackView)
+    {
+        [self.viewFlipper flip];
+    }
 }
 
 - (IBAction)walkthroughSelected:(UIButton *)sender {

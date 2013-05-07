@@ -10,6 +10,8 @@
 
 #import "EVFlashcardView.h"
 
+@protocol EVViewFlipperDelegate;
+
 @interface EVViewFlipper : NSObject
 
 @property (assign, nonatomic) BOOL displayingBackView;
@@ -17,8 +19,8 @@
 
 @property (weak, nonatomic) UIView *currentFrontView;
 @property (weak, nonatomic) UIView *currentBackView;
-
 @property (weak, nonatomic) EVFlashcardView *flashcardView;
+@property (weak, nonatomic) id <EVViewFlipperDelegate> delegate;
 
 @property (assign, nonatomic) CGRect frontStackFrame;
 @property (assign, nonatomic) CGRect backStackFrame;
@@ -27,5 +29,12 @@
 
 - (void)flip;
 - (void)flip:(void (^)(void))completion;
+
+@end
+
+
+@protocol EVViewFlipperDelegate <NSObject>
+
+- (void)viewFlipperDidFlipped:(EVViewFlipper *)viewFlipper;
 
 @end

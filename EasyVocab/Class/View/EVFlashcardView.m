@@ -105,10 +105,16 @@
 {
     for (UIButton *button in self.answerButtons)
     {
-        if (button.tag == YES &&
-            [[button titleForState:UIControlStateNormal] isEqualToString:[self.flashcard.answer uppercaseString]])
+        if (button.tag == YES)
         {
-            return YES;
+            if ([[button titleForState:UIControlStateNormal] isEqualToString:[self.flashcard.answer uppercaseString]])
+            {
+                return YES;
+            }
+            else
+            {
+                button.enabled = NO;
+            }
         }
     }
     return NO;

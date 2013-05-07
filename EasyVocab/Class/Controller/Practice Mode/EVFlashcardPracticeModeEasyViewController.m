@@ -15,7 +15,9 @@
 #import "EVFlashcardView.h"
 #import "EVViewFlipper.h"
 
-@interface EVFlashcardPracticeModeEasyViewController ()
+@interface EVFlashcardPracticeModeEasyViewController () <EVViewFlipperDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *checkButton;
 
 @end
 
@@ -39,6 +41,8 @@
 	// Do any additional setup after loading the view.
     
     self.flashcardViewType = EVFlashcardViewPracticeEasy;
+    self.flipOnce = YES;
+    self.viewFlipper.delegate = self;
 }
 
 - (void)loadFlashcardsContent
@@ -62,12 +66,29 @@
 
 
 
+#pragma mark - EVViewFlipperDelegate methods
+
+- (void)viewFlipperDidFlipped:(EVViewFlipper *)viewFlipper
+{
+    if (viewFlipper == self.viewFlipper)
+    {
+        self.checkButton.hidden = !viewFlipper.displayingBackView;
+    }
+}
+
+
+
 #pragma mark - Target/action
 
 - (IBAction)checkAnswer:(UIButton *)sender
 {
     EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
     [flashcardView checkAnswer];
+}
+
+- (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender
+{
+    [super flashcardSelected:sender];
 }
 
 
