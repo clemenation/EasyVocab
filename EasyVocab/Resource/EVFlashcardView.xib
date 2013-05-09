@@ -15,6 +15,7 @@
 			<string>IBUIButton</string>
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
+			<string>IBUITextField</string>
 			<string>IBUIView</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -55,6 +56,82 @@
 									<string key="NSResourceName">flashcard.png</string>
 								</object>
 							</object>
+							<object class="IBUITextField" id="974052687">
+								<reference key="NSNextResponder" ref="542495788"/>
+								<int key="NSvFlags">1316</int>
+								<object class="NSPSMatrix" key="NSFrameMatrix"/>
+								<string key="NSFrame">{{21, 66}, {249, 37}}</string>
+								<reference key="NSSuperview" ref="542495788"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="618008120"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<string key="IBUIText"/>
+								<object class="NSColor" key="IBUITextColor" id="611607312">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MQA</bytes>
+								</object>
+								<int key="IBUITextAlignment">1</int>
+								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
+								<float key="IBUIMinimumFontSize">17</float>
+								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">3</int>
+									<int key="IBUIReturnKeyType">9</int>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								</object>
+								<object class="NSCustomResource" key="IBUIBackground">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">practice_back_challenge_answer_field.png</string>
+								</object>
+								<int key="IBUIClearButtonMode">3</int>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<int key="type">1</int>
+									<double key="pointSize">23</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">23</double>
+									<int key="NSfFlags">16</int>
+								</object>
+							</object>
+							<object class="IBUIButton" id="338396389">
+								<reference key="NSNextResponder" ref="542495788"/>
+								<int key="NSvFlags">1316</int>
+								<object class="NSPSMatrix" key="NSFrameMatrix"/>
+								<string key="NSFrame">{{111, 127}, {69, 55}}</string>
+								<reference key="NSSuperview" ref="542495788"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="105258544"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<string key="IBUINormalTitle">Check</string>
+								<reference key="IBUIHighlightedTitleColor" ref="611607312"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<object class="NSColor" key="IBUINormalTitleShadowColor" id="95007653">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MC41AA</bytes>
+								</object>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">practice_back_challenge_button_check.png</string>
+								</object>
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="576823571">
+									<int key="type">2</int>
+									<double key="pointSize">15</double>
+								</object>
+								<object class="NSFont" key="IBUIFont" id="317053203">
+									<string key="NSName">Helvetica-Bold</string>
+									<double key="NSSize">15</double>
+									<int key="NSfFlags">16</int>
+								</object>
+							</object>
 							<object class="IBUIButton" id="808175779">
 								<reference key="NSNextResponder" ref="542495788"/>
 								<int key="NSvFlags">1288</int>
@@ -67,18 +144,12 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<object class="NSColor" key="IBUIHighlightedTitleColor" id="611607312">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-								</object>
+								<reference key="IBUIHighlightedTitleColor" ref="611607312"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
-								<object class="NSColor" key="IBUINormalTitleShadowColor" id="95007653">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC41AA</bytes>
-								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="95007653"/>
 								<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="651754100">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">button_speaker_down.png</string>
@@ -88,15 +159,8 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">button_speaker.png</string>
 								</object>
-								<object class="IBUIFontDescription" key="IBUIFontDescription">
-									<int key="type">2</int>
-									<double key="pointSize">15</double>
-								</object>
-								<object class="NSFont" key="IBUIFont">
-									<string key="NSName">Helvetica-Bold</string>
-									<double key="NSSize">15</double>
-									<int key="NSfFlags">16</int>
-								</object>
+								<reference key="IBUIFontDescription" ref="576823571"/>
+								<reference key="IBUIFont" ref="317053203"/>
 							</object>
 							<object class="IBUILabel" id="778805373">
 								<reference key="NSNextResponder" ref="542495788"/>
@@ -167,7 +231,7 @@
 								<string key="NSFrame">{{21, 49}, {248, 37}}</string>
 								<reference key="NSSuperview" ref="542495788"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="618008120"/>
+								<reference key="NSNextKeyView" ref="974052687"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -232,7 +296,7 @@
 								<string key="NSFrame">{{21, 155}, {248, 37}}</string>
 								<reference key="NSSuperview" ref="542495788"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="105258544"/>
+								<reference key="NSNextKeyView" ref="338396389"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -315,7 +379,6 @@
 								<string key="NSFrame">{{23, 24}, {244, 244}}</string>
 								<reference key="NSSuperview" ref="430698616"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<int key="IBUIContentMode">1</int>
 								<array key="IBUIGestureRecognizers" id="0"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -431,6 +494,22 @@
 					<int key="connectionID">60</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">answerTextField</string>
+						<reference key="source" ref="304961412"/>
+						<reference key="destination" ref="974052687"/>
+					</object>
+					<int key="connectionID">69</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">checkButton</string>
+						<reference key="source" ref="304961412"/>
+						<reference key="destination" ref="338396389"/>
+					</object>
+					<int key="connectionID">70</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">speakerSelected:</string>
 						<reference key="source" ref="808175779"/>
@@ -484,6 +563,23 @@
 					</object>
 					<int key="connectionID">66</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="974052687"/>
+						<reference key="destination" ref="304961412"/>
+					</object>
+					<int key="connectionID">71</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">checkButtonSelected:</string>
+						<reference key="source" ref="338396389"/>
+						<reference key="destination" ref="304961412"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">72</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -535,6 +631,8 @@
 							<reference ref="686633729"/>
 							<reference ref="725196225"/>
 							<reference ref="1001174480"/>
+							<reference ref="338396389"/>
+							<reference ref="974052687"/>
 						</array>
 						<reference key="parent" ref="304961412"/>
 						<string key="objectName">backView</string>
@@ -594,6 +692,17 @@
 						<reference key="parent" ref="542495788"/>
 						<string key="objectName">nextButton</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">67</int>
+						<reference key="object" ref="974052687"/>
+						<reference key="parent" ref="542495788"/>
+						<string key="objectName">answerTextField</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">68</int>
+						<reference key="object" ref="338396389"/>
+						<reference key="parent" ref="542495788"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -635,6 +744,12 @@
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="6.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="6.showNotes"/>
+				<string key="67.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<reference key="67.IBUserGuides" ref="0"/>
+				<boolean value="NO" key="67.showNotes"/>
+				<string key="68.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<reference key="68.IBUserGuides" ref="0"/>
+				<boolean value="NO" key="68.showNotes"/>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="7.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="7.showNotes"/>
@@ -649,7 +764,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">66</int>
+			<int key="maxID">72</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -657,10 +772,20 @@
 					<string key="className">EVFlashcardView</string>
 					<string key="superclassName">UIControl</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="checkButtonSelected:">UIButton</string>
+						<string key="choiceChosen:">UIButton</string>
 						<string key="nextButtonSelected:">UIButton</string>
 						<string key="speakerSelected:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="checkButtonSelected:">
+							<string key="name">checkButtonSelected:</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBActionInfo" key="choiceChosen:">
+							<string key="name">choiceChosen:</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBActionInfo" key="nextButtonSelected:">
 							<string key="name">nextButtonSelected:</string>
 							<string key="candidateClassName">UIButton</string>
@@ -672,7 +797,9 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="answerLabel">UILabel</string>
+						<string key="answerTextField">UITextField</string>
 						<string key="backView">UIView</string>
+						<string key="checkButton">UIButton</string>
 						<string key="frontView">UIView</string>
 						<string key="imageView">UIImageView</string>
 						<string key="nextButton">UIButton</string>
@@ -683,9 +810,17 @@
 							<string key="name">answerLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="answerTextField">
+							<string key="name">answerTextField</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="backView">
 							<string key="name">backView</string>
 							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="checkButton">
+							<string key="name">checkButton</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="frontView">
 							<string key="name">frontView</string>
@@ -730,6 +865,8 @@
 			<string key="practice_back_answer_button_next.png">{38, 55}</string>
 			<string key="practice_back_button_choice_wrong.png">{248, 37}</string>
 			<string key="practice_back_button_choice_wrong@2x.png">{495, 73}</string>
+			<string key="practice_back_challenge_answer_field.png">{248, 37}</string>
+			<string key="practice_back_challenge_button_check.png">{69, 55}</string>
 			<string key="practice_back_easy_button_choice.png">{248, 37}</string>
 			<string key="practice_back_easy_button_choice_selected.png">{248, 37}</string>
 		</dictionary>

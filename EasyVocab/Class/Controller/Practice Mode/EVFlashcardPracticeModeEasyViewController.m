@@ -72,9 +72,10 @@
 - (void)nextButtonOfFlashcardView:(EVFlashcardView *)flashcardView
                          selected:(UIButton *)sender
 {
-    flashcardView.flashcardViewType = EVFlashcardViewPracticeEasy;
     self.awesomeImageView.hidden = YES;
-    [self nextButtonSelected:sender];
+    [self goToNextCard:sender animationsAddition:nil completionAddition:^(BOOL finished) {
+        flashcardView.flashcardViewType = EVFlashcardViewPracticeEasy;
+    }];
 }
 
 

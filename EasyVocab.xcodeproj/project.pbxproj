@@ -156,6 +156,11 @@
 		4AC149F916F74599009F7CBA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149E716F743FF009F7CBA /* InfoPlist.strings */; };
 		4AEDCCE7171F8CBF00EE0E98 /* EVFlashcardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEDCCE6171F8CBF00EE0E98 /* EVFlashcardView.xib */; };
 		4AEDCCEA171F8D1700EE0E98 /* EVFlashcardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCCE9171F8D1700EE0E98 /* EVFlashcardView.m */; };
+		4AFB801C173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFB801B173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.m */; };
+		4AFB8020173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFB801E173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong.png */; };
+		4AFB8021173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFB801F173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong@2x.png */; };
+		4AFB8024173BFF9F006E17D4 /* practice_back_challenge_answer_field.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFB8022173BFF9F006E17D4 /* practice_back_challenge_answer_field.png */; };
+		4AFB8025173BFF9F006E17D4 /* practice_back_challenge_answer_field@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFB8023173BFF9F006E17D4 /* practice_back_challenge_answer_field@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -342,6 +347,12 @@
 		4AEDCCE6171F8CBF00EE0E98 /* EVFlashcardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EVFlashcardView.xib; path = Resource/EVFlashcardView.xib; sourceTree = "<group>"; };
 		4AEDCCE8171F8D1700EE0E98 /* EVFlashcardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcardView.h; path = Class/View/EVFlashcardView.h; sourceTree = "<group>"; };
 		4AEDCCE9171F8D1700EE0E98 /* EVFlashcardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardView.m; path = Class/View/EVFlashcardView.m; sourceTree = "<group>"; };
+		4AFB801A173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcardPracticeModeChallengeViewController.h; path = "Class/Controller/Practice Mode/EVFlashcardPracticeModeChallengeViewController.h"; sourceTree = "<group>"; };
+		4AFB801B173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardPracticeModeChallengeViewController.m; path = "Class/Controller/Practice Mode/EVFlashcardPracticeModeChallengeViewController.m"; sourceTree = "<group>"; };
+		4AFB801E173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = practice_back_challenge_answer_field_wrong.png; path = EasyVocab/Resource/Images/PracticeBackChallenge/practice_back_challenge_answer_field_wrong.png; sourceTree = "<group>"; };
+		4AFB801F173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "practice_back_challenge_answer_field_wrong@2x.png"; path = "EasyVocab/Resource/Images/PracticeBackChallenge/practice_back_challenge_answer_field_wrong@2x.png"; sourceTree = "<group>"; };
+		4AFB8022173BFF9F006E17D4 /* practice_back_challenge_answer_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = practice_back_challenge_answer_field.png; path = EasyVocab/Resource/Images/PracticeBackChallenge/practice_back_challenge_answer_field.png; sourceTree = "<group>"; };
+		4AFB8023173BFF9F006E17D4 /* practice_back_challenge_answer_field@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "practice_back_challenge_answer_field@2x.png"; path = "EasyVocab/Resource/Images/PracticeBackChallenge/practice_back_challenge_answer_field@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -578,6 +589,19 @@
 			name = en;
 			sourceTree = "<group>";
 		};
+		4AFB801D173BF210006E17D4 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				4A8D4BF1171BA13100E73524 /* AnswerFlashCardEasyModeVC.h */,
+				4A8D4BF4171BA13100E73524 /* AnswerFlashCardEasyModeVC.m */,
+				4A8D4BEF171BA13100E73524 /* AnswerFlashCardChallengeMode.h */,
+				4A8D4BF6171BA13100E73524 /* AnswerFlashCardChallengeMode.m */,
+				4A8D4BF0171BA13100E73524 /* ReviewFlashCardPraticeModeVC.h */,
+				4A8D4BF7171BA13100E73524 /* ReviewFlashCardPraticeModeVC.m */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
 		4AFE03E116FFF28300B498AB /* PracticeFront */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +649,10 @@
 		4AFE040C16FFF2B600B498AB /* PracticeBackChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				4AFB8022173BFF9F006E17D4 /* practice_back_challenge_answer_field.png */,
+				4AFB8023173BFF9F006E17D4 /* practice_back_challenge_answer_field@2x.png */,
+				4AFB801E173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong.png */,
+				4AFB801F173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong@2x.png */,
 				4A8D4AF5171B9EEE00E73524 /* practice_back_challenge_button_answer.png */,
 				4A8D4AF6171B9EEE00E73524 /* practice_back_challenge_walkthrough.png */,
 				4A8D4AF7171B9EEE00E73524 /* practice_back_challenge_walkthrough@2x.png */,
@@ -654,14 +682,11 @@
 			children = (
 				4A8D4BEE171BA13100E73524 /* ChoosePracticeModeVC.h */,
 				4A8D4BF3171BA13100E73524 /* ChoosePracticeModeVC.m */,
-				4A8D4BF1171BA13100E73524 /* AnswerFlashCardEasyModeVC.h */,
-				4A8D4BF4171BA13100E73524 /* AnswerFlashCardEasyModeVC.m */,
+				4AFB801D173BF210006E17D4 /* Deprecated */,
 				4A8D4BF2171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.h */,
 				4A8D4BF5171BA13100E73524 /* EVFlashcardPracticeModeEasyViewController.m */,
-				4A8D4BEF171BA13100E73524 /* AnswerFlashCardChallengeMode.h */,
-				4A8D4BF6171BA13100E73524 /* AnswerFlashCardChallengeMode.m */,
-				4A8D4BF0171BA13100E73524 /* ReviewFlashCardPraticeModeVC.h */,
-				4A8D4BF7171BA13100E73524 /* ReviewFlashCardPraticeModeVC.m */,
+				4AFB801A173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.h */,
+				4AFB801B173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.m */,
 			);
 			name = "Practice Mode";
 			sourceTree = "<group>";
@@ -952,6 +977,10 @@
 				4A8D4BE8171BA0C400E73524 /* answer.json in Resources */,
 				4A8D4BEA171BA0DD00E73524 /* iTunesArtwork.png in Resources */,
 				4AEDCCE7171F8CBF00EE0E98 /* EVFlashcardView.xib in Resources */,
+				4AFB8020173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong.png in Resources */,
+				4AFB8021173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong@2x.png in Resources */,
+				4AFB8024173BFF9F006E17D4 /* practice_back_challenge_answer_field.png in Resources */,
+				4AFB8025173BFF9F006E17D4 /* practice_back_challenge_answer_field@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,6 +1035,7 @@
 				4A7EBA141732A3AB0074E3C5 /* EVFlashcardViewController.m in Sources */,
 				4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */,
 				4A640A2E173425FF0029C048 /* EVCommon.m in Sources */,
+				4AFB801C173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

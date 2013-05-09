@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="498"/>
+            <point key="canvasLocation" x="196" y="429"/>
         </scene>
         <!--Flash Card CollectionVC-->
         <scene sceneID="xfo-ix-lGf">
@@ -361,12 +361,13 @@
                     <connections>
                         <outlet property="walkthroughButton" destination="9EZ-t7-2IL" id="0Lc-ol-Z0g"/>
                         <segue destination="wLD-fN-O1n" kind="push" identifier="showFlashCardPraticeMode" id="ySL-zb-hFN"/>
+                        <segue destination="Uoc-zG-RSy" kind="push" identifier="showFlashcardPracticeModeChallenge" id="L4G-T2-fbe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBo-zc-gsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LJG-za-iRN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="771"/>
+            <point key="canvasLocation" x="1778" y="913"/>
         </scene>
         <!--Flashcard Learn Mode View Controller-->
         <scene sceneID="fFu-pp-B8c">
@@ -489,7 +490,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2559" y="24"/>
+            <point key="canvasLocation" x="2331" y="24"/>
         </scene>
         <!--Flashcard Practice Mode Easy View Controller-->
         <scene sceneID="WD7-rL-qxb">
@@ -531,7 +532,6 @@
                                 </state>
                                 <connections>
                                     <action selector="checkAnswer:" destination="wLD-fN-O1n" eventType="touchUpInside" id="L7G-9N-ito"/>
-                                    <action selector="checkAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="lNA-J2-LdZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gsO-dZ-ynD" userLabel="learnTabButton">
@@ -594,8 +594,6 @@
                         <outlet property="checkButton" destination="LFF-YF-lUJ" id="4Ka-VJ-Akt"/>
                         <outlet property="flashcardTapGestureRecognizer" destination="a39-s4-cSF" id="Dus-6S-M03"/>
                         <outlet property="walkthroughButton" destination="On6-jX-GGz" id="llA-1A-wK0"/>
-                        <segue destination="3Wl-JI-VRq" kind="push" identifier="answerFlashCardChallengeMode" id="cfP-bC-HgM"/>
-                        <segue destination="oig-37-71d" kind="push" identifier="answerFlashCardEasyMode" id="FmA-ag-8Zu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCt-qd-7B0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -606,481 +604,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2263" y="771"/>
-        </scene>
-        <!--Answer Flash Card Easy ModeVC-->
-        <scene sceneID="uXh-a9-O3M">
-            <objects>
-                <viewController id="oig-37-71d" customClass="AnswerFlashCardEasyModeVC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xqk-tX-XWk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="6Fp-kY-RAf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="fjj-oy-xuo">
-                                <rect key="frame" x="15" y="70" width="291" height="291"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="Y6q-yb-3wS">
-                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="gah-2e-v1s">
-                                        <rect key="frame" x="21" y="49" width="248" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                        <state key="normal" title="Answer A" backgroundImage="practice_back_easy_button_choice.png">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
-                                        <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="TZX-wW-FK7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="6oS-l0-6Az">
-                                        <rect key="frame" x="21" y="102" width="248" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                        <state key="normal" title="Answer B" backgroundImage="practice_back_easy_button_choice.png">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
-                                        <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
-                                        <state key="highlighted" backgroundImage="practice_back_easy_button_choice_selected.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="FZc-Xp-pJ6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="4Af-xc-Ijo">
-                                        <rect key="frame" x="21" y="155" width="248" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                        <state key="normal" title="Answer C" backgroundImage="practice_back_easy_button_choice.png">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong@2x.png"/>
-                                        <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="BJu-Sc-qVC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="wFs-z2-NRY">
-                                        <rect key="frame" x="21" y="211" width="248" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Answer D" backgroundImage="practice_back_easy_button_choice.png">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="disabled" title="Sai!" backgroundImage="practice_back_button_choice_wrong.png"/>
-                                        <state key="selected" backgroundImage="practice_back_easy_button_choice_selected.png"/>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="chooseAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="pli-CN-UJP"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ukj-bq-Otr">
-                                <rect key="frame" x="15" y="10" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Thoát" image="button_quit.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dwj-Jy-e89" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="rlU-8k-DrX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JvI-aE-KBh">
-                                <rect key="frame" x="211" y="10" width="95" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Kiểm tra" image="practice_back_button_check.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="checkAnswer:" destination="oig-37-71d" eventType="touchUpInside" id="ILb-4V-a4w"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="5b8-lg-Ey6">
-                                <rect key="frame" x="0.0" y="432" width="160" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="tab_learn_off.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" image="tab_learn.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchToLearn:" destination="oig-37-71d" eventType="touchUpInside" id="l0W-4M-hio"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="11" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="PTl-gx-7cn">
-                                <rect key="frame" x="160" y="432" width="160" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="tab_practice_off.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" image="tab_practice.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchToPratice:" destination="tGq-ji-LiM" eventType="touchUpInside" id="BHv-SS-lwr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="rGg-gd-3eo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="practice_back_easy_walkthrough.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="walkthroughSelected:" destination="oig-37-71d" eventType="touchUpInside" id="YXd-TS-TuT"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="9vK-th-f8z">
-                        <barButtonItem key="rightBarButtonItem" image="tick.png" id="D43-FU-B4H"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="flashcardView" destination="fjj-oy-xuo" id="AQP-0A-6eo"/>
-                        <outlet property="walkthroughButton" destination="rGg-gd-3eo" id="ZOL-Ew-1U4"/>
-                        <outletCollection property="answerButtons" destination="gah-2e-v1s" id="qYy-iZ-KdK"/>
-                        <outletCollection property="answerButtons" destination="6oS-l0-6Az" id="QUc-0C-BfK"/>
-                        <outletCollection property="answerButtons" destination="4Af-xc-Ijo" id="qCD-9e-bQD"/>
-                        <outletCollection property="answerButtons" destination="wFs-z2-NRY" id="t98-8U-lnq"/>
-                        <segue destination="4pg-oh-qH9" kind="push" identifier="reviewFlashCardPraticeMode" id="D4N-ev-iQn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YDu-57-gen" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="dwj-Jy-e89" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2787" y="771"/>
-        </scene>
-        <!--Review Flash Card Pratice ModeVC-->
-        <scene sceneID="qEi-mC-JcV">
-            <objects>
-                <viewController id="4pg-oh-qH9" customClass="ReviewFlashCardPraticeModeVC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="b2m-Ly-LRb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="ft8-FU-b5f">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="y13-jB-0ww">
-                                <rect key="frame" x="15" y="70" width="291" height="291"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="b4A-zH-xHj">
-                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy Vocab" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a6A-r4-ZqT">
-                                        <rect key="frame" x="13" y="76" width="264" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zDl-8a-Lk1">
-                                        <rect key="frame" x="74" y="191" width="59" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" image="button_speaker.png">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="speakAnswerPressed:" destination="4pg-oh-qH9" eventType="touchUpInside" id="hsG-cA-sw6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lGC-6E-xV7">
-                                        <rect key="frame" x="171" y="191" width="38" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" image="practice_back_answer_button_next.png">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="nextAnswerPressed:" destination="4pg-oh-qH9" eventType="touchUpInside" id="IfH-Ak-bp3"/>
-                                            <segue destination="Taa-EK-cHJ" kind="unwind" unwindAction="returnToShowFlashCardPraticeMode:" id="E60-lq-N03"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="V8C-mP-k9x">
-                                <rect key="frame" x="15" y="10" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Thoát" image="button_quit.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Taa-EK-cHJ" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="Isj-90-4ab"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="fgW-Ig-UfE">
-                                <rect key="frame" x="0.0" y="432" width="160" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="tab_learn_off.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" image="tab_learn.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchToLearn:" destination="4pg-oh-qH9" eventType="touchUpInside" id="lXx-ue-1qh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="11" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="Pmd-7Y-l7Q">
-                                <rect key="frame" x="160" y="432" width="160" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="tab_practice_off.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" image="tab_practice.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchToPratice:" destination="tGq-ji-LiM" eventType="touchUpInside" id="xbg-o7-96Z"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="practice_back_answer_awesome.png" id="hdh-N8-Y0Q">
-                                <rect key="frame" x="58" y="364" width="205" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="F7c-eU-hcf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="practice_back_answer_walkthrough.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="walkthroughSelected:" destination="4pg-oh-qH9" eventType="touchUpInside" id="MwG-4O-wpk"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="qRf-Yr-IxC"/>
-                    <connections>
-                        <outlet property="awesomeLabel" destination="hdh-N8-Y0Q" id="Gg9-Tp-Ch1"/>
-                        <outlet property="flashcardView" destination="y13-jB-0ww" id="YUn-0l-b0h"/>
-                        <outlet property="textLabel" destination="a6A-r4-ZqT" id="TH5-73-rdh"/>
-                        <outlet property="walkthroughButton" destination="F7c-eU-hcf" id="RKS-pJ-rLp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZnB-Yi-J4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Taa-EK-cHJ" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="3385" y="771"/>
-        </scene>
-        <!--Answer Flash Card Challenge Mode-->
-        <scene sceneID="Nf2-Jt-4l1">
-            <objects>
-                <viewController id="3Wl-JI-VRq" customClass="AnswerFlashCardChallengeMode" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aMe-Sp-HZq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="mv1-De-bbg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="ndS-72-NJc">
-                                <rect key="frame" x="15" y="70" width="291" height="291"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flashcard.png" id="Lt5-Vq-BWI">
-                                        <rect key="frame" x="0.0" y="0.0" width="291" height="291"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="practice_back_easy_button_choice_selected.png" id="qmL-bl-CNI">
-                                        <rect key="frame" x="21" y="66" width="248" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="always" id="TAt-Og-9bU">
-                                        <rect key="frame" x="21" y="66" width="249" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="3Wl-JI-VRq" id="KM7-9J-gkc"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hhH-yz-Ja6">
-                                        <rect key="frame" x="111" y="127" width="69" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Check" image="practice_back_challenge_button_check.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="checkAnswerPressed:" destination="3Wl-JI-VRq" eventType="touchUpInside" id="bOg-lb-r2b"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LiK-hp-q9R">
-                                <rect key="frame" x="15" y="10" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Thoát" image="button_quit.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="h1D-dK-T37" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="unA-a9-ibr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j6k-XI-9Kc">
-                                <rect key="frame" x="231" y="10" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Đáp án" image="practice_back_challenge_button_answer.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="giveUpButtonPressed:" destination="3Wl-JI-VRq" eventType="touchUpInside" id="Pvh-6A-5uw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="c4X-6P-nLh">
-                                <rect key="frame" x="0.0" y="432" width="160" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="tab_learn_off.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" image="tab_learn.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchToLearn:" destination="3Wl-JI-VRq" eventType="touchUpInside" id="kiS-xA-co3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="11" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="PI3-qv-5RB">
-                                <rect key="frame" x="160" y="432" width="160" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="tab_practice_off.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" image="tab_practice.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchToPratice:" destination="tGq-ji-LiM" eventType="touchUpInside" id="bou-2o-fgO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="zud-yF-6AL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="practice_back_challenge_walkthrough.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="walkthroughSelected:" destination="3Wl-JI-VRq" eventType="touchUpInside" id="iZp-l5-Bbe"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="blC-BG-Zlp"/>
-                    <connections>
-                        <outlet property="flashcardView" destination="ndS-72-NJc" id="BHt-f3-NxV"/>
-                        <outlet property="giveUpButton" destination="j6k-XI-9Kc" id="U1C-5E-dPN"/>
-                        <outlet property="textField" destination="TAt-Og-9bU" id="Tv3-yB-sMv"/>
-                        <outlet property="walkthroughButton" destination="zud-yF-6AL" id="gdd-ij-Aci"/>
-                        <segue destination="4pg-oh-qH9" kind="push" identifier="reviewFlashCardPraticeMode" id="ZC7-de-Uws"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gxG-gf-HAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="h1D-dK-T37" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2787" y="1499"/>
+            <point key="canvasLocation" x="2331" y="601"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4vE-Sw-3jB">
@@ -1100,7 +624,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAu-n0-IQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="673" y="493"/>
+            <point key="canvasLocation" x="675" y="429"/>
         </scene>
         <!--Navigation Controller - Learn-->
         <scene sceneID="unY-uE-agm">
@@ -1138,7 +662,121 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bp-rh-0sR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="771"/>
+            <point key="canvasLocation" x="1252" y="913"/>
+        </scene>
+        <!--Flashcard Practice Mode Challenge View Controller-->
+        <scene sceneID="aeZ-pI-fQ9">
+            <objects>
+                <viewController id="Uoc-zG-RSy" customClass="EVFlashcardPracticeModeChallengeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qk3-dg-AKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="cjI-M3-5Yb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mDt-z9-mMl">
+                                <rect key="frame" x="15" y="10" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Thoát" image="button_quit.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0lQ-z4-7wh" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="29J-2E-6kg"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="goM-1f-acM">
+                                <rect key="frame" x="231" y="10" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Đáp án" image="practice_back_challenge_button_answer.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="giveUpButtonSelected:" destination="Uoc-zG-RSy" eventType="touchUpInside" id="rIn-JH-GjI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="tgV-CU-MOX" userLabel="learnTabButton">
+                                <rect key="frame" x="0.0" y="432" width="160" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="tab_learn_off.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" image="tab_learn.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchToLearn:" destination="Uoc-zG-RSy" eventType="touchUpInside" id="khC-2u-sE5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="hA0-gv-k0o" userLabel="practiceTabButton">
+                                <rect key="frame" x="160" y="432" width="160" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="tab_practice_off.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" image="tab_practice.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchToPratice:" destination="tGq-ji-LiM" eventType="touchUpInside" id="RSD-Na-t2M"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="practice_back_answer_awesome.png" id="23r-4U-r1v">
+                                <rect key="frame" x="58" y="364" width="205" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="REV-tV-TH9" userLabel="walkthroughButton">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="learn_front_walkthrough.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="walkthroughSelected:" destination="Uoc-zG-RSy" eventType="touchUpInside" id="g2h-KZ-kOA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Cm-8v-83p"/>
+                    <connections>
+                        <outlet property="awesomeImageView" destination="23r-4U-r1v" id="rS0-J1-of7"/>
+                        <outlet property="flashcardTapGestureRecognizer" destination="XYk-Y1-nnZ" id="udh-C3-ICS"/>
+                        <outlet property="giveUpButton" destination="goM-1f-acM" id="Mcd-u8-8xY"/>
+                        <outlet property="walkthroughButton" destination="REV-tV-TH9" id="A6v-yJ-7wq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDM-r7-nEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0lQ-z4-7wh" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="XYk-Y1-nnZ">
+                    <connections>
+                        <action selector="flashcardSelected:" destination="Uoc-zG-RSy" id="Zuq-vN-JR2"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2331" y="1329"/>
         </scene>
     </scenes>
     <resources>
@@ -1148,25 +786,14 @@
         <image name="button_next.png" width="21" height="29"/>
         <image name="button_prev.png" width="21" height="29"/>
         <image name="button_quit.png" width="24" height="24"/>
-        <image name="button_speaker.png" width="59" height="54"/>
         <image name="category_button_orange.png" width="308" height="102"/>
         <image name="category_icon_food.png" width="63" height="62"/>
         <image name="category_walkthrough.png" width="320" height="480"/>
-        <image name="flashcard.png" width="291" height="291"/>
         <image name="learn_front_walkthrough.png" width="320" height="480"/>
         <image name="learn_grid_walkthrough.png" width="320" height="480"/>
         <image name="practice_back_answer_awesome.png" width="205" height="60"/>
-        <image name="practice_back_answer_button_next.png" width="38" height="55"/>
-        <image name="practice_back_answer_walkthrough.png" width="320" height="480"/>
         <image name="practice_back_button_check.png" width="30" height="24"/>
-        <image name="practice_back_button_choice_wrong.png" width="248" height="37"/>
-        <image name="practice_back_button_choice_wrong@2x.png" width="495" height="73"/>
         <image name="practice_back_challenge_button_answer.png" width="19" height="27"/>
-        <image name="practice_back_challenge_button_check.png" width="69" height="55"/>
-        <image name="practice_back_challenge_walkthrough.png" width="320" height="480"/>
-        <image name="practice_back_easy_button_choice.png" width="248" height="37"/>
-        <image name="practice_back_easy_button_choice_selected.png" width="248" height="37"/>
-        <image name="practice_back_easy_walkthrough.png" width="320" height="480"/>
         <image name="practice_difficulty_challenge.png" width="308" height="102"/>
         <image name="practice_difficulty_easy.png" width="308" height="102"/>
         <image name="practice_difficulty_walkthrough.png" width="320" height="480"/>
@@ -1174,14 +801,91 @@
         <image name="tab_learn_off.png" width="160" height="49"/>
         <image name="tab_practice.png" width="160" height="49"/>
         <image name="tab_practice_off.png" width="160" height="49"/>
-        <image name="tick.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="CategoryPickerVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ChoosePracticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EVFlashcardLearnModeViewController" superclassName="EVFlashcardViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardLearnModeViewController.h"/>
+        </class>
+        <class className="EVFlashcardPracticeModeChallengeViewController" superclassName="EVFlashcardViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardPracticeModeChallengeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkAnswer:" candidateClass="UIButton"/>
+                <relationship kind="action" name="giveUpButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="outlet" name="awesomeImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="checkButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="giveUpButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EVFlashcardPracticeModeEasyViewController" superclassName="EVFlashcardViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardPracticeModeEasyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkAnswer:" candidateClass="UIButton"/>
+                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="outlet" name="awesomeImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="checkButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EVFlashcardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="nextButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="prevButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="flashcardTapGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="prevButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FlashCardCollectionVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToPratice:"/>
+                <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="D4N-ev-iQn"/>
-    </inferredMetricsTieBreakers>
 </document>

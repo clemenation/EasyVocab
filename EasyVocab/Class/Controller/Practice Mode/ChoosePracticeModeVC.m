@@ -36,7 +36,7 @@
 
 - (IBAction)challengeModeSelected:(id)sender {
 	praticeModeSelected=2;
-	[self performSegueWithIdentifier:@"showFlashCardPraticeMode" sender:sender];
+	[self performSegueWithIdentifier:@"showFlashcardPracticeModeChallenge" sender:sender];
 }
 
 - (IBAction)walkthroughSelected:(UIButton *)sender {
@@ -62,10 +62,11 @@
 	//NSLog(@"dest=%@",segue.destinationViewController);
 	
 	//geting view from container bind to property without create a new view controller
-	if ([segue.identifier isEqualToString:@"showFlashCardPraticeMode"]) {
+	if ([segue.identifier isEqualToString:@"showFlashCardPraticeMode"] ||
+        [segue.identifier isEqualToString:@"showFlashcardPracticeModeChallenge"]) {
 		NSLog(@"category=%@",self.currentCategory);
 		NSLog(@"praticeMode=%d",praticeModeSelected);
-		EVFlashcardPracticeModeEasyViewController * vc = segue.destinationViewController;
+		EVFlashcardViewController * vc = segue.destinationViewController;
 		vc.currentCategory=self.currentCategory;
 	}
 	

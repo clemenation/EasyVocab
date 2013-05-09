@@ -222,6 +222,19 @@
 }
 
 - (IBAction)nextButtonSelected:(UIButton *)sender {
+    sender.enabled = NO;
+    
+    [self goToNextCard:sender
+    animationsAddition:nil
+    completionAddition:^(BOOL finished) {
+        sender.enabled = YES;
+    }];
+}
+
+- (void)goToNextCard:(id)sender
+  animationsAddition:(void (^)(void))animations
+  completionAddition:(void (^)(BOOL finished))completion
+{
     EVFlashcardView *firstCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:0];
     EVFlashcardView *secondCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:1];
     EVFlashcardView *thirdCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:2];
@@ -230,13 +243,12 @@
     firstCard.hidden = NO;
     thirdCard.hidden = NO;
     
-    sender.enabled = NO;
-    
     void (^nextAnimation)(void) = ^{
         [UIView animateWithDuration:DEFAULT_NEXT_PREV_DURATION
                          animations:^{
                              thirdCard.frame = secondCard.frame;
                              secondCard.frame = firstCard.frame;
+                             if (animations) animations();
                          }
                          completion:^(BOOL finished) {
                              firstCard.frame = thirdCardFrame;
@@ -245,7 +257,7 @@
                              
                              self.currentFlashCardID++;
                              
-                             sender.enabled = YES;
+                             if (completion) completion(finished);
                          }];
     };
     

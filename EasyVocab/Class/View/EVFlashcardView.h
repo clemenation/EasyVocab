@@ -21,6 +21,7 @@ typedef enum {
     EVFlashcardViewPracticeAnswer
 } EVFlashcardViewType;
 
+@property (weak, nonatomic) IBOutlet UITextField    *answerTextField;
 @property (weak, nonatomic) IBOutlet UIView         *backView;
 @property (weak, nonatomic) IBOutlet UIView         *frontView;
 @property (weak, nonatomic) id <EVFlashcardViewDelegate> delegate;
@@ -40,5 +41,11 @@ typedef enum {
 
 - (void)nextButtonOfFlashcardView:(EVFlashcardView *)flashcardView
                          selected:(UIButton *)sender;
+
+@optional
+
+- (void)checkButtonOfFlashcardView:(EVFlashcardView *)flashcardView
+                          selected:(UIButton *)sender
+                            result:(BOOL)result;
 
 @end

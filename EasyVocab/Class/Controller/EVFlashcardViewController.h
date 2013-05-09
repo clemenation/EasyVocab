@@ -24,6 +24,9 @@
 
 - (void)loadFlashcardsContent;
 - (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender;
+- (void)goToNextCard:(id)sender
+  animationsAddition:(void (^)(void))animations
+  completionAddition:(void (^)(BOOL finished))completion;
 - (IBAction)nextButtonSelected:(UIButton *)sender;
 - (IBAction)prevButtonSelected:(UIButton *)sender;
 
