@@ -107,6 +107,10 @@
 
 - (void)flip:(void (^)(void))completion
 {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(viewFlipperWillFlip:)])
+    {
+        [self.delegate viewFlipperWillFlip:self];
+    }
     self.completion = completion;
     [self flipFrontView];
 }

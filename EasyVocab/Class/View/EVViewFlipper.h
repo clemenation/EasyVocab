@@ -35,6 +35,8 @@
 
 @protocol EVViewFlipperDelegate <NSObject>
 
+@optional
 - (void)viewFlipperDidFlipped:(EVViewFlipper *)viewFlipper;
+- (void)viewFlipperWillFlip:(EVViewFlipper *)viewFlipper;
 
 @end

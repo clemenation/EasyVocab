@@ -43,7 +43,7 @@
 	// Do any additional setup after loading the view.
     
     self.flashcardViewType = EVFlashcardViewPracticeChallenge;
-    self.flipOnce = YES;
+//    self.flipOnce = YES;
     self.viewFlipper.delegate = self;
 }
 
@@ -89,8 +89,19 @@
     {
         self.checkButton.hidden = !viewFlipper.displayingBackView;
         self.giveUpButton.hidden = !viewFlipper.displayingBackView;
+    }
+}
+
+- (void)viewFlipperWillFlip:(EVViewFlipper *)viewFlipper
+{
+    if (viewFlipper == self.viewFlipper)
+    {
         EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
         if (viewFlipper.displayingBackView)
+        {
+            [flashcardView.answerTextField resignFirstResponder];
+        }
+        else
         {
             [flashcardView.answerTextField becomeFirstResponder];
         }

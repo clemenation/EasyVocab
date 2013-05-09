@@ -42,7 +42,7 @@
 	// Do any additional setup after loading the view.
     
     self.flashcardViewType = EVFlashcardViewPracticeEasy;
-    self.flipOnce = YES;
+//    self.flipOnce = YES;
     self.viewFlipper.delegate = self;
 }
 
