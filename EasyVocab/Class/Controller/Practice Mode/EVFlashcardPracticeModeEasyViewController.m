@@ -14,6 +14,7 @@
 #import "EVCommon.h"
 #import "EVFlashcardView.h"
 #import "EVViewFlipper.h"
+#import "EVSoundPlayer.h"
 
 @interface EVFlashcardPracticeModeEasyViewController () <EVViewFlipperDelegate>
 
@@ -62,6 +63,7 @@
 #pragma mark - Buttons fake Tabbar
 
 - (IBAction)switchToLearn:(id)sender {
+    [EVSoundPlayer playClickSound];
 	[self.tabBarController setSelectedIndex:0];
 }
 
@@ -94,8 +96,13 @@
 
 #pragma mark - Target/action
 
+- (IBAction)quitButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
+}
+
 - (IBAction)checkAnswer:(UIButton *)sender
 {
+    [EVSoundPlayer playClickSound];
     EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
     if ([flashcardView checkAnswer])
     {        

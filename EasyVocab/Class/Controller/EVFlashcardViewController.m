@@ -10,6 +10,7 @@
 #import "EVWalkthroughManager.h"
 #import "EVCommon.h"
 #import "EVSettingViewController.h"
+#import "EVSoundPlayer.h"
 
 @interface EVFlashcardViewController ()
 
@@ -156,82 +157,6 @@
     }
 }
 
-
-
-#pragma mark - EVFlashcardViewDelegate methods
-
-- (void)nextButtonOfFlashcardView:(EVFlashcardView *)flashcardView
-                         selected:(UIButton *)sender
-{
-    
-}
-
-#pragma mark - Target/action
-
-- (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender {
-    EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
-    self.viewFlipper.flashcardView = flashcardView;
-    if (!self.flipOnce || !self.viewFlipper.displayingBackView)
-    {
-        [self.viewFlipper flip];
-    }
-}
-
-- (IBAction)walkthroughSelected:(UIButton *)sender {
-    sender.hidden = YES;
-    [EVWalkthroughManager setHasReadWalkthrough:YES
-                                  forController:NSStringFromClass(self.class)];
-}
-
-- (IBAction)prevButtonSelected:(UIButton *)sender {
-    EVFlashcardView *firstCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:0];
-    EVFlashcardView *secondCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:1];
-    EVFlashcardView *thirdCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:2];
-    CGRect firstCardFrame = firstCard.frame;
-    
-    firstCard.hidden = NO;
-    thirdCard.hidden = NO;
-    
-    sender.enabled = NO;
-    
-    void (^prevAnimation)(void) = ^{
-        [UIView animateWithDuration:DEFAULT_NEXT_PREV_DURATION
-                         animations:^{
-                             firstCard.frame = secondCard.frame;
-                             secondCard.frame = thirdCard.frame;
-                         }
-                         completion:^(BOOL finished) {
-                             thirdCard.frame = firstCardFrame;
-                             [self.flashcardViews exchangeObjectAtIndex:0 withObjectAtIndex:1];
-                             [self.flashcardViews exchangeObjectAtIndex:0 withObjectAtIndex:2];
-                             
-                             self.currentFlashCardID--;
-                             
-                             sender.enabled = YES;
-                         }];
-        
-    };
-    
-    if (self.viewFlipper.flashcardView == secondCard && self.viewFlipper.displayingBackView)
-    {
-        [self.viewFlipper flip:prevAnimation];
-    }
-    else
-    {
-        prevAnimation();
-    }
-}
-
-- (IBAction)nextButtonSelected:(UIButton *)sender {
-    sender.enabled = NO;
-    
-    [self goToNextCard:sender
-    animationsAddition:nil
-    completionAddition:^(BOOL finished) {
-        sender.enabled = YES;
-    }];
-}
-
 - (void)goToNextCard:(id)sender
   animationsAddition:(void (^)(void))animations
   completionAddition:(void (^)(BOOL finished))completion
@@ -272,7 +197,88 @@
     }
 }
 
+
+
+#pragma mark - EVFlashcardViewDelegate methods
+
+- (void)nextButtonOfFlashcardView:(EVFlashcardView *)flashcardView
+                         selected:(UIButton *)sender
+{
+    
+}
+
+#pragma mark - Target/action
+
+- (IBAction)flashcardSelected:(UITapGestureRecognizer *)sender {
+    EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
+    self.viewFlipper.flashcardView = flashcardView;
+    if (!self.flipOnce || !self.viewFlipper.displayingBackView)
+    {
+        [EVSoundPlayer playClickSound];
+        [self.viewFlipper flip];
+    }
+}
+
+- (IBAction)walkthroughSelected:(UIButton *)sender {
+    sender.hidden = YES;
+    [EVWalkthroughManager setHasReadWalkthrough:YES
+                                  forController:NSStringFromClass(self.class)];
+}
+
+- (IBAction)prevButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
+    
+    EVFlashcardView *firstCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:0];
+    EVFlashcardView *secondCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:1];
+    EVFlashcardView *thirdCard = (EVFlashcardView *)[self.flashcardViews objectAtIndex:2];
+    CGRect firstCardFrame = firstCard.frame;
+    
+    firstCard.hidden = NO;
+    thirdCard.hidden = NO;
+    
+    sender.enabled = NO;
+    
+    void (^prevAnimation)(void) = ^{
+        [UIView animateWithDuration:DEFAULT_NEXT_PREV_DURATION
+                         animations:^{
+                             firstCard.frame = secondCard.frame;
+                             secondCard.frame = thirdCard.frame;
+                         }
+                         completion:^(BOOL finished) {
+                             thirdCard.frame = firstCardFrame;
+                             [self.flashcardViews exchangeObjectAtIndex:0 withObjectAtIndex:1];
+                             [self.flashcardViews exchangeObjectAtIndex:0 withObjectAtIndex:2];
+                             
+                             self.currentFlashCardID--;
+                             
+                             sender.enabled = YES;
+                         }];
+        
+    };
+    
+    if (self.viewFlipper.flashcardView == secondCard && self.viewFlipper.displayingBackView)
+    {
+        [self.viewFlipper flip:prevAnimation];
+    }
+    else
+    {
+        prevAnimation();
+    }
+}
+
+- (IBAction)nextButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
+    sender.enabled = NO;
+    
+    [self goToNextCard:sender
+    animationsAddition:nil
+    completionAddition:^(BOOL finished) {
+        sender.enabled = YES;
+    }];
+}
+
 - (IBAction)settingButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
     [EVSettingViewController presentSettingViewControllerWithStoryboard:self.storyboard andParentViewController:self];
 }
 

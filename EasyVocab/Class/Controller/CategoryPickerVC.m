@@ -187,6 +187,7 @@
 }
 
 - (IBAction)settingButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
     [EVSettingViewController presentSettingViewControllerWithStoryboard:self.storyboard
                                                 andParentViewController:self];
 }

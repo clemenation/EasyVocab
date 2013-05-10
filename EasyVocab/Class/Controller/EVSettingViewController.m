@@ -119,6 +119,7 @@
 #pragma mark - Target/action
 
 - (IBAction)backButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
     [self.parent dismissViewControllerAnimated:YES
                                     completion:nil];
 }
@@ -145,6 +146,7 @@
 }
 
 - (IBAction)walkthroughButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
     [EVWalkthroughManager resetWalkthrough];
     
 //    self.walkthroughButton.alpha = 0.5f;

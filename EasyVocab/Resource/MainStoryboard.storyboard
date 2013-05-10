@@ -196,6 +196,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backButtonSelected:" destination="tGq-ji-LiM" eventType="touchUpInside" id="hVe-6S-gQx"/>
                                     <segue destination="u1L-RO-sil" kind="unwind" unwindAction="returnToCategoryPicker:" id="44L-Sf-34s"/>
                                 </connections>
                             </button>
@@ -352,6 +353,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backButtonSelected:" destination="DBh-xx-gSo" eventType="touchUpInside" id="xqU-rc-i4Z"/>
                                     <segue destination="LJG-za-iRN" kind="unwind" unwindAction="returnToCategoryPicker:" id="CFE-l8-PRi"/>
                                 </connections>
                             </button>
@@ -442,6 +444,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="allButtonSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="g3l-1u-oL1"/>
                                     <segue destination="OhP-Yq-EMb" kind="unwind" unwindAction="returnToFlashCardCollection:" id="LfF-e5-ibJ"/>
                                 </connections>
                             </button>
@@ -580,6 +583,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="quitButtonSelected:" destination="wLD-fN-O1n" eventType="touchUpInside" id="mpe-xk-k2B"/>
                                     <segue destination="AEx-Bu-hnn" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="e9A-e4-t3R"/>
                                 </connections>
                             </button>
@@ -856,6 +860,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="quitButtonSelected:" destination="Uoc-zG-RSy" eventType="touchUpInside" id="HwN-Zt-ABW"/>
                                     <segue destination="0lQ-z4-7wh" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="29J-2E-6kg"/>
                                 </connections>
                             </button>
@@ -995,9 +1000,6 @@
         <class className="CategoryPickerVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerVC.h"/>
             <relationships>
-                <relationship kind="action" name="returnToCategoryPicker:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="settingButtonSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="settingButton" candidateClass="UIButton"/>
@@ -1007,11 +1009,7 @@
         <class className="ChoosePracticeModeVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
             <relationships>
-                <relationship kind="action" name="challengeModeSelected:"/>
-                <relationship kind="action" name="easyModeSelected:"/>
                 <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="switchToLearn:"/>
-                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -1033,9 +1031,6 @@
         <class className="EVFlashcardPracticeModeEasyViewController" superclassName="EVFlashcardViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardPracticeModeEasyViewController.h"/>
             <relationships>
-                <relationship kind="action" name="checkAnswer:" candidateClass="UIButton"/>
-                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="switchToLearn:"/>
                 <relationship kind="outlet" name="awesomeImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="checkButton" candidateClass="UIButton"/>
             </relationships>
@@ -1057,10 +1052,6 @@
         <class className="EVSettingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EVSettingViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backButtonSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="musicButtonSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="soundButtonSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="walkthroughButtonSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="musicButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>

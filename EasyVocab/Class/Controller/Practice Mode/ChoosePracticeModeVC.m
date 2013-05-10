@@ -10,6 +10,7 @@
 #import "EVFlashcardPracticeModeEasyViewController.h"
 #import "EVWalkthroughManager.h"
 #import "EVSettingViewController.h"
+#import "EVSoundPlayer.h"
 
 @interface ChoosePracticeModeVC ()
 
@@ -35,11 +36,13 @@
 
 #pragma mark - Buttons
 - (IBAction)easyModeSelected:(id)sender {
+    [EVSoundPlayer playClickSound];
 	praticeModeSelected=1;
 	[self performSegueWithIdentifier:@"showFlashCardPraticeMode" sender:sender];
 }
 
 - (IBAction)challengeModeSelected:(id)sender {
+    [EVSoundPlayer playClickSound];
 	praticeModeSelected=2;
 	[self performSegueWithIdentifier:@"showFlashcardPracticeModeChallenge" sender:sender];
 }
@@ -53,6 +56,7 @@
 #pragma mark - Buttons fake Tabbar
 
 - (IBAction)switchToLearn:(id)sender {
+    [EVSoundPlayer playClickSound];
 	[self.tabBarController setSelectedIndex:0];
 }
 
@@ -79,7 +83,12 @@
 
 #pragma mark - Target/action
 
+- (IBAction)backButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
+}
+
 - (IBAction)settingButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
     [EVSettingViewController presentSettingViewControllerWithStoryboard:self.storyboard andParentViewController:self];
 }
 

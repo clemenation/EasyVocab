@@ -138,6 +138,7 @@
 #pragma mark - Buttons fake Tabbar
 
 - (IBAction)switchToPratice:(id)sender {
+    [EVSoundPlayer playClickSound];
 	[self.tabBarController setSelectedIndex:1];
 }
 
@@ -160,12 +161,17 @@
 
 #pragma mark - Target/action
 
+- (IBAction)backButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
+}
+
 - (IBAction)walkthroughSelected:(UIButton *)sender {
     sender.hidden = YES;
     [EVWalkthroughManager setHasReadWalkthrough:YES forController:NSStringFromClass(self.class)];
 }
 
 - (IBAction)settingButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
     [EVSettingViewController presentSettingViewControllerWithStoryboard:self.storyboard andParentViewController:self];
 }
 

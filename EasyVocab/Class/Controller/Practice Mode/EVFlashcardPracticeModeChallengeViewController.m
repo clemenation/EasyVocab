@@ -14,6 +14,7 @@
 #import "EVCommon.h"
 #import "EVFlashcardView.h"
 #import "EVViewFlipper.h"
+#import "EVSoundPlayer.h"
 
 @interface EVFlashcardPracticeModeChallengeViewController () <EVViewFlipperDelegate>
 
@@ -63,6 +64,7 @@
 #pragma mark - Buttons fake Tabbar
 
 - (IBAction)switchToLearn:(id)sender {
+    [EVSoundPlayer playClickSound];
 	[self.tabBarController setSelectedIndex:0];
 }
 
@@ -73,6 +75,7 @@
 - (void)nextButtonOfFlashcardView:(EVFlashcardView *)flashcardView
                          selected:(UIButton *)sender
 {
+    [EVSoundPlayer playClickSound];
     self.awesomeImageView.hidden = YES;
     [self goToNextCard:sender animationsAddition:nil completionAddition:^(BOOL finished) {
         flashcardView.flashcardViewType = EVFlashcardViewPracticeChallenge;
@@ -112,8 +115,13 @@
 
 #pragma mark - Target/action
 
+- (IBAction)quitButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
+}
+
 - (IBAction)checkAnswer:(UIButton *)sender
 {
+    [EVSoundPlayer playClickSound];
     EVFlashcardView *flashcardView = [self.flashcardViews objectAtIndex:1];
     if ([flashcardView checkAnswer])
     {
@@ -127,6 +135,7 @@
                           selected:(UIButton *)sender
                             result:(BOOL)result
 {
+    [EVSoundPlayer playClickSound];
     if (result)
     {
         self.awesomeImageView.hidden = NO;
@@ -141,6 +150,7 @@
 }
 
 - (IBAction)giveUpButtonSelected:(UIButton *)sender {
+    [EVSoundPlayer playClickSound];
     ((EVFlashcardView *)[self.flashcardViews objectAtIndex:1]).flashcardViewType = EVFlashcardViewPracticeAnswer;
     self.giveUpButton.hidden = YES;
 }
