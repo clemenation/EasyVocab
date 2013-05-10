@@ -16,5 +16,6 @@
                                          andParentViewController:(UIViewController *)parent;
 + (EVSettingViewController *)presentSettingViewControllerWithStoryboard:(UIStoryboard *)storyboard
                                          andParentViewController:(UIViewController *)parent;
++ (void)reloadSetting;
 
 @end

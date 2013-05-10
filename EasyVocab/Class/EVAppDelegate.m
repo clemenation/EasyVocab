@@ -9,6 +9,7 @@
 #import "EVAppDelegate.h"
 #import "EVWalkthroughManager.h"
 #import "EVSoundPlayer.h"
+#import "EVSettingViewController.h"
 
 @interface EVAppDelegate()
 
@@ -24,6 +25,9 @@
     
     // Play background music
     [EVSoundPlayer playBackgroundMusic];
+    
+    // Reload setting
+    [EVSettingViewController reloadSetting];
     
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
