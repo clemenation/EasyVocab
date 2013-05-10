@@ -10,6 +10,7 @@
 #import "EVFlashcardLearnModeViewController.h"
 #import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
+#import "EVSoundPlayer.h"
 
 
 @interface FlashCardCollectionVC ()
@@ -114,6 +115,7 @@
 	NSLog(@"FlashCard collection selected %@",indexPath);
 	chosenFlashCardID = indexPath.row;
 	[self performSegueWithIdentifier:@"showFlashCardLearnMode" sender:self];
+    [EVSoundPlayer playClickSound];
 }
 
 

@@ -6,11 +6,13 @@
 //  Copyright (c) 2013 ICT54. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "CategoryPickerVC.h"
 #import "FlashCardCollectionVC.h"
 #import "ChoosePracticeModeVC.h"
 #import "EVWalkthroughManager.h"
-#import <QuartzCore/QuartzCore.h>
+#import "EVSoundPlayer.h"
 
 @interface CategoryPickerVC ()
 
@@ -122,7 +124,9 @@
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [EVSoundPlayer playClickSound];
 	NSLog(@"Category selected %@",indexPath);
 	choosenCategoryName=[categories objectAtIndex:indexPath.row];
 	[self performSegueWithIdentifier:@"play" sender:self];

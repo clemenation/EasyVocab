@@ -8,6 +8,7 @@
 
 #import "EVAppDelegate.h"
 #import "EVWalkthroughManager.h"
+#import "EVSoundPlayer.h"
 
 @interface EVAppDelegate()
 
@@ -20,6 +21,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //    [EVWalkthroughManager resetWalkthrough];
+    
+    // Play background music
+    [EVSoundPlayer playBackgroundMusic];
     
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];

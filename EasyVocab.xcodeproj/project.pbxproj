@@ -27,6 +27,10 @@
 		4A2006FF17048A2700476EC2 /* EVFlashcardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */; };
 		4A46C72F170930BE0075C6D5 /* EVWalkthroughManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */; };
 		4A4DAC58173C85C5009EBA34 /* answerWithPronounciation.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC57173C85C5009EBA34 /* answerWithPronounciation.json */; };
+		4A4DAC5E173C9872009EBA34 /* EVSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DAC5D173C9872009EBA34 /* EVSoundPlayer.m */; };
+		4A4DAC62173C9F6C009EBA34 /* click.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC61173C9F6C009EBA34 /* click.m4a */; };
+		4A4DAC64173CA005009EBA34 /* click_2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC63173CA005009EBA34 /* click_2.m4a */; };
+		4A4DAC66173CA144009EBA34 /* music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC65173CA144009EBA34 /* music.m4a */; };
 		4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2B1733C8180029C048 /* EVFlashcard.m */; };
 		4A640A2E173425FF0029C048 /* EVCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2D173425FF0029C048 /* EVCommon.m */; };
 		4A7EBA141732A3AB0074E3C5 /* EVFlashcardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBA131732A3AB0074E3C5 /* EVFlashcardViewController.m */; };
@@ -201,6 +205,11 @@
 		4A46C72D170930BE0075C6D5 /* EVWalkthroughManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVWalkthroughManager.h; path = Class/Model/EVWalkthroughManager.h; sourceTree = "<group>"; };
 		4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVWalkthroughManager.m; path = Class/Model/EVWalkthroughManager.m; sourceTree = "<group>"; };
 		4A4DAC57173C85C5009EBA34 /* answerWithPronounciation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = answerWithPronounciation.json; path = Resource/Others/answerWithPronounciation.json; sourceTree = "<group>"; };
+		4A4DAC5C173C9872009EBA34 /* EVSoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVSoundPlayer.h; path = Class/Library/EVSoundPlayer/EVSoundPlayer.h; sourceTree = "<group>"; };
+		4A4DAC5D173C9872009EBA34 /* EVSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVSoundPlayer.m; path = Class/Library/EVSoundPlayer/EVSoundPlayer.m; sourceTree = "<group>"; };
+		4A4DAC61173C9F6C009EBA34 /* click.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = click.m4a; path = Resource/Sound/click.m4a; sourceTree = "<group>"; };
+		4A4DAC63173CA005009EBA34 /* click_2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = click_2.m4a; path = Resource/Sound/click_2.m4a; sourceTree = "<group>"; };
+		4A4DAC65173CA144009EBA34 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.m4a; path = Resource/Sound/music.m4a; sourceTree = "<group>"; };
 		4A640A2A1733C8180029C048 /* EVFlashcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcard.h; path = Class/Model/EVFlashcard.h; sourceTree = "<group>"; };
 		4A640A2B1733C8180029C048 /* EVFlashcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcard.m; path = Class/Model/EVFlashcard.m; sourceTree = "<group>"; };
 		4A640A2D173425FF0029C048 /* EVCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVCommon.m; path = Class/Constant/EVCommon.m; sourceTree = "<group>"; };
@@ -415,6 +424,16 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		4A4DAC59173C97DB009EBA34 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				4A4DAC65173CA144009EBA34 /* music.m4a */,
+				4A4DAC63173CA005009EBA34 /* click_2.m4a */,
+				4A4DAC61173C9F6C009EBA34 /* click.m4a */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		4A8D4C08171BB91100E73524 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +488,7 @@
 		4AC149B516F7426A009F7CBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A4DAC59173C97DB009EBA34 /* Sound */,
 				4A1633C21707D4D5000A94EA /* Fonts */,
 				4AC149DE16F74366009F7CBA /* Multilanguage */,
 				4AC149DD16F74361009F7CBA /* Others */,
@@ -580,6 +600,8 @@
 				4A09FA1617088B9C007D5733 /* ASIHTTPRequest */,
 				4A09FA1317088B57007D5733 /* EVGoogleTranslateTTS.h */,
 				4A09FA1417088B57007D5733 /* EVGoogleTranslateTTS.m */,
+				4A4DAC5C173C9872009EBA34 /* EVSoundPlayer.h */,
+				4A4DAC5D173C9872009EBA34 /* EVSoundPlayer.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -985,6 +1007,9 @@
 				4AFB8024173BFF9F006E17D4 /* practice_back_challenge_answer_field.png in Resources */,
 				4AFB8025173BFF9F006E17D4 /* practice_back_challenge_answer_field@2x.png in Resources */,
 				4A4DAC58173C85C5009EBA34 /* answerWithPronounciation.json in Resources */,
+				4A4DAC62173C9F6C009EBA34 /* click.m4a in Resources */,
+				4A4DAC64173CA005009EBA34 /* click_2.m4a in Resources */,
+				4A4DAC66173CA144009EBA34 /* music.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,6 +1065,7 @@
 				4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */,
 				4A640A2E173425FF0029C048 /* EVCommon.m in Sources */,
 				4AFB801C173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.m in Sources */,
+				4A4DAC5E173C9872009EBA34 /* EVSoundPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

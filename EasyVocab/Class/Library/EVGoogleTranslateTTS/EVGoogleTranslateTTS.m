@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 ICT54. All rights reserved.
 //
 
-#import "EVGoogleTranslateTTS.h"
 #import <AVFoundation/AVFoundation.h>
+
+#import "EVGoogleTranslateTTS.h"
 #import "ASIHTTPRequest.h"
+#import "EVSoundPlayer.h"
 
 @interface EVGoogleTranslateTTS()
 
