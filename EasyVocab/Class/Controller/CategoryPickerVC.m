@@ -50,6 +50,12 @@
 
 #pragma mark - Class methods
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // enable/disable walkthrough
+    self.walkthroughButton.hidden = self.hasReadWalkthrough;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,9 +73,6 @@
 	 
 	self.pageControl.currentPage = 0;
 	[self.pageControl addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
-    
-    // enable/disable walkthrough
-    self.walkthroughButton.hidden = self.hasReadWalkthrough;
 }
 
 

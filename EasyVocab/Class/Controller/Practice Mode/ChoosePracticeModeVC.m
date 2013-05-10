@@ -20,12 +20,16 @@
 	int praticeModeSelected;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{    
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-	NSLog(@"ChoosePracticeModeVC DidLoad with category: %@",self.currentCategory);
-    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
+//	NSLog(@"ChoosePracticeModeVC DidLoad with category: %@",self.currentCategory);
 }
 
 #pragma mark - Buttons

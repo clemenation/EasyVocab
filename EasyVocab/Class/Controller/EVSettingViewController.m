@@ -8,6 +8,7 @@
 
 #import "EVSettingViewController.h"
 #import "EVSoundPlayer.h"
+#import "EVWalkthroughManager.h"
 
 @interface EVSettingViewController ()
 
@@ -144,7 +145,10 @@
 }
 
 - (IBAction)walkthroughButtonSelected:(UIButton *)sender {
+    [EVWalkthroughManager resetWalkthrough];
     
+//    self.walkthroughButton.alpha = 0.5f;
+    self.walkthroughButton.enabled = NO;
 }
 
 @end

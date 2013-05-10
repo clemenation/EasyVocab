@@ -51,6 +51,12 @@
     return _flashcardCollection;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{    
+    // Enable/disable walkthrough button
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -74,9 +80,6 @@
 	self.categoryIcon.image = [UIImage imageWithContentsOfFile:path];
     
     self.iconCollectionView.backgroundColor = [UIColor clearColor];
-    
-    // Enable/disable walkthrough button
-    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 
 }
 

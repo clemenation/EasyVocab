@@ -113,6 +113,8 @@
             }
         }
     }
+    
+    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
 
 - (void)viewDidLoad
@@ -135,8 +137,6 @@
     
     self.prevButton.hidden = (self.currentFlashCardID == 0);
     self.nextButton.hidden = (self.currentFlashCardID == self.flashcardCollection.count - 1);
-    
-    self.walkthroughButton.hidden = [EVWalkthroughManager hasReadWalkthroughForController:NSStringFromClass(self.class)];
 }
 
 - (void)loadFlashcardsContent

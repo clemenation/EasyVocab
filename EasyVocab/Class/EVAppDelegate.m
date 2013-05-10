@@ -20,9 +20,7 @@
 @implementation EVAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-//    [EVWalkthroughManager resetWalkthrough];
-    
+{    
     // Play background music
     [EVSoundPlayer playBackgroundMusic];
     
