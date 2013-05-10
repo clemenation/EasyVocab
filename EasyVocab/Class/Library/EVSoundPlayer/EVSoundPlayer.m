@@ -39,6 +39,7 @@ static CGFloat          _backgroundMusicVolume = 1.0f;
     if (volume >= 0.0f && volume <= 1.0f)
     {
         _backgroundMusicVolume = volume;
+        [EVSoundPlayer backgroundMusicPlayer].volume = _backgroundMusicVolume;
     }
 }
 
@@ -56,6 +57,7 @@ static CGFloat          _backgroundMusicVolume = 1.0f;
     if (globalVolume >= 0.0f && globalVolume <= 1.0f)
     {
         _globalVolume = globalVolume;
+        [EVSoundPlayer sharedSoundPlayer].volume = _globalVolume;
     }
 }
 + (CGFloat)globalVolume

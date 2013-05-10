@@ -11,6 +11,7 @@
 #import "EVFlashcardCollection.h"
 #import "EVWalkthroughManager.h"
 #import "EVSoundPlayer.h"
+#import "EVSettingViewController.h"
 
 
 @interface FlashCardCollectionVC ()
@@ -159,6 +160,10 @@
 - (IBAction)walkthroughSelected:(UIButton *)sender {
     sender.hidden = YES;
     [EVWalkthroughManager setHasReadWalkthrough:YES forController:NSStringFromClass(self.class)];
+}
+
+- (IBAction)settingButtonSelected:(UIButton *)sender {
+    [EVSettingViewController presentSettingViewControllerWithStoryboard:self.storyboard andParentViewController:self];
 }
 
 

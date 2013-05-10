@@ -13,11 +13,13 @@
 #import "ChoosePracticeModeVC.h"
 #import "EVWalkthroughManager.h"
 #import "EVSoundPlayer.h"
+#import "EVSettingViewController.h"
 
 @interface CategoryPickerVC ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *iconCollectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *settingButton;
 @property (assign, nonatomic) BOOL wasAtPractice;
 @property (weak, nonatomic) IBOutlet UIButton *walkthroughButton;
 @property (assign, nonatomic) BOOL hasReadWalkthrough;
@@ -179,6 +181,11 @@
 - (IBAction)walkthroughSelected:(UIButton *)sender {
     self.hasReadWalkthrough = YES;
     self.walkthroughButton.hidden = YES;
+}
+
+- (IBAction)settingButtonSelected:(UIButton *)sender {
+    [EVSettingViewController presentSettingViewControllerWithStoryboard:self.storyboard
+                                                andParentViewController:self];
 }
 
 @end

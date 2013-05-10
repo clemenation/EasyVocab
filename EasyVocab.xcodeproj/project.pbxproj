@@ -31,6 +31,21 @@
 		4A4DAC62173C9F6C009EBA34 /* click.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC61173C9F6C009EBA34 /* click.m4a */; };
 		4A4DAC64173CA005009EBA34 /* click_2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC63173CA005009EBA34 /* click_2.m4a */; };
 		4A4DAC66173CA144009EBA34 /* music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC65173CA144009EBA34 /* music.m4a */; };
+		4A4DAC6A173CA6FA009EBA34 /* setting_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC68173CA6FA009EBA34 /* setting_button.png */; };
+		4A4DAC6B173CA6FA009EBA34 /* setting_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC69173CA6FA009EBA34 /* setting_button@2x.png */; };
+		4A4DAC6E173CA834009EBA34 /* EVSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DAC6D173CA834009EBA34 /* EVSettingViewController.m */; };
+		4A4DAC7C173CB232009EBA34 /* setting_music_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC70173CB232009EBA34 /* setting_music_button_selected.png */; };
+		4A4DAC7D173CB232009EBA34 /* setting_music_button_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC71173CB232009EBA34 /* setting_music_button_selected@2x.png */; };
+		4A4DAC7E173CB232009EBA34 /* setting_music_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC72173CB232009EBA34 /* setting_music_button.png */; };
+		4A4DAC7F173CB232009EBA34 /* setting_music_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC73173CB232009EBA34 /* setting_music_button@2x.png */; };
+		4A4DAC80173CB232009EBA34 /* setting_sound_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC74173CB232009EBA34 /* setting_sound_button_selected.png */; };
+		4A4DAC81173CB232009EBA34 /* setting_sound_button_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC75173CB232009EBA34 /* setting_sound_button_selected@2x.png */; };
+		4A4DAC82173CB232009EBA34 /* setting_sound_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC76173CB232009EBA34 /* setting_sound_button.png */; };
+		4A4DAC83173CB232009EBA34 /* setting_sound_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC77173CB232009EBA34 /* setting_sound_button@2x.png */; };
+		4A4DAC84173CB232009EBA34 /* setting_walkthrough_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC78173CB232009EBA34 /* setting_walkthrough_button_selected.png */; };
+		4A4DAC85173CB232009EBA34 /* setting_walkthrough_button_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC79173CB232009EBA34 /* setting_walkthrough_button_selected@2x.png */; };
+		4A4DAC86173CB232009EBA34 /* setting_walkthrough_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC7A173CB232009EBA34 /* setting_walkthrough_button.png */; };
+		4A4DAC87173CB232009EBA34 /* setting_walkthrough_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC7B173CB232009EBA34 /* setting_walkthrough_button@2x.png */; };
 		4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2B1733C8180029C048 /* EVFlashcard.m */; };
 		4A640A2E173425FF0029C048 /* EVCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2D173425FF0029C048 /* EVCommon.m */; };
 		4A7EBA141732A3AB0074E3C5 /* EVFlashcardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBA131732A3AB0074E3C5 /* EVFlashcardViewController.m */; };
@@ -210,6 +225,22 @@
 		4A4DAC61173C9F6C009EBA34 /* click.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = click.m4a; path = Resource/Sound/click.m4a; sourceTree = "<group>"; };
 		4A4DAC63173CA005009EBA34 /* click_2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = click_2.m4a; path = Resource/Sound/click_2.m4a; sourceTree = "<group>"; };
 		4A4DAC65173CA144009EBA34 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.m4a; path = Resource/Sound/music.m4a; sourceTree = "<group>"; };
+		4A4DAC68173CA6FA009EBA34 /* setting_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting_button.png; path = Resource/Images/Common/setting_button.png; sourceTree = "<group>"; };
+		4A4DAC69173CA6FA009EBA34 /* setting_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting_button@2x.png"; path = "Resource/Images/Common/setting_button@2x.png"; sourceTree = "<group>"; };
+		4A4DAC6C173CA834009EBA34 /* EVSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVSettingViewController.h; path = Class/Controller/EVSettingViewController.h; sourceTree = "<group>"; };
+		4A4DAC6D173CA834009EBA34 /* EVSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVSettingViewController.m; path = Class/Controller/EVSettingViewController.m; sourceTree = "<group>"; };
+		4A4DAC70173CB232009EBA34 /* setting_music_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting_music_button_selected.png; path = Resource/Images/Setting/setting_music_button_selected.png; sourceTree = "<group>"; };
+		4A4DAC71173CB232009EBA34 /* setting_music_button_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting_music_button_selected@2x.png"; path = "Resource/Images/Setting/setting_music_button_selected@2x.png"; sourceTree = "<group>"; };
+		4A4DAC72173CB232009EBA34 /* setting_music_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting_music_button.png; path = Resource/Images/Setting/setting_music_button.png; sourceTree = "<group>"; };
+		4A4DAC73173CB232009EBA34 /* setting_music_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting_music_button@2x.png"; path = "Resource/Images/Setting/setting_music_button@2x.png"; sourceTree = "<group>"; };
+		4A4DAC74173CB232009EBA34 /* setting_sound_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting_sound_button_selected.png; path = Resource/Images/Setting/setting_sound_button_selected.png; sourceTree = "<group>"; };
+		4A4DAC75173CB232009EBA34 /* setting_sound_button_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting_sound_button_selected@2x.png"; path = "Resource/Images/Setting/setting_sound_button_selected@2x.png"; sourceTree = "<group>"; };
+		4A4DAC76173CB232009EBA34 /* setting_sound_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting_sound_button.png; path = Resource/Images/Setting/setting_sound_button.png; sourceTree = "<group>"; };
+		4A4DAC77173CB232009EBA34 /* setting_sound_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting_sound_button@2x.png"; path = "Resource/Images/Setting/setting_sound_button@2x.png"; sourceTree = "<group>"; };
+		4A4DAC78173CB232009EBA34 /* setting_walkthrough_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting_walkthrough_button_selected.png; path = Resource/Images/Setting/setting_walkthrough_button_selected.png; sourceTree = "<group>"; };
+		4A4DAC79173CB232009EBA34 /* setting_walkthrough_button_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting_walkthrough_button_selected@2x.png"; path = "Resource/Images/Setting/setting_walkthrough_button_selected@2x.png"; sourceTree = "<group>"; };
+		4A4DAC7A173CB232009EBA34 /* setting_walkthrough_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting_walkthrough_button.png; path = Resource/Images/Setting/setting_walkthrough_button.png; sourceTree = "<group>"; };
+		4A4DAC7B173CB232009EBA34 /* setting_walkthrough_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting_walkthrough_button@2x.png"; path = "Resource/Images/Setting/setting_walkthrough_button@2x.png"; sourceTree = "<group>"; };
 		4A640A2A1733C8180029C048 /* EVFlashcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcard.h; path = Class/Model/EVFlashcard.h; sourceTree = "<group>"; };
 		4A640A2B1733C8180029C048 /* EVFlashcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcard.m; path = Class/Model/EVFlashcard.m; sourceTree = "<group>"; };
 		4A640A2D173425FF0029C048 /* EVCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVCommon.m; path = Class/Constant/EVCommon.m; sourceTree = "<group>"; };
@@ -434,6 +465,34 @@
 			name = Sound;
 			sourceTree = "<group>";
 		};
+		4A4DAC67173CA6F4009EBA34 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4A4DAC68173CA6FA009EBA34 /* setting_button.png */,
+				4A4DAC69173CA6FA009EBA34 /* setting_button@2x.png */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		4A4DAC6F173CB21F009EBA34 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4A4DAC70173CB232009EBA34 /* setting_music_button_selected.png */,
+				4A4DAC71173CB232009EBA34 /* setting_music_button_selected@2x.png */,
+				4A4DAC72173CB232009EBA34 /* setting_music_button.png */,
+				4A4DAC73173CB232009EBA34 /* setting_music_button@2x.png */,
+				4A4DAC74173CB232009EBA34 /* setting_sound_button_selected.png */,
+				4A4DAC75173CB232009EBA34 /* setting_sound_button_selected@2x.png */,
+				4A4DAC76173CB232009EBA34 /* setting_sound_button.png */,
+				4A4DAC77173CB232009EBA34 /* setting_sound_button@2x.png */,
+				4A4DAC78173CB232009EBA34 /* setting_walkthrough_button_selected.png */,
+				4A4DAC79173CB232009EBA34 /* setting_walkthrough_button_selected@2x.png */,
+				4A4DAC7A173CB232009EBA34 /* setting_walkthrough_button.png */,
+				4A4DAC7B173CB232009EBA34 /* setting_walkthrough_button@2x.png */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		4A8D4C08171BB91100E73524 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +578,8 @@
 		4AC149D816F74332009F7CBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4A4DAC6C173CA834009EBA34 /* EVSettingViewController.h */,
+				4A4DAC6D173CA834009EBA34 /* EVSettingViewController.m */,
 				4A8D4BEB171BA11500E73524 /* CategoryPickerVC.h */,
 				4A8D4BEC171BA11500E73524 /* CategoryPickerVC.m */,
 				4AC149D116F7430B009F7CBA /* EVViewController.h */,
@@ -558,6 +619,8 @@
 		4AC149DC16F7435B009F7CBA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4A4DAC6F173CB21F009EBA34 /* Setting */,
+				4A4DAC67173CA6F4009EBA34 /* Common */,
 				4AFE040C16FFF2B600B498AB /* PracticeBackChallenge */,
 				4AFE03FB16FFF2A500B498AB /* PracticeBackAnswer */,
 				4AFE03E616FFF29500B498AB /* PracticeBackEasy */,
@@ -1010,6 +1073,20 @@
 				4A4DAC62173C9F6C009EBA34 /* click.m4a in Resources */,
 				4A4DAC64173CA005009EBA34 /* click_2.m4a in Resources */,
 				4A4DAC66173CA144009EBA34 /* music.m4a in Resources */,
+				4A4DAC6A173CA6FA009EBA34 /* setting_button.png in Resources */,
+				4A4DAC6B173CA6FA009EBA34 /* setting_button@2x.png in Resources */,
+				4A4DAC7C173CB232009EBA34 /* setting_music_button_selected.png in Resources */,
+				4A4DAC7D173CB232009EBA34 /* setting_music_button_selected@2x.png in Resources */,
+				4A4DAC7E173CB232009EBA34 /* setting_music_button.png in Resources */,
+				4A4DAC7F173CB232009EBA34 /* setting_music_button@2x.png in Resources */,
+				4A4DAC80173CB232009EBA34 /* setting_sound_button_selected.png in Resources */,
+				4A4DAC81173CB232009EBA34 /* setting_sound_button_selected@2x.png in Resources */,
+				4A4DAC82173CB232009EBA34 /* setting_sound_button.png in Resources */,
+				4A4DAC83173CB232009EBA34 /* setting_sound_button@2x.png in Resources */,
+				4A4DAC84173CB232009EBA34 /* setting_walkthrough_button_selected.png in Resources */,
+				4A4DAC85173CB232009EBA34 /* setting_walkthrough_button_selected@2x.png in Resources */,
+				4A4DAC86173CB232009EBA34 /* setting_walkthrough_button.png in Resources */,
+				4A4DAC87173CB232009EBA34 /* setting_walkthrough_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1066,6 +1143,7 @@
 				4A640A2E173425FF0029C048 /* EVCommon.m in Sources */,
 				4AFB801C173BF200006E17D4 /* EVFlashcardPracticeModeChallengeViewController.m in Sources */,
 				4A4DAC5E173C9872009EBA34 /* EVSoundPlayer.m in Sources */,
+				4A4DAC6E173CA834009EBA34 /* EVSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
