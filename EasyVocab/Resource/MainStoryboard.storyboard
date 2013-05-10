@@ -307,6 +307,23 @@
                                     <action selector="challengeModeSelected:" destination="DBh-xx-gSo" eventType="touchUpInside" id="JAt-5O-NUG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q8T-ue-QW0" userLabel="settingButton">
+                                <rect key="frame" x="145" y="0.0" width="30" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="setting_button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingButtonSelected:" destination="tGq-ji-LiM" eventType="touchUpInside" id="5Hv-E8-sz7"/>
+                                    <action selector="settingButtonSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="9m5-dv-mxe"/>
+                                    <action selector="settingButtonSelected:" destination="DBh-xx-gSo" eventType="touchUpInside" id="y3Y-8x-vs7"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O3T-nl-sva">
                                 <rect key="frame" x="6" y="139" width="308" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -487,6 +504,22 @@
                                     <action selector="nextButtonSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="e3b-J8-BZB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dL2-Mk-dfP" userLabel="settingButton">
+                                <rect key="frame" x="145" y="0.0" width="30" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="setting_button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingButtonSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="3UB-RI-yDo"/>
+                                    <action selector="settingButtonSelected:" destination="tGq-ji-LiM" eventType="touchUpInside" id="Fzn-Ch-q0a"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="wqu-yG-kUn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -548,6 +581,23 @@
                                 </state>
                                 <connections>
                                     <segue destination="AEx-Bu-hnn" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="e9A-e4-t3R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="79c-4L-9Lh" userLabel="settingButton">
+                                <rect key="frame" x="145" y="0.0" width="30" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="setting_button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingButtonSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="0Pj-P8-Mx1"/>
+                                    <action selector="settingButtonSelected:" destination="wLD-fN-O1n" eventType="touchUpInside" id="9MH-dj-zSc"/>
+                                    <action selector="settingButtonSelected:" destination="tGq-ji-LiM" eventType="touchUpInside" id="cWh-KV-NaA"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LFF-YF-lUJ">
@@ -809,6 +859,23 @@
                                     <segue destination="0lQ-z4-7wh" kind="unwind" unwindAction="returnToChoosePraticeMode:" id="29J-2E-6kg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xrf-aD-OaM" userLabel="settingButton">
+                                <rect key="frame" x="145" y="0.0" width="30" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="setting_button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingButtonSelected:" destination="Uoc-zG-RSy" eventType="touchUpInside" id="0YP-W9-KoV"/>
+                                    <action selector="settingButtonSelected:" destination="tGq-ji-LiM" eventType="touchUpInside" id="bnj-R6-WWu"/>
+                                    <action selector="settingButtonSelected:" destination="Kk0-bd-l08" eventType="touchUpInside" id="xcG-gS-2Wb"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="goM-1f-acM">
                                 <rect key="frame" x="231" y="10" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -924,6 +991,108 @@
         <image name="tab_practice.png" width="160" height="49"/>
         <image name="tab_practice_off.png" width="160" height="49"/>
     </resources>
+    <classes>
+        <class className="CategoryPickerVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToCategoryPicker:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="settingButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="settingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ChoosePracticeModeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChoosePracticeModeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="challengeModeSelected:"/>
+                <relationship kind="action" name="easyModeSelected:"/>
+                <relationship kind="action" name="returnToChoosePraticeMode:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EVFlashcardLearnModeViewController" superclassName="EVFlashcardViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardLearnModeViewController.h"/>
+        </class>
+        <class className="EVFlashcardPracticeModeChallengeViewController" superclassName="EVFlashcardViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardPracticeModeChallengeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkAnswer:" candidateClass="UIButton"/>
+                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="giveUpButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="outlet" name="awesomeImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="checkButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="giveUpButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EVFlashcardPracticeModeEasyViewController" superclassName="EVFlashcardViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardPracticeModeEasyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkAnswer:" candidateClass="UIButton"/>
+                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="switchToLearn:"/>
+                <relationship kind="outlet" name="awesomeImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="checkButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EVFlashcardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVFlashcardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="flashcardSelected:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="nextButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="prevButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="settingButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="walkthroughSelected:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="flashcardTapGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="prevButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EVSettingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EVSettingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="musicButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="soundButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="walkthroughButtonSelected:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="musicButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FlashCardCollectionVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlashCardCollectionVC.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToFlashCardCollection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="categoryIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="walkthroughButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

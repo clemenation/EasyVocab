@@ -9,6 +9,7 @@
 #import "EVFlashcardViewController.h"
 #import "EVWalkthroughManager.h"
 #import "EVCommon.h"
+#import "EVSettingViewController.h"
 
 @interface EVFlashcardViewController ()
 
@@ -269,6 +270,10 @@
     {
         nextAnimation();
     }
+}
+
+- (IBAction)settingButtonSelected:(UIButton *)sender {
+    [EVSettingViewController presentSettingViewControllerWithStoryboard:self.storyboard andParentViewController:self];
 }
 
 @end

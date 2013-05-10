@@ -9,6 +9,7 @@
 #import "ChoosePracticeModeVC.h"
 #import "EVFlashcardPracticeModeEasyViewController.h"
 #import "EVWalkthroughManager.h"
+#import "EVSettingViewController.h"
 
 @interface ChoosePracticeModeVC ()
 
@@ -74,6 +75,12 @@
 		vc.currentCategory=self.currentCategory;
 	}
 	
+}
+
+#pragma mark - Target/action
+
+- (IBAction)settingButtonSelected:(UIButton *)sender {
+    [EVSettingViewController presentSettingViewControllerWithStoryboard:self.storyboard andParentViewController:self];
 }
 
 @end
