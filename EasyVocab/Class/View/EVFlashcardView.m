@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton       *speakerButton;
 @property (weak, nonatomic) IBOutlet UIButton       *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton       *checkButton;
+@property (weak, nonatomic) IBOutlet UILabel        *pronounciationLabel;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *answerButtons;
 
@@ -37,7 +38,7 @@
     switch (_flashcardViewType)
     {
         case EVFlashcardViewLearn:
-            self.answerLabel.hidden = self.speakerButton.hidden = NO;
+            self.pronounciationLabel.hidden = self.answerLabel.hidden = self.speakerButton.hidden = NO;
             self.nextButton.hidden =
             self.answerTextField.hidden = self.checkButton.hidden = YES;
             [self.answerTextField resignFirstResponder];
@@ -46,18 +47,18 @@
             break;
         case EVFlashcardViewPracticeEasy:
             self.answerLabel.hidden = self.speakerButton.hidden = self.nextButton.hidden =
-            self.answerTextField.hidden = self.checkButton.hidden = YES;
+            self.pronounciationLabel.hidden = self.answerTextField.hidden = self.checkButton.hidden = YES;
             [self.answerTextField resignFirstResponder];
             for (UIButton *button in self.answerButtons) button.hidden = NO;
             break;
         case EVFlashcardViewPracticeChallenge:
             self.answerTextField.hidden = self.checkButton.hidden = NO;
-            self.answerLabel.hidden = self.speakerButton.hidden = self.nextButton.hidden = YES;
+            self.pronounciationLabel.hidden = self.answerLabel.hidden = self.speakerButton.hidden = self.nextButton.hidden = YES;
             for (UIButton *button in self.answerButtons) button.hidden = YES;
             break;
         case EVFlashcardViewPracticeAnswer:
             self.answerTextField.hidden = self.checkButton.hidden = YES;
-            self.answerLabel.hidden = self.speakerButton.hidden = self.nextButton.hidden = NO;
+            self.pronounciationLabel.hidden = self.answerLabel.hidden = self.speakerButton.hidden = self.nextButton.hidden = NO;
             [self.answerTextField resignFirstResponder];
             for (UIButton *button in self.answerButtons) button.hidden = YES;
             self.speakerButton.frame = CGRectMake(65, 195, 59, 54);
@@ -71,6 +72,7 @@
     {
         _flashcard = flashcard;
         self.imageView.image = _flashcard.image;
+        self.pronounciationLabel.text = [NSString stringWithFormat:@"| %@ |", _flashcard.pronounciation];
         self.answerLabel.text = [_flashcard.answer uppercaseString];
         self.answerLabel.font = [UIFont fontWithName:@"UVNVanBold" size:30];
         [self choiceChosen:nil];    // reset selected choice

@@ -17,11 +17,13 @@
 
 - (id)initWithAnswer:(NSString *)answer
         andImagePath:(NSString *)imagePath
+   andPronounciation:(NSString *)pronounciation
 {
     if (self = [super init])
     {
         self.answer = answer;
         self.imagePath = imagePath;
+        self.pronounciation = pronounciation;
     }
     return self;
 }

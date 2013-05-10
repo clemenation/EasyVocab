@@ -14,8 +14,9 @@
 
 + (NSArray *)imagePathsOfCategory:(NSString *)category;
 + (NSArray *)answersOfCategory:(NSString *)category;
++ (NSArray *)pronounciationsOfCategory:(NSString *)category;
 + (NSArray *)flashcardsOfCategory:(NSString *)category;
-+ (NSDictionary *)answerByCategoryDictionary;
++ (NSDictionary *)answerWithPronounciationByCategoryDictionary;
 
 - (NSArray *)shuffle:(NSArray *)array;
 
@@ -117,32 +118,71 @@
 {
     NSArray *answers = [EVFlashcardCollection answersOfCategory:category];
     NSArray *imagePaths = [EVFlashcardCollection imagePathsOfCategory:category];
+    NSArray *pronounciations = [EVFlashcardCollection pronounciationsOfCategory:category];
     NSMutableArray *flashcards = [NSMutableArray arrayWithCapacity:answers.count];
     
     for (int i=0; i<answers.count; i++)
     {
-        EVFlashcard *flashcard = [[EVFlashcard alloc] initWithAnswer:[answers objectAtIndex:i] andImagePath:[imagePaths objectAtIndex:i]];
+        EVFlashcard *flashcard = [[EVFlashcard alloc] initWithAnswer:[answers objectAtIndex:i] andImagePath:[imagePaths objectAtIndex:i]
+                                                   andPronounciation:[pronounciations objectAtIndex:i]];
         [flashcards addObject:flashcard];
     }
     return flashcards;
 }
 
-+ (NSDictionary *)answerByCategoryDictionary
++ (NSDictionary *)answerWithPronounciationByCategoryDictionary
 {
     NSError * error;
-    NSString * jsonString = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"answer"
+    NSString * jsonString = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"answerWithPronounciation"
                                                                                                ofType:@"json"]
                                                       encoding:NSUTF8StringEncoding
                                                          error:&error];
-    NSDictionary *answerByCategoryDictionary = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
+    NSDictionary *answerWithPronounciationByCategoryDictionary = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
                                                                                options:NSJSONReadingMutableLeaves
                                                                                  error:&error];
-    return answerByCategoryDictionary;
+    
+//    NSMutableDictionary *newAnswerByCategoryDictionary = [NSMutableDictionary dictionaryWithCapacity:answerByCategoryDictionary.count];
+//    [answerByCategoryDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        NSArray *answers = obj;
+//        NSString *category = key;
+//        
+//        NSMutableArray *newAnswers = [NSMutableArray arrayWithCapacity:answers.count];
+//        for (NSString *answer in answers)
+//        {
+//            NSArray *answerObject = [NSArray arrayWithObjects:answer, @"pronounciation", nil];
+//            [newAnswers addObject:answerObject];
+//        }
+//        [newAnswerByCategoryDictionary setObject:newAnswers forKey:category];
+//    }];
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:newAnswerByCategoryDictionary
+//                                                   options:0
+//                                                     error:&error];
+//    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    
+    return answerWithPronounciationByCategoryDictionary;
+}
+
++ (NSArray *)pronounciationsOfCategory:(NSString *)category
+{
+    NSArray *answerPronounciation = [[EVFlashcardCollection answerWithPronounciationByCategoryDictionary] objectForKey:category];
+    NSMutableArray *pronounciations = [NSMutableArray arrayWithCapacity:answerPronounciation.count];
+    for (NSArray *obj in answerPronounciation)
+    {
+        [pronounciations addObject:[obj objectAtIndex:1]];
+    }
+    return pronounciations;
 }
 
 + (NSArray *)answersOfCategory:(NSString *)category
 {
-    return [[EVFlashcardCollection answerByCategoryDictionary] objectForKey:category];
+    NSArray *answerPronounciation = [[EVFlashcardCollection answerWithPronounciationByCategoryDictionary] objectForKey:category];
+    NSMutableArray *answers = [NSMutableArray arrayWithCapacity:answerPronounciation.count];
+    for (NSArray *obj in answerPronounciation)
+    {
+        [answers addObject:[obj objectAtIndex:0]];
+    }
+    return answers;
 }
 
 + (NSString *)answerAtIndex:(int)index

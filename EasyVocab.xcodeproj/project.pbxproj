@@ -26,6 +26,7 @@
 		4A1633C61707D4DF000A94EA /* UVNVan_R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4A1633C41707D4DF000A94EA /* UVNVan_R.TTF */; };
 		4A2006FF17048A2700476EC2 /* EVFlashcardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */; };
 		4A46C72F170930BE0075C6D5 /* EVWalkthroughManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */; };
+		4A4DAC58173C85C5009EBA34 /* answerWithPronounciation.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DAC57173C85C5009EBA34 /* answerWithPronounciation.json */; };
 		4A640A2C1733C8180029C048 /* EVFlashcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2B1733C8180029C048 /* EVFlashcard.m */; };
 		4A640A2E173425FF0029C048 /* EVCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A640A2D173425FF0029C048 /* EVCommon.m */; };
 		4A7EBA141732A3AB0074E3C5 /* EVFlashcardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBA131732A3AB0074E3C5 /* EVFlashcardViewController.m */; };
@@ -199,6 +200,7 @@
 		4A2006FE17048A2600476EC2 /* EVFlashcardCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcardCollection.m; path = Class/Model/EVFlashcardCollection.m; sourceTree = "<group>"; };
 		4A46C72D170930BE0075C6D5 /* EVWalkthroughManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVWalkthroughManager.h; path = Class/Model/EVWalkthroughManager.h; sourceTree = "<group>"; };
 		4A46C72E170930BE0075C6D5 /* EVWalkthroughManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVWalkthroughManager.m; path = Class/Model/EVWalkthroughManager.m; sourceTree = "<group>"; };
+		4A4DAC57173C85C5009EBA34 /* answerWithPronounciation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = answerWithPronounciation.json; path = Resource/Others/answerWithPronounciation.json; sourceTree = "<group>"; };
 		4A640A2A1733C8180029C048 /* EVFlashcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVFlashcard.h; path = Class/Model/EVFlashcard.h; sourceTree = "<group>"; };
 		4A640A2B1733C8180029C048 /* EVFlashcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVFlashcard.m; path = Class/Model/EVFlashcard.m; sourceTree = "<group>"; };
 		4A640A2D173425FF0029C048 /* EVCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVCommon.m; path = Class/Constant/EVCommon.m; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				4A8D4BE7171BA0C400E73524 /* answer.json */,
+				4A4DAC57173C85C5009EBA34 /* answerWithPronounciation.json */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -981,6 +984,7 @@
 				4AFB8021173BFE9F006E17D4 /* practice_back_challenge_answer_field_wrong@2x.png in Resources */,
 				4AFB8024173BFF9F006E17D4 /* practice_back_challenge_answer_field.png in Resources */,
 				4AFB8025173BFF9F006E17D4 /* practice_back_challenge_answer_field@2x.png in Resources */,
+				4A4DAC58173C85C5009EBA34 /* answerWithPronounciation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

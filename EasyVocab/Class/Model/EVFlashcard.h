@@ -12,9 +12,11 @@
 
 @property (strong, nonatomic) NSString *answer;
 @property (strong, nonatomic) NSString *imagePath;
+@property (strong, nonatomic) NSString *pronounciation;
 @property (readonly, nonatomic) UIImage *image;
 
 - (id)initWithAnswer:(NSString *)answer
-        andImagePath:(NSString *)imagePath;
+        andImagePath:(NSString *)imagePath
+   andPronounciation:(NSString *)pronounciation;
 
 @end
